@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 36302933515549438}
   - component: {fileID: 36302933512154008}
   - component: {fileID: 36302933513199750}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 128226602732726388}
   - component: {fileID: 128226602731960594}
   - component: {fileID: 128226602730910220}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (33)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2282,7 +2282,7 @@ GameObject:
   - component: {fileID: 314725492493583294}
   - component: {fileID: 314725492494433178}
   - component: {fileID: 314725492495503764}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_Straight_02 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2744,7 +2744,7 @@ GameObject:
   - component: {fileID: 746522384236412320}
   - component: {fileID: 746522384239799494}
   - component: {fileID: 746522384238749656}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3514,7 +3514,7 @@ GameObject:
   - component: {fileID: 1010646778416208725}
   - component: {fileID: 1010646778414910003}
   - component: {fileID: 1010646778413859117}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3668,7 +3668,7 @@ GameObject:
   - component: {fileID: 1261414575923940728}
   - component: {fileID: 1261414575921044510}
   - component: {fileID: 1261414575922091776}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3745,7 +3745,7 @@ GameObject:
   - component: {fileID: 1280955227177997926}
   - component: {fileID: 1280955227178764032}
   - component: {fileID: 1280955227179813918}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4130,7 +4130,7 @@ GameObject:
   - component: {fileID: 1517375095620391516}
   - component: {fileID: 1517375095617530488}
   - component: {fileID: 1517375095618207862}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_Straight_02 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4361,7 +4361,7 @@ GameObject:
   - component: {fileID: 1662634571896266632}
   - component: {fileID: 1662634571895492334}
   - component: {fileID: 1662634571894441456}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (29)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4438,7 +4438,7 @@ GameObject:
   - component: {fileID: 1685592781058125755}
   - component: {fileID: 1685592781056792479}
   - component: {fileID: 1685592781055982993}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_Straight_02 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4515,7 +4515,7 @@ GameObject:
   - component: {fileID: 1689028383746673991}
   - component: {fileID: 1689028383749518691}
   - component: {fileID: 1689028383748824941}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_Straight_02 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4592,7 +4592,7 @@ GameObject:
   - component: {fileID: 1721490842544506868}
   - component: {fileID: 1721490842541162448}
   - component: {fileID: 1721490842542626270}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_Straight_02 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4669,7 +4669,7 @@ GameObject:
   - component: {fileID: 1826050355129038491}
   - component: {fileID: 1826050355126167549}
   - component: {fileID: 1826050355127217379}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4900,7 +4900,7 @@ GameObject:
   - component: {fileID: 2099867543675061148}
   - component: {fileID: 2099867543675812792}
   - component: {fileID: 2099867543676948918}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_Straight_02 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4977,7 +4977,7 @@ GameObject:
   - component: {fileID: 2359365594557122167}
   - component: {fileID: 2359365594558453521}
   - component: {fileID: 2359365594559503375}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5131,7 +5131,7 @@ GameObject:
   - component: {fileID: 5482369300868532075}
   - component: {fileID: 2591372161916373027}
   - component: {fileID: 9214604074204039239}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_Straight_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5208,7 +5208,7 @@ GameObject:
   - component: {fileID: 2669855554285605233}
   - component: {fileID: 2669855554288500759}
   - component: {fileID: 2669855554287454985}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5439,7 +5439,7 @@ GameObject:
   - component: {fileID: 2758157335002481730}
   - component: {fileID: 2758157334999094564}
   - component: {fileID: 2758157335000145466}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5516,7 +5516,7 @@ GameObject:
   - component: {fileID: 2761582698759031448}
   - component: {fileID: 2761582698757741566}
   - component: {fileID: 2761582698756690144}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (34)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5747,7 +5747,7 @@ GameObject:
   - component: {fileID: 2816461951207849101}
   - component: {fileID: 2816461951206507689}
   - component: {fileID: 2816461951205830311}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_Straight_02 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5824,7 +5824,7 @@ GameObject:
   - component: {fileID: 2924910992650523658}
   - component: {fileID: 2924910992651814252}
   - component: {fileID: 2924910992652865138}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6055,7 +6055,7 @@ GameObject:
   - component: {fileID: 3066503737404658910}
   - component: {fileID: 3066503737403884984}
   - component: {fileID: 3066503737402838694}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6132,7 +6132,7 @@ GameObject:
   - component: {fileID: 187404827647733662}
   - component: {fileID: 1783161760219256822}
   - component: {fileID: 447584081292051149}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6363,7 +6363,7 @@ GameObject:
   - component: {fileID: 3247054902521409464}
   - component: {fileID: 3247054902518546142}
   - component: {fileID: 3247054902519592384}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6440,7 +6440,7 @@ GameObject:
   - component: {fileID: 3395276060662433845}
   - component: {fileID: 3395276060661143891}
   - component: {fileID: 3395276060660093517}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6517,7 +6517,7 @@ GameObject:
   - component: {fileID: 3402952774166155296}
   - component: {fileID: 3402952774167455748}
   - component: {fileID: 3402952774168199690}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_Straight_02 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6748,7 +6748,7 @@ GameObject:
   - component: {fileID: 3642311542766811969}
   - component: {fileID: 3642311542765994853}
   - component: {fileID: 3642311542764530027}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_Straight_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7056,7 +7056,7 @@ GameObject:
   - component: {fileID: 3857850839654038109}
   - component: {fileID: 3857850839656901435}
   - component: {fileID: 3857850839655850021}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7441,7 +7441,7 @@ GameObject:
   - component: {fileID: 3978237047306369801}
   - component: {fileID: 3978237047302931245}
   - component: {fileID: 3978237047304218915}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_Straight_02 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7518,7 +7518,7 @@ GameObject:
   - component: {fileID: 3987945943021464643}
   - component: {fileID: 3987945943024893221}
   - component: {fileID: 3987945943023842875}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7672,7 +7672,7 @@ GameObject:
   - component: {fileID: 4231444911873747243}
   - component: {fileID: 4231444911874521165}
   - component: {fileID: 4231444911875568467}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7749,7 +7749,7 @@ GameObject:
   - component: {fileID: 4300923012522538053}
   - component: {fileID: 4300923012519109923}
   - component: {fileID: 4300923012520160829}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (28)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7826,7 +7826,7 @@ GameObject:
   - component: {fileID: 4328512649974966007}
   - component: {fileID: 4328512649978361745}
   - component: {fileID: 4328512649977314447}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7980,7 +7980,7 @@ GameObject:
   - component: {fileID: 4587627160041221809}
   - component: {fileID: 4587627160038326231}
   - component: {fileID: 4587627160039371977}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8057,7 +8057,7 @@ GameObject:
   - component: {fileID: 4701722645927609197}
   - component: {fileID: 4701722645926263625}
   - component: {fileID: 4701722645925695815}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_Straight_02 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8401,7 +8401,7 @@ GameObject:
   - component: {fileID: 6016192235967565997}
   - component: {fileID: 5955692366112538838}
   - component: {fileID: 2900552293709976511}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (35)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9824,7 +9824,7 @@ GameObject:
   - component: {fileID: 5785420416795516164}
   - component: {fileID: 5785420416794741858}
   - component: {fileID: 5785420416793692028}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10055,7 +10055,7 @@ GameObject:
   - component: {fileID: 6155617641467592113}
   - component: {fileID: 6155617641470487767}
   - component: {fileID: 6155617641469437897}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10239,9 +10239,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 381076635558640152}
-  m_Layer: 0
+  - component: {fileID: 7852384497786658377}
+  m_Layer: 8
   m_Name: SidewalkR
-  m_TagString: Untagged
+  m_TagString: Footpath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10313,6 +10314,19 @@ Transform:
   m_Father: {fileID: 2977807558844886817}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7852384497786658377
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6418314043806336964}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 95.09154, y: 0.519804, z: 10.08377}
+  m_Center: {x: 2.206535, y: -0.240098, z: -10.77611}
 --- !u!1 &6429194265835914357
 GameObject:
   m_ObjectHideFlags: 0
@@ -10632,7 +10646,7 @@ GameObject:
   - component: {fileID: 6716217244671722663}
   - component: {fileID: 6716217244675095683}
   - component: {fileID: 6716217244673742477}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_Straight_02 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10709,7 +10723,7 @@ GameObject:
   - component: {fileID: 6980127400031428052}
   - component: {fileID: 6980127400032790000}
   - component: {fileID: 6980127400033734654}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_Straight_02 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10786,7 +10800,7 @@ GameObject:
   - component: {fileID: 7089277776867736718}
   - component: {fileID: 7089277776870632936}
   - component: {fileID: 7089277776869582582}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (30)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10940,7 +10954,7 @@ GameObject:
   - component: {fileID: 7220083144246954820}
   - component: {fileID: 7220083144246188578}
   - component: {fileID: 7220083144245137724}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11017,7 +11031,7 @@ GameObject:
   - component: {fileID: 7288828440921760096}
   - component: {fileID: 7288828440920398148}
   - component: {fileID: 7288828440919454538}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_Straight_02 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11171,7 +11185,7 @@ GameObject:
   - component: {fileID: 7377664955186206382}
   - component: {fileID: 7377664955183302600}
   - component: {fileID: 7377664955184352470}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11248,7 +11262,7 @@ GameObject:
   - component: {fileID: 7450851597572722396}
   - component: {fileID: 7450851597569826746}
   - component: {fileID: 7450851597570872484}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11325,7 +11339,7 @@ GameObject:
   - component: {fileID: 7497691347248357714}
   - component: {fileID: 7497691347251785780}
   - component: {fileID: 7497691347250740010}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11864,7 +11878,7 @@ GameObject:
   - component: {fileID: 8028676453796227241}
   - component: {fileID: 8028676453797580941}
   - component: {fileID: 8028676453798410883}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_Straight_02 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12018,7 +12032,7 @@ GameObject:
   - component: {fileID: 8141685608265626220}
   - component: {fileID: 8141685608266425098}
   - component: {fileID: 8141685608267474964}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12172,7 +12186,7 @@ GameObject:
   - component: {fileID: 8226860996409440038}
   - component: {fileID: 8226860996412859968}
   - component: {fileID: 8226860996411813214}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12249,7 +12263,7 @@ GameObject:
   - component: {fileID: 8354920858813435843}
   - component: {fileID: 8354920858814766757}
   - component: {fileID: 8354920858815813051}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12792,7 +12806,7 @@ GameObject:
   - component: {fileID: 8655198218421544957}
   - component: {fileID: 8655198218422378457}
   - component: {fileID: 8655198218423858647}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_Straight_02 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13023,7 +13037,7 @@ GameObject:
   - component: {fileID: 8793640919779314445}
   - component: {fileID: 8793640919782742635}
   - component: {fileID: 8793640919781691765}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13254,7 +13268,7 @@ GameObject:
   - component: {fileID: 9167679636490901275}
   - component: {fileID: 9167679636491667069}
   - component: {fileID: 9167679636492717411}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sidewalk_01 (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
