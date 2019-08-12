@@ -26,12 +26,12 @@ namespace PathCreation.Examples {
             if (pathCreator != null) {
                 AssignMeshComponents ();
                 AssignMaterials ();
-                CreateRoadMesh ();
+                //CreateRoadMesh ();
             }
         }
 
         void CreateRoadMesh () {
-            Vector3[] verts = new Vector3[path.NumPoints * 8];
+           /* Vector3[] verts = new Vector3[path.NumPoints * 8];
             Vector2[] uvs = new Vector2[verts.Length];
             Vector3[] normals = new Vector3[verts.Length];
 
@@ -114,14 +114,14 @@ namespace PathCreation.Examples {
             mesh.SetTriangles (roadTriangles, 0);
             mesh.SetTriangles (underRoadTriangles, 1);
             mesh.SetTriangles (sideOfRoadTriangles, 2);
-            mesh.RecalculateBounds ();
+            mesh.RecalculateBounds ();*/
         }
 
         // Add MeshRenderer and MeshFilter components to this gameobject if not already attached
         void AssignMeshComponents () {
 
             if (meshHolder == null) {
-                meshHolder = new GameObject ("Road Mesh Holder");
+                meshHolder = new GameObject ("Road Mesh Renderer");
             }
 
             meshHolder.transform.rotation = Quaternion.identity;
