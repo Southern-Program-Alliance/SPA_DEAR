@@ -22,9 +22,9 @@ public class CustomCharacterController : MonoBehaviour
         float speedPercent = agent.velocity.magnitude / agent.speed;
         animator.SetFloat("speedPercent", speedPercent, locomotionAnimationSmoothTime, Time.deltaTime);
 
-        if (Input.GetMouseButton(0))
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            Ray ray = cam.ScreenPointToRay(Input.GetTouch(0).position);
             RaycastHit hit;
 
             if(Physics.Raycast(ray, out hit))
