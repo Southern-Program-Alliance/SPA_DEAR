@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         }
   
         curState = newState;
-        Debug.Log(curState);
+        //Debug.Log(curState);
         HandleStateChangedEvent(curState);
     }
 
@@ -53,14 +53,14 @@ public class GameManager : MonoBehaviour
         // Starting state of the game
         if (state == GameState.Begin)
         {
-            Debug.Log("Manager started");
+            //Debug.Log("Manager started");
             placementScript.enabled = true;
         }
 
         // Once the player pladces the object
         if (state == GameState.Placed)
         {
-            Debug.Log("World placed");
+            //Debug.Log("World placed");
 
             anim_depthMask.enabled = true;
             anim_depthMask.Play();
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
 
         if (state == GameState.Raised)
         {
-            Debug.Log("World raised");
+            //Debug.Log("World raised");
             anim_depthMask.gameObject.SetActive(false);
             schoolKid.SetActive(true);
         }

@@ -262,10 +262,6 @@ public class PlaneDiscoveryGuide : MonoBehaviour
 
         if (m_NotDetectedPlaneElapsed > DisplayGuideDelay)
         {
-            // The session has been tracking but no planes have been found by
-            // 'DisplayGuideDelay'.
-            //-------------------------------------------------------------------------
-            //m_FeaturePoints.SetActive(true);
 
             if (!m_HandAnimation.enabled)
             {

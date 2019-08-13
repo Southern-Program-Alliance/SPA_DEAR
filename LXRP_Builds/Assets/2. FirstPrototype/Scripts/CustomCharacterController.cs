@@ -3,9 +3,9 @@ using UnityEngine.AI;
 
 public class CustomCharacterController : MonoBehaviour
 {
-    [SerializeField] Camera cam;
-    [SerializeField] NavMeshAgent agent;
-    [SerializeField] Animator animator;
+    [SerializeField] Camera cam = null;
+    [SerializeField] NavMeshAgent agent = null;
+    [SerializeField] Animator animator = null;
 
     const float locomotionAnimationSmoothTime = .1f;
 
