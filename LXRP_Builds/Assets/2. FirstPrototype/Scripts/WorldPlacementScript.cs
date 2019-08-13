@@ -123,6 +123,7 @@ public class WorldPlacementScript : MonoBehaviour
         if (state == ARState.Tutorial)
         {
             Debug.Log("Playing Tutorial");
+            placementIndicator.SetActive(false);
         }
 
         // Starting state of the game
@@ -135,6 +136,8 @@ public class WorldPlacementScript : MonoBehaviour
         {
             Debug.Log("World Placed");
             ObjectPlaced = true;
+            m_SnackBar.SetActive(false);
+
             // Change the state of the Game Manager to 'Placed'
             GameManager.instance.PSetState(2);
         }
