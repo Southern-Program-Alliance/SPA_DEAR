@@ -34,7 +34,17 @@ namespace PathCreation.Examples
         void OnPathChanged() {
             distanceTravelled = pathCreator.path.GetClosestDistanceAlongPath(transform.position);
         }
-
+        private void OnTrigger(Collider GameObject)
+        {
+            if (GameObject.tag == "trafficSignal")
+            {
+                speed = 0.02F;
+            }
+            else
+            {
+                speed = 1;
+            }
+        }
        
     }
 }
