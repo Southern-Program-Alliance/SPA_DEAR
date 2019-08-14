@@ -45,6 +45,10 @@ namespace PathCreation.Examples
                 speed = 1;
             }
         }
+        void Stop()
+        {
+
+        }
        
     }
 }
