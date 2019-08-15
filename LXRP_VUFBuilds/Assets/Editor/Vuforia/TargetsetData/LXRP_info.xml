@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="QCAR_Dataset_config.xsd">
+  <TargetSet version="5.0" toolVersion="4.2.0">
+    <ObjectTarget bbox="0.0000 0.0000 0.0000 0.1425 0.0950 0.0950" captureAppVersion="6.5.0" lastSaved="2019-08-15 11:31:07" name="TrainModel_WhiteBg" targetId="4d7b5e43282a4fcda792601085a9e195" version="2.0" />
+    <ObjectTarget bbox="0.0000 0.0000 0.0000 0.1425 0.0950 0.0950" captureAppVersion="6.5.0" lastSaved="2019-08-15 11:22:35" name="TrainModel" targetId="f9e7d90617604e4697b59894ea278e46" version="2.0" />
+  </TargetSet>
+</QCARInfo>
