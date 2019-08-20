@@ -6,9 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
 
-    [SerializeField] Animation anim_depthMask = null;
     [SerializeField] WorldPlacementScript placementScript = null;
-    [SerializeField] GameObject schoolKid;
+    [SerializeField] GameObject schoolKid = null;
 
     private enum GameState { Blank, Begin, Placed, Raised }
     private GameState curState = GameState.Blank;
@@ -62,16 +61,12 @@ public class GameManager : MonoBehaviour
         {
             //Debug.Log("World placed");
 
-            anim_depthMask.enabled = true;
-            anim_depthMask.Play();
-
             placementScript.enabled = false;
         }
 
         if (state == GameState.Raised)
         {
             //Debug.Log("World raised");
-            anim_depthMask.gameObject.SetActive(false);
             schoolKid.SetActive(true);
         }
     }

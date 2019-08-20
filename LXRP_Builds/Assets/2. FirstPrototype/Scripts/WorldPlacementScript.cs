@@ -23,9 +23,9 @@ public class WorldPlacementScript : MonoBehaviour
     private enum ARState { Blank, Tutorial, Placement, Help, Placed }
     private ARState curState = ARState.Blank;
 
-    [SerializeField] GameObject objectToPlace;
-    [SerializeField] GameObject placementIndicator;
-    [SerializeField] Camera MainCam;
+    [SerializeField] GameObject objectToPlace = null;
+    [SerializeField] GameObject placementIndicator = null;
+    [SerializeField] Camera MainCam = null;
 
     [Space]
     /// The time to delay, after ARCore loses tracking of any planes, showing the plane
