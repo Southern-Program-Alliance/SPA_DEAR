@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
             //Debug.Log("World placed");
 
             placementScript.enabled = false;
+            ActivateWorld();
         }
 
         if (state == GameState.Raised)
@@ -69,5 +70,11 @@ public class GameManager : MonoBehaviour
             //Debug.Log("World raised");
             schoolKid.SetActive(true);
         }
+    }
+
+    IEnumerator ActivateWorld()
+    {
+        yield return new WaitForSeconds(3.0f);
+        SetState(GameState.Raised);
     }
 }
