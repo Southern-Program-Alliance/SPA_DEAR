@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] WorldPlacementScript placementScript = null;
     [SerializeField] GameObject schoolKid = null;
 
-    private enum GameState { Blank, Begin, Placed, Raised }
     private GameState curState = GameState.Blank;
 
     private void Awake()
@@ -23,7 +22,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         SetState(GameState.Begin);
@@ -56,7 +54,7 @@ public class GameManager : MonoBehaviour
             placementScript.enabled = true;
         }
 
-        // Once the player pladces the object
+        // Once the player places the object
         if (state == GameState.Placed)
         {
             //Debug.Log("World placed");

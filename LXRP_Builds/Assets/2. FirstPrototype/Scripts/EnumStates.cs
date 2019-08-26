@@ -1,0 +1,1 @@
+﻿public enum GameState { Blank, Begin, Placed, Raised }
