@@ -18,6 +18,9 @@ public class PlacementScript : MonoBehaviour
     private bool placementPoseIsValid = false;
     private bool ObjectPlaced;
 
+    public delegate void OnPlaced(Vector3 pos); // Declare Delegate
+    public static event OnPlaced onplaced; // Declare Event
+
     void Start()
     {
         arOrigin = FindObjectOfType<ARSessionOrigin>();
@@ -49,6 +52,12 @@ public class PlacementScript : MonoBehaviour
         objectToPlace.transform.rotation = placementPose.rotation;
 
         ObjectPlaced = true;
+
+        // invoke event 
+        if (onplaced != null)
+        {
+            onplaced(objectToPlace.transform.position);
+        }
     }
 
     private void UpdatePlacementIndicator()
