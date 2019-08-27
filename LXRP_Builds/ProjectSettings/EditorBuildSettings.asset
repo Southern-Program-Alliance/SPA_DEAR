@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/2. FirstPrototype/2. MPlacement.unity
     guid: b78d383222051984f8c3eb69871c2289
   - enabled: 1
-    path: Assets/3. Prototype/CamDistance.unity
+    path: Assets/3. Prototype/TestingGround.unity
     guid: e6329d54855422544a8695947e21904c
   m_configObjects: {}

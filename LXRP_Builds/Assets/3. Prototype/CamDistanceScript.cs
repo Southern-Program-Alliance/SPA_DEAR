@@ -1,8 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿///<summary>
+/// This is a component which is used to calculate the distance from the
+/// camera to a selected object in the scene. 
+/// </summary>
+
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
+
 
 [RequireComponent(typeof(LineRenderer))]
 public class CamDistanceScript : MonoBehaviour
