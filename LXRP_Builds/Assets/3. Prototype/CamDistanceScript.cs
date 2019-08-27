@@ -6,7 +6,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-
 [RequireComponent(typeof(LineRenderer))]
 public class CamDistanceScript : MonoBehaviour
 {
