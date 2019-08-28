@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CustomCharacterController))]
+[RequireComponent(typeof(CapsuleCollider))]
 
 public class PlayerScript : MonoBehaviour
 {
@@ -31,11 +32,12 @@ public class PlayerScript : MonoBehaviour
         return check;
     }
 
-    private void SwitchComponents(bool condition)
+    public void SwitchComponents(bool condition)
     {
         _compOutline.enabled = condition;
         _compCusCharCon.enabled = condition;
         _compPointer.SetActive(condition);
+
     }
 
     void Start()

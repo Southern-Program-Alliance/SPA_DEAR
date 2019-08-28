@@ -17,6 +17,17 @@ public class CustomCharacterController : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        animator.SetFloat("speedPercent", 0, 0, 0);
+        agent.isStopped = true;
+    }
+
+    private void OnEnable()
+    {
+        agent.isStopped = false;
+    }
+
     void Update()
     {
         float speedPercent = agent.velocity.magnitude / agent.speed;
