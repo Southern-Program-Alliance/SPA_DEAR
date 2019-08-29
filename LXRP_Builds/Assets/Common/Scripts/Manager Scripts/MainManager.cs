@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 
-public class Manager : MonoBehaviour
+public class MainManager : MonoBehaviour
 {
     public Camera MainCam;
     //public ARRaycastManager arRaycast;

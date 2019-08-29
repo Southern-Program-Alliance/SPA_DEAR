@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class Manager : MonoBehaviour
 {
-    public static GameManager instance = null;
+    public static Manager instance = null;
 
     [SerializeField] WorldPlacementScript placementScript = null;
     [SerializeField] GameObject schoolKid = null;

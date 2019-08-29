@@ -139,7 +139,7 @@ public class WorldPlacementScript : MonoBehaviour
             m_SnackBar.SetActive(false);
 
             // Change the state of the Game Manager to 'Placed'
-            GameManager.instance.PSetState(2);
+            Manager.instance.PSetState(2);
         }
 
     }
