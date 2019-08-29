@@ -28,6 +28,8 @@ public class Manager : MonoBehaviour
                     if (hit.transform.tag == "Player")
                     {
                         Debug.Log("-----------Its Working!!");
+
+                        SelectNewPlayer(hit.collider.gameObject);
                     }
                 }
             }
@@ -48,7 +50,7 @@ public class Manager : MonoBehaviour
                     {
                         Debug.Log("-----------Its Working!!");
 
-                        SelectNewPlayer(hit.collider.gameObject);
+                        
                     }
                 }
             }
