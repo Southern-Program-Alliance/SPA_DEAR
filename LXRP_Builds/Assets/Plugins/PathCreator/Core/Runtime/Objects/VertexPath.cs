@@ -13,6 +13,7 @@ namespace PathCreation {
     /// Other info about the path (tangents, normals, rotation) can also be retrieved in this manner.
 
     public class VertexPath {
+
         #region Fields
 
         public readonly PathSpace space;
@@ -265,6 +266,7 @@ namespace PathCreation {
                     break;
                 case EndOfPathInstruction.Stop:
                     t = Mathf.Clamp01 (t);
+
                     break;
             }
 

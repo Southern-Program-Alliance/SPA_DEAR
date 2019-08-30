@@ -50,7 +50,7 @@ public class MainManager : MonoBehaviour
                     {
                         Debug.Log("-----------Its Working!!");
 
-                        
+                        SelectNewPlayer(hit.collider.gameObject);
                     }
                 }
             }

@@ -54,10 +54,7 @@ public class PlacementScript : MonoBehaviour
         ObjectPlaced = true;
 
         // invoke event 
-        if (onplaced != null)
-        {
-            onplaced(objectToPlace.transform.position);
-        }
+        onplaced?.Invoke(objectToPlace.transform.position);
     }
 
     private void UpdatePlacementIndicator()
