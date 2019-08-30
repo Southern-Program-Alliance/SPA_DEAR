@@ -8,7 +8,7 @@ namespace PathCreation
     {
         public PathCreator pathCreator;
         public EndOfPathInstruction endOfPathInstruction;
-        public float speed = 5;
+        public float speed = 0.1f;
         float distanceTravelled;
         
         void Start() {

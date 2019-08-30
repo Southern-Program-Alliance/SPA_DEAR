@@ -12,21 +12,35 @@ public class CarSpawnner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnCountdown();
+        StartCoroutine(SpawnCountdown());
     }
 
     IEnumerator SpawnCountdown()
     {
-        yield return new WaitForEndOfFrame();
+        while (_canSpawn)
+        {
+            yield return new WaitForSeconds(5.0f);
+            SpawnACar();
+        }
     }
-
 
     void SpawnACar()
     {
+        Debug.Log("SpawnACar");
         if (!_canSpawn)
             return;
-        Random.seed = (int)Time.deltaTime;
-        GameObject spawnCar = _listVehicle[Random.Range(0, _listVehicle.Count-1)];
+
+        Debug.Log("Spawnning a car");
+
+        // Random.seed = (int)Time.deltaTime;
+        GameObject spawnCar = Instantiate(_listVehicle[Random.Range(0, _listVehicle.Count-1)]);
+
+        PathFollower spawnCarComponent = spawnCar.AddComponent<PathFollower>();
+        spawnCarComponent.pathCreator = _path;
+        spawnCarComponent.endOfPathInstruction = EndOfPathInstruction.Loop;
+
+        spawnCar.GetComponent<MeshRenderer>().receiveShadows = false;
+        spawnCar.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
     }
 
 }
