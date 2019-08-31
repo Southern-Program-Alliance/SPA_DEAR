@@ -836,7 +836,7 @@ GameObject:
   - component: {fileID: 1313632307}
   - component: {fileID: 1313632306}
   m_Layer: 0
-  m_Name: Balcombe-CommoParade
+  m_Name: Balcombe1-CommoParade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1295,6 +1295,98 @@ Transform:
   m_Father: {fileID: 1408432557}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 13.323001, y: 180, z: 0}
+--- !u!1 &1547119344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1547119345}
+  - component: {fileID: 1547119346}
+  m_Layer: 0
+  m_Name: CommoParade-Balcombe1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1547119345
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547119344}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.245, y: 0.61, z: -3.11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1566376815}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1547119346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547119344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5ac92bc18f545cc84cd886ece82b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorData:
+    _bezierPath:
+      points:
+      - {x: 4.461457, y: 0, z: -3.0221756}
+      - {x: 3.677192, y: 0, z: -1.9807515}
+      - {x: 1.0025264, y: 0, z: 1.576367}
+      - {x: 0.94252014, y: 0, z: 1.6583941}
+      - {x: 0.34317303, y: 0, z: 2.4776871}
+      - {x: 0.530756, y: 0, z: 2.5167785}
+      - {x: 0.1675992, y: 0, z: 2.6754704}
+      - {x: -0.12710303, y: 0, z: 2.804249}
+      - {x: -4.296849, y: 0, z: 2.7621868}
+      - {x: -4.459338, y: 0, z: 2.7584655}
+      isClosed: 0
+      space: 0
+      controlMode: 0
+      autoControlLength: 0.3
+      boundsUpToDate: 0
+      bounds:
+        m_Center: {x: -0.00034809113, y: -0.062438138, z: -0.1320926}
+        m_Extent: {x: 4.461805, y: 0.06243828, z: 2.8900828}
+      perAnchorNormalsAngle:
+      - 90
+      - 90
+      - 90
+      - 90
+      globalNormalsAngle: 0
+      flipNormals: 0
+    vertexPathUpToDate: 1
+    vertexPathMaxAngleError: 0.3
+    vertexPathMinVertexSpacing: 0
+    showTransformTool: 1
+    showPathBounds: 0
+    showPerSegmentBounds: 0
+    displayAnchorPoints: 1
+    displayControlPoints: 1
+    bezierHandleScale: 0.37
+    globalDisplaySettingsFoldout: 0
+    keepConstantHandleSize: 0
+    showNormalsInVertexMode: 1
+    showBezierPathInVertexMode: 0
+    showDisplayOptions: 1
+    showPathOptions: 1
+    showVertexPathDisplayOptions: 1
+    showVertexPathOptions: 1
+    showNormals: 1
+    showNormalsHelpInfo: 0
+    tabIndex: 0
+  initialized: 1
 --- !u!1 &1566376814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,6 +1416,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1313632307}
+  - {fileID: 1547119345}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1339,8 +1432,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ebdb4b55875ee4db7f94d0df129652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _path: {fileID: 1313632306}
-  VehicleList: []
+  _arrayPath:
+  - {fileID: 1313632306}
+  - {fileID: 1547119346}
+  _objPoolAmt: 25
+  _arrayVehiclePool: []
 --- !u!1 &1580223420
 GameObject:
   m_ObjectHideFlags: 0
@@ -18744,10 +18840,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1227695830222752286}
     m_Modifications:
-    - target: {fileID: 138646, guid: c838be5f7abd9c64db9643ebadf0c932, type: 3}
-      propertyPath: m_Name
-      value: SM_Env_Road_Crossing_01
-      objectReference: {fileID: 0}
     - target: {fileID: 476138, guid: c838be5f7abd9c64db9643ebadf0c932, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.2699738
@@ -18791,6 +18883,10 @@ PrefabInstance:
     - target: {fileID: 476138, guid: c838be5f7abd9c64db9643ebadf0c932, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 138646, guid: c838be5f7abd9c64db9643ebadf0c932, type: 3}
+      propertyPath: m_Name
+      value: SM_Env_Road_Crossing_01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c838be5f7abd9c64db9643ebadf0c932, type: 3}
@@ -24865,11 +24961,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 650897275}
     m_Modifications:
-    - target: {fileID: 701155420130303239, guid: 974dbcf6357a07049814c5cfa0ba4c44,
-        type: 3}
-      propertyPath: m_Name
-      value: Character_BusinessMan_Suit
-      objectReference: {fileID: 0}
     - target: {fileID: 701155420130122997, guid: 974dbcf6357a07049814c5cfa0ba4c44,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24924,6 +25015,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 701155420130303239, guid: 974dbcf6357a07049814c5cfa0ba4c44,
+        type: 3}
+      propertyPath: m_Name
+      value: Character_BusinessMan_Suit
       objectReference: {fileID: 0}
     - target: {fileID: 701155419420159446, guid: 974dbcf6357a07049814c5cfa0ba4c44,
         type: 3}
@@ -34094,11 +34190,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 650897275}
     m_Modifications:
-    - target: {fileID: 5723229617824309389, guid: 82df269f418ec4c4e9a0a60394eaae7e,
-        type: 3}
-      propertyPath: m_Name
-      value: Character_Male_Hoodie
-      objectReference: {fileID: 0}
     - target: {fileID: 4396597215676319267, guid: 82df269f418ec4c4e9a0a60394eaae7e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -34153,6 +34244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723229617824309389, guid: 82df269f418ec4c4e9a0a60394eaae7e,
+        type: 3}
+      propertyPath: m_Name
+      value: Character_Male_Hoodie
       objectReference: {fileID: 0}
     - target: {fileID: 7501853578017098219, guid: 82df269f418ec4c4e9a0a60394eaae7e,
         type: 3}
@@ -38977,10 +39073,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 175378, guid: a916a44328d322240bd1aaaca22fc8a7, type: 3}
-      propertyPath: m_Name
-      value: SM_Veh_Car_Taxi_01
-      objectReference: {fileID: 0}
     - target: {fileID: 414190, guid: a916a44328d322240bd1aaaca22fc8a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.35
@@ -39036,6 +39128,10 @@ PrefabInstance:
     - target: {fileID: 414190, guid: a916a44328d322240bd1aaaca22fc8a7, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.055555604
+      objectReference: {fileID: 0}
+    - target: {fileID: 175378, guid: a916a44328d322240bd1aaaca22fc8a7, type: 3}
+      propertyPath: m_Name
+      value: SM_Veh_Car_Taxi_01
       objectReference: {fileID: 0}
     - target: {fileID: 2335232, guid: a916a44328d322240bd1aaaca22fc8a7, type: 3}
       propertyPath: m_ReceiveShadows
@@ -49560,14 +49656,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6407743761496850078}
     m_Modifications:
-    - target: {fileID: 190794, guid: 13026bf5e083f114ba55f67e99392514, type: 3}
-      propertyPath: m_Name
-      value: SM_Prop_LightPole_Lights_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 190794, guid: 13026bf5e083f114ba55f67e99392514, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 448642, guid: 13026bf5e083f114ba55f67e99392514, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -49611,6 +49699,14 @@ PrefabInstance:
     - target: {fileID: 448642, guid: 13026bf5e083f114ba55f67e99392514, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 190794, guid: 13026bf5e083f114ba55f67e99392514, type: 3}
+      propertyPath: m_Name
+      value: SM_Prop_LightPole_Lights_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 190794, guid: 13026bf5e083f114ba55f67e99392514, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13026bf5e083f114ba55f67e99392514, type: 3}
@@ -49627,14 +49723,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6407743760107799473}
     m_Modifications:
-    - target: {fileID: 160356, guid: de28d3c05ec6bbd4c8b527fa38906983, type: 3}
-      propertyPath: m_Name
-      value: SM_Prop_LightPole_CrossLights_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 160356, guid: de28d3c05ec6bbd4c8b527fa38906983, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 479914, guid: de28d3c05ec6bbd4c8b527fa38906983, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -49679,6 +49767,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 160356, guid: de28d3c05ec6bbd4c8b527fa38906983, type: 3}
+      propertyPath: m_Name
+      value: SM_Prop_LightPole_CrossLights_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 160356, guid: de28d3c05ec6bbd4c8b527fa38906983, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de28d3c05ec6bbd4c8b527fa38906983, type: 3}
 --- !u!1001 &6407743760361117093
@@ -49688,14 +49784,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6407743760107799473}
     m_Modifications:
-    - target: {fileID: 186922, guid: bf8c887ce2a3f8f41be86bb54fa20b60, type: 3}
-      propertyPath: m_Name
-      value: SM_Prop_LightPole_Box_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 186922, guid: bf8c887ce2a3f8f41be86bb54fa20b60, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 455170, guid: bf8c887ce2a3f8f41be86bb54fa20b60, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -49739,6 +49827,14 @@ PrefabInstance:
     - target: {fileID: 455170, guid: bf8c887ce2a3f8f41be86bb54fa20b60, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 186922, guid: bf8c887ce2a3f8f41be86bb54fa20b60, type: 3}
+      propertyPath: m_Name
+      value: SM_Prop_LightPole_Box_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 186922, guid: bf8c887ce2a3f8f41be86bb54fa20b60, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf8c887ce2a3f8f41be86bb54fa20b60, type: 3}
@@ -49862,14 +49958,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6407743760107799473}
     m_Modifications:
-    - target: {fileID: 119666, guid: 916be2ac89687b0458f9c3b7759c3248, type: 3}
-      propertyPath: m_Name
-      value: SM_Prop_LightPole_CrossButton_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 119666, guid: 916be2ac89687b0458f9c3b7759c3248, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 490068, guid: 916be2ac89687b0458f9c3b7759c3248, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -49913,6 +50001,14 @@ PrefabInstance:
     - target: {fileID: 490068, guid: 916be2ac89687b0458f9c3b7759c3248, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 119666, guid: 916be2ac89687b0458f9c3b7759c3248, type: 3}
+      propertyPath: m_Name
+      value: SM_Prop_LightPole_CrossButton_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 119666, guid: 916be2ac89687b0458f9c3b7759c3248, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 916be2ac89687b0458f9c3b7759c3248, type: 3}
@@ -52541,10 +52637,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1227695830222752286}
     m_Modifications:
-    - target: {fileID: 138646, guid: c838be5f7abd9c64db9643ebadf0c932, type: 3}
-      propertyPath: m_Name
-      value: SM_Env_Road_Crossing_01 (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 476138, guid: c838be5f7abd9c64db9643ebadf0c932, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.2699738
@@ -52588,6 +52680,10 @@ PrefabInstance:
     - target: {fileID: 476138, guid: c838be5f7abd9c64db9643ebadf0c932, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 138646, guid: c838be5f7abd9c64db9643ebadf0c932, type: 3}
+      propertyPath: m_Name
+      value: SM_Env_Road_Crossing_01 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c838be5f7abd9c64db9643ebadf0c932, type: 3}
@@ -56579,11 +56675,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 650897275}
     m_Modifications:
-    - target: {fileID: 996214728435962563, guid: 887d68890f45bb84cae3c33e67b5803f,
-        type: 3}
-      propertyPath: m_Name
-      value: Character_BusinessMan_Shirt
-      objectReference: {fileID: 0}
     - target: {fileID: 996214728436278269, guid: 887d68890f45bb84cae3c33e67b5803f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -56638,6 +56729,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 996214728435962563, guid: 887d68890f45bb84cae3c33e67b5803f,
+        type: 3}
+      propertyPath: m_Name
+      value: Character_BusinessMan_Shirt
       objectReference: {fileID: 0}
     - target: {fileID: 996214728435962588, guid: 887d68890f45bb84cae3c33e67b5803f,
         type: 3}
@@ -59148,14 +59244,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8638594562597363071}
     m_Modifications:
-    - target: {fileID: 119666, guid: 916be2ac89687b0458f9c3b7759c3248, type: 3}
-      propertyPath: m_Name
-      value: SM_Prop_LightPole_CrossButton_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 119666, guid: 916be2ac89687b0458f9c3b7759c3248, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 490068, guid: 916be2ac89687b0458f9c3b7759c3248, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -59200,6 +59288,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 119666, guid: 916be2ac89687b0458f9c3b7759c3248, type: 3}
+      propertyPath: m_Name
+      value: SM_Prop_LightPole_CrossButton_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 119666, guid: 916be2ac89687b0458f9c3b7759c3248, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 916be2ac89687b0458f9c3b7759c3248, type: 3}
 --- !u!1001 &8638594562597363070
@@ -59209,14 +59305,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8638594561778753616}
     m_Modifications:
-    - target: {fileID: 190794, guid: 13026bf5e083f114ba55f67e99392514, type: 3}
-      propertyPath: m_Name
-      value: SM_Prop_LightPole_Lights_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 190794, guid: 13026bf5e083f114ba55f67e99392514, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 448642, guid: 13026bf5e083f114ba55f67e99392514, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -59261,6 +59349,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 190794, guid: 13026bf5e083f114ba55f67e99392514, type: 3}
+      propertyPath: m_Name
+      value: SM_Prop_LightPole_Lights_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 190794, guid: 13026bf5e083f114ba55f67e99392514, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13026bf5e083f114ba55f67e99392514, type: 3}
 --- !u!4 &8638594562597363071 stripped
@@ -59276,14 +59372,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8638594562597363071}
     m_Modifications:
-    - target: {fileID: 186922, guid: bf8c887ce2a3f8f41be86bb54fa20b60, type: 3}
-      propertyPath: m_Name
-      value: SM_Prop_LightPole_Box_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 186922, guid: bf8c887ce2a3f8f41be86bb54fa20b60, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 455170, guid: bf8c887ce2a3f8f41be86bb54fa20b60, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -59328,6 +59416,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 186922, guid: bf8c887ce2a3f8f41be86bb54fa20b60, type: 3}
+      propertyPath: m_Name
+      value: SM_Prop_LightPole_Box_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 186922, guid: bf8c887ce2a3f8f41be86bb54fa20b60, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf8c887ce2a3f8f41be86bb54fa20b60, type: 3}
 --- !u!1001 &8638594562908474885
@@ -59337,14 +59433,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8638594562597363071}
     m_Modifications:
-    - target: {fileID: 160356, guid: de28d3c05ec6bbd4c8b527fa38906983, type: 3}
-      propertyPath: m_Name
-      value: SM_Prop_LightPole_CrossLights_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 160356, guid: de28d3c05ec6bbd4c8b527fa38906983, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 479914, guid: de28d3c05ec6bbd4c8b527fa38906983, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -59388,6 +59476,14 @@ PrefabInstance:
     - target: {fileID: 479914, guid: de28d3c05ec6bbd4c8b527fa38906983, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 160356, guid: de28d3c05ec6bbd4c8b527fa38906983, type: 3}
+      propertyPath: m_Name
+      value: SM_Prop_LightPole_CrossLights_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 160356, guid: de28d3c05ec6bbd4c8b527fa38906983, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de28d3c05ec6bbd4c8b527fa38906983, type: 3}
