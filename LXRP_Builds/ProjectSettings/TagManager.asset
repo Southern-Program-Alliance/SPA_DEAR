@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Footpath
+  - TrafficLight
+  - TrafficButton
   layers:
   - Default
   - TransparentFX

@@ -44,13 +44,21 @@ public class MainManager : MonoBehaviour
                 Ray ray = MainCam.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
 
-                if (Physics.Raycast(ray, out hit))
+                if (Physics.Raycast(ray, out hit, 200, 1 << 10))
                 {
                     if (hit.transform.tag == "Player")
                     {
-                        Debug.Log("-----------Its Working!!");
+                        Debug.Log("Player Character Object Clicked");
 
                         SelectNewPlayer(hit.collider.gameObject);
+                    }
+
+                    if (hit.transform.tag == "TrafficLight")
+                    {
+                        Debug.Log("Traffic Light Object Clicked");
+
+                        SelectTrafficLight(hit.collider.gameObject);
+                        hit.collider.gameObject.GetComponent<TrafficLightScript>().playAnim();
                     }
                 }
             }
@@ -68,6 +76,11 @@ public class MainManager : MonoBehaviour
 
         _GoSelected = newPlayer;
         _GoSelected.GetComponent<PlayerScript>().SwitchComponents(true);
+
+    }
+
+    private void SelectTrafficLight(GameObject newLight)
+    {
 
     }
 }
