@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PathCreation;  
 
 [RequireComponent (typeof(Animator))]
 public class TrafficLightScript : MonoBehaviour
@@ -9,9 +10,11 @@ public class TrafficLightScript : MonoBehaviour
     [SerializeField] Animator _animaTrafficCont = null;
     [SerializeField] float _trafficCountdownDelay = 5.0f;
 
+    //[SerializeField] PathCreator _linkedPath;
     [SerializeField] List<PathCreation.CarScript> _listTraffic = null;
 
     [SerializeField] int _amtCarToStopSpawn = 5;
+    //[SerializeField] GameObject _linkedControl;
 
     // Create event
     public delegate void StopCarSpawn(bool condition);
