@@ -88,9 +88,11 @@ GameObject:
   - component: {fileID: 4956868172205330}
   - component: {fileID: 33147891530052890}
   - component: {fileID: 23453952507279772}
+  - component: {fileID: -1061475309929450520}
+  - component: {fileID: -5746385919409156501}
   m_Layer: 0
   m_Name: SM_Veh_Firetruck_01
-  m_TagString: Untagged
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,6 +166,32 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &-1061475309929450520
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209555985277952}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1101341, y: 2.839326, z: 8.822845}
+  m_Center: {x: 0, y: 1.5879507, z: -0.19174194}
+--- !u!135 &-5746385919409156501
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209555985277952}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 1.5879507, z: 5}
 --- !u!1 &1271201421836116
 GameObject:
   m_ObjectHideFlags: 0

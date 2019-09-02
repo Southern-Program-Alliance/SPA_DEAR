@@ -396,9 +396,11 @@ GameObject:
   - component: {fileID: 4393807827511222}
   - component: {fileID: 33157582796348832}
   - component: {fileID: 23766292276636048}
+  - component: {fileID: 2838755749540167017}
+  - component: {fileID: -9158807137770616693}
   m_Layer: 0
   m_Name: SM_Veh_Convertable_01
-  m_TagString: Untagged
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -468,6 +470,32 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2838755749540167017
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847148240549790}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.4172075, y: 1.3790793, z: 5.1057415}
+  m_Center: {x: 0, y: 0.75031865, z: -0.072930336}
+--- !u!135 &-9158807137770616693
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847148240549790}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.75031865, z: 3}
 --- !u!1 &1925197282100688
 GameObject:
   m_ObjectHideFlags: 0

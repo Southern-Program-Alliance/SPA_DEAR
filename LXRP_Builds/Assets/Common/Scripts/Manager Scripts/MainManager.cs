@@ -58,7 +58,7 @@ public class MainManager : MonoBehaviour
                         Debug.Log("Traffic Light Object Clicked");
 
                         SelectTrafficLight(hit.collider.gameObject);
-                        hit.collider.gameObject.GetComponent<TrafficLightScript>().playAnim();
+                        hit.collider.gameObject.transform.root.GetComponent<TrafficLightScript>().OnTrafficButtonPress();
                     }
                 }
             }

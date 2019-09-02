@@ -88,9 +88,11 @@ GameObject:
   - component: {fileID: 4418187717518860}
   - component: {fileID: 33540045535500776}
   - component: {fileID: 23546897265785356}
+  - component: {fileID: -7306208434614564092}
+  - component: {fileID: -4165778414620288975}
   m_Layer: 0
   m_Name: SM_Veh_Truck_01
-  m_TagString: Untagged
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,6 +167,32 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &-7306208434614564092
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019793266773332}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.7483556, y: 2.5206208, z: 6.646887}
+  m_Center: {x: 0, y: 1.5466294, z: 0.49226093}
+--- !u!135 &-4165778414620288975
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019793266773332}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 1.5466294, z: 4.5}
 --- !u!1 &1108815790798554
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,12 @@ public class CarSpawnner : MonoBehaviour
     [SerializeField] int _objPoolAmt = 25;
     [SerializeField] GameObject[] _arrayVehiclePool = null;
 
-    bool _canSpawn = true;
+    [SerializeField] bool _canSpawn = true;
+
+    private void Awake()
+    {
+        TrafficLightScript.stopCarSapwn += EventStopSpawn;
+    }
 
     void Start()
     {
@@ -55,8 +60,8 @@ public class CarSpawnner : MonoBehaviour
             CarScript spawnCarComponent = spawnCar.AddComponent<CarScript>();
             // Choose a random path in the scene
             PathCreator path = _arrayPath[Random.Range(0, _arrayPath.Length)];
-            spawnCarComponent.pathCreator = path;
-            spawnCarComponent.endOfPathInstruction = EndOfPathInstruction.Loop;
+            spawnCarComponent._pathCreator = path;
+            spawnCarComponent._endOfPathInstruction = EndOfPathInstruction.Loop;
             // Make it child of the path gameobject
             spawnCar.transform.parent = path.gameObject.transform;
 
@@ -67,5 +72,11 @@ public class CarSpawnner : MonoBehaviour
             yield return new WaitForSeconds(5.0f);
             spawnCar.SetActive(true);
         }
+    }
+
+    void EventStopSpawn(bool condition)
+    {
+        //Debug.Log("Stopping Car Spawn");
+        _canSpawn = condition;
     }
 }

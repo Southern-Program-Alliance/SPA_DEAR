@@ -476,9 +476,11 @@ GameObject:
   - component: {fileID: 4539974619004416}
   - component: {fileID: 33332463602786908}
   - component: {fileID: 23958318780703202}
+  - component: {fileID: 2742153740482946662}
+  - component: {fileID: 6142231378161482852}
   m_Layer: 0
   m_Name: SM_Veh_Bus_01
-  m_TagString: Untagged
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -552,6 +554,32 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2742153740482946662
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276464829909656}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.237289, y: 3.1269305, z: 11.426151}
+  m_Center: {x: 0, y: 1.7839774, z: 0.6875055}
+--- !u!135 &6142231378161482852
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276464829909656}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 1.7839774, z: 7}
 --- !u!1 &1422013066050804
 GameObject:
   m_ObjectHideFlags: 0
