@@ -14,7 +14,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/3. SecondPrototype/TestingGround.unity
     guid: e6329d54855422544a8695947e21904c
-  - enabled: 1
+  - enabled: 0
     path: Assets/_TestBuilds/TestingBuild.unity
     guid: 3c518f5dda67471498ea48c2a538c9a5
+  - enabled: 1
+    path: Assets/_TestBuilds/P3Build.unity
+    guid: d4f32927c70781c45aa534b69f37c2d6
   m_configObjects: {}

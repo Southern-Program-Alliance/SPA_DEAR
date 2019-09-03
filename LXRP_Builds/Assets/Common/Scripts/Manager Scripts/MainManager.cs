@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 
 public class MainManager : MonoBehaviour
@@ -9,6 +10,13 @@ public class MainManager : MonoBehaviour
     //public ARRaycastManager arRaycast;
 
     private GameObject _GoSelected;
+
+    [SerializeField] PlayerScript[] _arrayPlayers = null;
+
+    [SerializeField] GameObject _uiLose = null;
+    [SerializeField] Text _uiText = null;
+
+    [SerializeField] int win = 3;
 
     // Update is called once per frame
     void Update()
@@ -23,13 +31,21 @@ public class MainManager : MonoBehaviour
                 Ray ray = MainCam.ScreenPointToRay(Input.GetTouch(0).position);
                 RaycastHit hit;
 
-                if (Physics.Raycast(ray, out hit))
+                if (Physics.Raycast(ray, out hit, 200, 1 << 10))
                 {
                     if (hit.transform.tag == "Player")
                     {
-                        Debug.Log("-----------Its Working!!");
+                        Debug.Log("Player Character Object Clicked");
 
                         SelectNewPlayer(hit.collider.gameObject);
+                    }
+
+                    if (hit.transform.tag == "TrafficLight")
+                    {
+                        Debug.Log("Traffic Light Object Clicked");
+
+                        SelectTrafficLight(hit.collider.gameObject);
+                        hit.collider.gameObject.GetComponentInParent<TrafficLightScript>().OnTrafficButtonPress();
                     }
                 }
             }
@@ -58,7 +74,7 @@ public class MainManager : MonoBehaviour
                         Debug.Log("Traffic Light Object Clicked");
 
                         SelectTrafficLight(hit.collider.gameObject);
-                        hit.collider.gameObject.transform.root.GetComponent<TrafficLightScript>().OnTrafficButtonPress();
+                        hit.collider.gameObject.GetComponentInParent<TrafficLightScript>().OnTrafficButtonPress();
                     }
                 }
             }
@@ -76,11 +92,60 @@ public class MainManager : MonoBehaviour
 
         _GoSelected = newPlayer;
         _GoSelected.GetComponent<PlayerScript>().SwitchComponents(true);
-
     }
 
     private void SelectTrafficLight(GameObject newLight)
     {
 
     }
+
+    private void Start()
+    {
+        StartCoroutine(PlayerSpawn());
+        _uiLose.SetActive(false);
+    }
+
+    private void Awake()
+    {
+        PlayerScript.onGameEvent += GameEvent;
+    }
+
+    IEnumerator PlayerSpawn()
+    {
+        yield return new WaitForSeconds(Random.Range(10, 40));
+
+        foreach (PlayerScript player in _arrayPlayers)
+        {
+            yield return new WaitForSeconds(Random.Range(10, 15));
+            player.gameObject.SetActive(true);
+        }
+    }
+
+    void GameEvent(int i)
+    {
+        if(i == 0)
+        {
+            _uiLose.SetActive(true);
+            _uiText.text = "Oh no you disrupted the traffic, try again";
+        }
+
+        if(i == 1)
+        {
+            win++;
+            if(win == 3)
+            {
+                _uiLose.SetActive(true);
+                _uiText.text = "Yay, well done you got everyone to school";
+            }
+            
+        }
+    }
+
+    public void RestartGame()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene
+            (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+    }
+
 }
+

@@ -11,6 +11,7 @@ public class CustomCharacterController : MonoBehaviour
 
     private void Start()
     {
+        cam = GameObject.FindObjectOfType<Camera>();
         if (cam == null && agent == null && animator)
         {
             Debug.Log("Referrences missing in CustomCharacterController Script");
