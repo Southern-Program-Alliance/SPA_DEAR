@@ -286,7 +286,7 @@ MonoBehaviour:
       - 90
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -397,7 +397,7 @@ MonoBehaviour:
     showVertexPathOptions: 1
     showNormals: 0
     showNormalsHelpInfo: 0
-    tabIndex: 1
+    tabIndex: 0
   initialized: 1
 --- !u!1 &650897274
 GameObject:
@@ -620,7 +620,7 @@ MonoBehaviour:
     showVertexPathOptions: 1
     showNormals: 0
     showNormalsHelpInfo: 0
-    tabIndex: 1
+    tabIndex: 0
   initialized: 1
 --- !u!1 &864548410
 GameObject:
@@ -870,7 +870,7 @@ MonoBehaviour:
       - 90
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0
     showTransformTool: 1
@@ -947,7 +947,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1328091182}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 0
@@ -1321,7 +1321,7 @@ MonoBehaviour:
       - 90
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0
     showTransformTool: 1
@@ -2386,6 +2386,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2111450057783545468, guid: 178cb27ced8d25b4c9f6e19327211ae0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.74
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 178cb27ced8d25b4c9f6e19327211ae0, type: 3}
