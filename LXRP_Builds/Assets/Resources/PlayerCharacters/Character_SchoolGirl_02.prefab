@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4288411631366970779}
   - component: {fileID: -3633078195243640561}
   - component: {fileID: -5647738984615668614}
+  - component: {fileID: 1101527909}
   m_Layer: 10
   m_Name: Character_SchoolGirl_02
   m_TagString: Player
@@ -134,7 +135,7 @@ NavMeshAgent:
   m_AgentTypeID: -1372625422
   m_Radius: 0.5
   m_Speed: 0.1
-  m_Acceleration: 0.5
+  m_Acceleration: 2
   avoidancePriority: 50
   m_AngularSpeed: 270
   m_StoppingDistance: 0.05
@@ -176,6 +177,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1101527909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034878413156238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33aabe1a2dec93349b06e6e5dc51bc06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathCreator: {fileID: 0}
+  endOfPathInstruction: 0
+  speed: 0.1
 --- !u!1 &1039256688340050
 GameObject:
   m_ObjectHideFlags: 0
