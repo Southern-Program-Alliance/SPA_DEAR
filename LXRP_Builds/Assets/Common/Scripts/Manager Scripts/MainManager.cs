@@ -7,7 +7,9 @@ using UnityEngine.XR.ARFoundation;
 public class MainManager : MonoBehaviour
 {
     public Camera MainCam;
-    //public ARRaycastManager arRaycast;
+
+    GameState managerState;
+
 
     private GameObject _GoSelected;
 
@@ -17,6 +19,25 @@ public class MainManager : MonoBehaviour
     [SerializeField] Text _uiText = null;
 
     [SerializeField] int win = 3;
+
+    // Function to change the state
+    void SetState(GameState newState)
+    {
+        if (managerState == newState)
+        {
+            return;
+        }
+
+        managerState = newState;
+        Debug.Log(managerState);
+        HandleStateChangedEvent(managerState);
+    }
+
+    // Function to handle state changes
+    void HandleStateChangedEvent(GameState state)
+    {
+        
+    }
 
     // Update is called once per frame
     void Update()
@@ -101,6 +122,8 @@ public class MainManager : MonoBehaviour
 
     private void Start()
     {
+        MainCam = FindObjectOfType<Camera>();
+
         StartCoroutine(PlayerSpawn());
         _uiLose.SetActive(false);
     }

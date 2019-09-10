@@ -1,1 +1,15 @@
-﻿public enum GameState { Blank, Begin, Placed, Raised }
+﻿public enum GameState
+{
+    BLANK,
+    BEGIN,
+    PLACED,
+}
+
+public enum ARState
+{
+    BLANK,
+    TUTORIAL,
+    PLACEMENT,
+    HELP,
+    PLACED
+}

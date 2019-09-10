@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/1. BasicPlacement/1. MBasicPlacement.unity
+    path: Assets/2. BasicPlacement/1. MBasicPlacement.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
-    path: Assets/2. FirstPrototype/2. MPlacement.unity
+    path: Assets/3. FirstPrototype/2. MPlacement.unity
     guid: b78d383222051984f8c3eb69871c2289
   - enabled: 0
-    path: Assets/3. SecondPrototype/TestingGround.unity
+    path: Assets/4. SecondPrototype/TestingGround.unity
     guid: e6329d54855422544a8695947e21904c
   - enabled: 0
     path: Assets/_TestBuilds/TestingBuild.unity

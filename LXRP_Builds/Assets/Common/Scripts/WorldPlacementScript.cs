@@ -20,12 +20,13 @@ public class WorldPlacementScript : MonoBehaviour
     private bool ObjectPlaced = false;
 
     // Variables for placement script state machine
-    private enum ARState { Blank, Tutorial, Placement, Help, Placed }
-    private ARState curState = ARState.Blank;
+    private ARState curState = ARState.BLANK;
 
     [SerializeField] GameObject objectToPlace = null;
     [SerializeField] GameObject placementIndicator = null;
-    [SerializeField] Camera MainCam = null;
+    Camera MainCam = null;
+
+    [SerializeField] MainManager manager = null;
 
     [Space]
     /// The time to delay, after ARCore loses tracking of any planes, showing the plane
@@ -90,6 +91,8 @@ public class WorldPlacementScript : MonoBehaviour
 
     void Start()
     {
+        MainCam = GameObject.FindObjectOfType<Camera>();
+
         // Disable and log error if missing references 
         _CheckFieldsAreNotNull();
 
@@ -100,7 +103,7 @@ public class WorldPlacementScript : MonoBehaviour
         objectToPlace.SetActive(false);
 
         // Start the state machince
-        SetState(ARState.Tutorial);
+        SetState(ARState.TUTORIAL);
     }
 
     // Function to change the state
@@ -120,28 +123,28 @@ public class WorldPlacementScript : MonoBehaviour
     void HandleStateChangedEvent(ARState state)
     {
         // Show tutorial
-        if (state == ARState.Tutorial)
+        if (state == ARState.TUTORIAL)
         {
             Debug.Log("Playing Tutorial");
             placementIndicator.SetActive(false);
         }
 
         // Starting state of the game
-        if (state == ARState.Placement)
+        if (state == ARState.PLACEMENT)
         {
             Debug.Log("Placement Started");
         }
 
-        if(state == ARState.Placed)
+        if(state == ARState.PLACED)
         {
             Debug.Log("World Placed");
             ObjectPlaced = true;
             m_SnackBar.SetActive(false);
 
             // Change the state of the Game Manager to 'Placed'
-            Manager.instance.PSetState(2);
+            
+        //Manager.instance.PSetState(2);
         }
-
     }
 
     void Update()
@@ -152,7 +155,7 @@ public class WorldPlacementScript : MonoBehaviour
 
         Debug.Log("Placement script working");
 
-        if(curState == ARState.Tutorial)
+        if(curState == ARState.TUTORIAL)
         {
             UpdatePlacementPose(); // Check for trackable plane surfaces
 
@@ -193,11 +196,11 @@ public class WorldPlacementScript : MonoBehaviour
                 m_SnackBar.SetActive(true);
                 m_SnackBarText.text = "Point your camera to where you want to place an object.";
 
-                SetState(ARState.Placement);
+                SetState(ARState.PLACEMENT);
             }
         }
 
-        else if(curState == ARState.Placement)
+        else if(curState == ARState.PLACEMENT)
         {
             UpdatePlacementPose(); // Check for trackable plane surfaces
             UpdatePlacementIndicator();
@@ -256,7 +259,7 @@ public class WorldPlacementScript : MonoBehaviour
         objectToPlace.transform.position = placementPose.position;
         objectToPlace.transform.rotation = placementPose.rotation;
 
-        SetState(ARState.Placed);
+        SetState(ARState.PLACED);
     }
 
 
