@@ -1038,7 +1038,6 @@ GameObject:
   m_Component:
   - component: {fileID: 435868}
   - component: {fileID: 9509074}
-  - component: {fileID: 3409103875551619110}
   m_Layer: 0
   m_Name: Character_BusinessMan_Shirt_02
   m_TagString: Untagged
@@ -1072,7 +1071,7 @@ Animator:
   m_GameObject: {fileID: 153506}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 897b34267f422c1499700402763d096e, type: 3}
-  m_Controller: {fileID: 9100000, guid: 7ff010fb368a3e04b86cd7e59ee7d270, type: 2}
+  m_Controller: {fileID: 9100000, guid: 48b2b36ba586ba346bc5b62b818637d0, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1081,21 +1080,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!111 &3409103875551619110
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153506}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &156172
 GameObject:
   m_ObjectHideFlags: 0

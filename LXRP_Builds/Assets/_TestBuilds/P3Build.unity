@@ -2026,6 +2026,76 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mentone Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1439360434194176697, guid: 6ecfd0f8118752f41960bc406f52171f,
+        type: 3}
+      propertyPath: editorData.vertexPathUpToDate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439360434194176697, guid: 6ecfd0f8118752f41960bc406f52171f,
+        type: 3}
+      propertyPath: editorData._bezierPath.points.Array.data[5].x
+      value: 4.5961275
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439360434194176697, guid: 6ecfd0f8118752f41960bc406f52171f,
+        type: 3}
+      propertyPath: editorData._bezierPath.points.Array.data[5].y
+      value: -0.0038039833
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439360434194176697, guid: 6ecfd0f8118752f41960bc406f52171f,
+        type: 3}
+      propertyPath: editorData._bezierPath.points.Array.data[5].z
+      value: 1.439745
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439360433838739080, guid: 6ecfd0f8118752f41960bc406f52171f,
+        type: 3}
+      propertyPath: editorData._bezierPath.points.Array.data[8].y
+      value: -0.017566197
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439360433838739080, guid: 6ecfd0f8118752f41960bc406f52171f,
+        type: 3}
+      propertyPath: editorData._bezierPath.points.Array.data[9].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439360433838739080, guid: 6ecfd0f8118752f41960bc406f52171f,
+        type: 3}
+      propertyPath: editorData.vertexPathUpToDate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439360434687424129, guid: 6ecfd0f8118752f41960bc406f52171f,
+        type: 3}
+      propertyPath: editorData.vertexPathUpToDate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439360434687424129, guid: 6ecfd0f8118752f41960bc406f52171f,
+        type: 3}
+      propertyPath: editorData._bezierPath.points.Array.data[1].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439360434687424129, guid: 6ecfd0f8118752f41960bc406f52171f,
+        type: 3}
+      propertyPath: editorData._bezierPath.points.Array.data[5].y
+      value: -0.0018679574
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439360434687424129, guid: 6ecfd0f8118752f41960bc406f52171f,
+        type: 3}
+      propertyPath: editorData._bezierPath.points.Array.data[6].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439360434687424129, guid: 6ecfd0f8118752f41960bc406f52171f,
+        type: 3}
+      propertyPath: editorData._bezierPath.points.Array.data[7].y
+      value: 0.004287809
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439360434687424129, guid: 6ecfd0f8118752f41960bc406f52171f,
+        type: 3}
+      propertyPath: editorData._bezierPath.points.Array.data[8].y
+      value: -0.017566197
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439360434687424129, guid: 6ecfd0f8118752f41960bc406f52171f,
+        type: 3}
+      propertyPath: editorData._bezierPath.points.Array.data[9].y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 662243427642691323, guid: 6ecfd0f8118752f41960bc406f52171f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2080,6 +2150,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439360434687424134, guid: 6ecfd0f8118752f41960bc406f52171f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.115
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439360433838739081, guid: 6ecfd0f8118752f41960bc406f52171f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.115
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ecfd0f8118752f41960bc406f52171f, type: 3}

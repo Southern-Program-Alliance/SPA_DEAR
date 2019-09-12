@@ -29,10 +29,10 @@ public class CharacterSpawnner : MonoBehaviour
         _arrayCharacterPool = new GameObject[_objPoolAmt];
         for (int i = 0; i < _objPoolAmt; i++)
         {
-            GameObject car = Instantiate(characterArray[Random.Range(0, characterArray.Length)]);
-            car.SetActive(false);
-            car.transform.parent = this.gameObject.transform;
-            _arrayCharacterPool[i] = car;
+            GameObject pedestrian = Instantiate(characterArray[Random.Range(0, characterArray.Length)]);
+            pedestrian.SetActive(false);
+            pedestrian.transform.parent = this.gameObject.transform;
+            _arrayCharacterPool[i] = pedestrian;
         }
 
         //Clear array
@@ -47,14 +47,15 @@ public class CharacterSpawnner : MonoBehaviour
 
         for (int i = 0; i < _objPoolAmt && _canSpawn; i++)
         {
-            GameObject spawnCharacter = _arrayCharacterPool[i];
+            GameObject spawnedPedestrian = _arrayCharacterPool[i];
 
             // Skip if already active
-            if (spawnCharacter.activeSelf)
+            if (spawnedPedestrian.activeSelf)
                 continue;
 
-            // Add Car Script containing the Path follower code
-            PathFollower pathFollowComponent = spawnCharacter.AddComponent<PathFollower>();
+            // Add Path Follower Component with PedAnimController
+            PathFollower pathFollowComponent = spawnedPedestrian.AddComponent<PathFollower>();
+            spawnedPedestrian.AddComponent<PedAnimController>();
 
             // Choose a random path in the scene
             PathCreator path = _arrayPath[Random.Range(0, _arrayPath.Length)];
@@ -62,10 +63,10 @@ public class CharacterSpawnner : MonoBehaviour
             pathFollowComponent.endOfPathInstruction = EndOfPathInstruction.Loop;
             pathFollowComponent.speed = 0.5f;
             // Make it child of the path gameobject
-            spawnCharacter.transform.parent = path.gameObject.transform;
+            spawnedPedestrian.transform.parent = path.gameObject.transform;
 
             yield return new WaitForSeconds(Random.Range(1 , 5));
-            spawnCharacter.SetActive(true);
+            spawnedPedestrian.SetActive(true);
         }
     }
 }
