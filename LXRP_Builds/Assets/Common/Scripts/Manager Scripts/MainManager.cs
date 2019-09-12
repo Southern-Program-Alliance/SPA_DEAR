@@ -65,7 +65,6 @@ public class MainManager : MonoBehaviour
                     {
                         Debug.Log("Traffic Light Object Clicked");
 
-                        SelectTrafficLight(hit.collider.gameObject);
                         hit.collider.gameObject.GetComponentInParent<TrafficLightScript>().OnTrafficButtonPress();
                     }
                 }
@@ -94,7 +93,6 @@ public class MainManager : MonoBehaviour
                     {
                         Debug.Log("Traffic Light Object Clicked");
 
-                        SelectTrafficLight(hit.collider.gameObject);
                         hit.collider.gameObject.GetComponentInParent<TrafficLightScript>().OnTrafficButtonPress();
                     }
                 }
@@ -113,11 +111,6 @@ public class MainManager : MonoBehaviour
 
         _GoSelected = newPlayer;
         _GoSelected.GetComponent<PlayerScript>().SwitchComponents(true);
-    }
-
-    private void SelectTrafficLight(GameObject newLight)
-    {
-
     }
 
     private void Start()
