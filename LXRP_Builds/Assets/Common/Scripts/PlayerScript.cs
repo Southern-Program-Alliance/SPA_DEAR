@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CustomCharacterController))]
+[RequireComponent(typeof(PlayerAnimController))]
 [RequireComponent(typeof(CapsuleCollider))]
 [RequireComponent(typeof(PathCreation.PathFollower))]
 
 public class PlayerScript : MonoBehaviour
 {
     [SerializeField] Outline _compOutline = null;
-    [SerializeField] CustomCharacterController _compCusCharCon = null;
+    [SerializeField] PlayerAnimController _animController = null;
     [SerializeField] GameObject _compPointer = null;
 
     [SerializeField] PathCreation.PathFollower _pathFollower = null;
@@ -28,7 +28,7 @@ public class PlayerScript : MonoBehaviour
     public void SwitchComponents(bool condition)
     {
         _compOutline.enabled = condition;
-        _compCusCharCon.enabled = condition;
+        _animController.enabled = condition;
         _compPointer.SetActive(condition);
 
         _pathFollower.enabled = !condition;
@@ -47,9 +47,9 @@ public class PlayerScript : MonoBehaviour
             Debug.Log("Outline : Ref Missing - on " +  transform.name);
             check = false;
         }
-        else if(_compCusCharCon == null)
+        else if(_animController == null)
         {
-            Debug.Log("CustomCharacterController : Ref Missing - on " + transform.name);
+            Debug.Log(" PlayerAnimController : Ref Missing - on " + transform.name);
             check = false;
         }
         else if (_compPointer == null)

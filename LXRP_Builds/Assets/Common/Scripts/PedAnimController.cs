@@ -26,7 +26,6 @@ public class PedAnimController : MonoBehaviour
         pathFollower.speed = speedArray[Random.Range(0, speedArray.Length)];
     }
 
-
     void Update()
     {
         if (pathFollower.isActiveAndEnabled)

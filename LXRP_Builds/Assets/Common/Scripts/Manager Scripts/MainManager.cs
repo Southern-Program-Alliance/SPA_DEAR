@@ -67,7 +67,7 @@ public class MainManager : MonoBehaviour
 
     IEnumerator PlayerSpawn()
     {
-        yield return new WaitForSeconds(Random.Range(10, 40));
+        yield return new WaitForSeconds(Random.Range(5, 10));
 
         foreach (PlayerScript player in _arrayPlayers)
         {

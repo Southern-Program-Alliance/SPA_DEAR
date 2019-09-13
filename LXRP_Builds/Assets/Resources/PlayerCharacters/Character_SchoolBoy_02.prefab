@@ -165,9 +165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b833eaabb12284fa18524eb1d14326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  agent: {fileID: -7228812408404242622}
-  animator: {fileID: 95740887893988248, guid: 96569b0a77626434b85e0ca0bc135b80, type: 3}
 --- !u!136 &-2323914437381971452
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -195,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _compOutline: {fileID: -2681579719783884690}
-  _compCusCharCon: {fileID: -4447433246551842802}
+  _animController: {fileID: -4447433246551842802}
   _compPointer: {fileID: 1052995327280890}
   _pathFollower: {fileID: -8309712235707466662}
 --- !u!114 &-2681579719783884690
