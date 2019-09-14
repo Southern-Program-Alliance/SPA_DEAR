@@ -9,9 +9,13 @@ public class InputManager : MonoBehaviour
     private Ray ray;
     private RaycastHit hit;
 
+    [SerializeField] LayerMask shpereCastLayer;
+    [SerializeField] float shpereCastRadius = 0.05f;
+
     private GameObject selectedCharacter;
 
     private bool movable;
+    public bool Movable { get => movable; set => movable = value; }
 
     private void Awake()
     {
@@ -19,9 +23,10 @@ public class InputManager : MonoBehaviour
         MainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
         selectedCharacter = null;
-        movable = false;
+        Movable = false;
     }
 
+    #region Casting Methods
     void Update()
     {
         // Listen for input on mobile
@@ -29,8 +34,7 @@ public class InputManager : MonoBehaviour
         {
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
-                ray = MainCam.ScreenPointToRay(Input.GetTouch(0).position);
-                InitiateRaycast();
+                InitiateCast();
             }
         }
         // Listen for input on editor
@@ -38,38 +42,54 @@ public class InputManager : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                ray = MainCam.ScreenPointToRay(Input.mousePosition);
-                InitiateRaycast();
+                InitiateCast();
             }
         }
     }
 
-    private void InitiateRaycast()
+    private void InitiateCast()
     {
-        // If raycast hits the interactable layer
-        if (Physics.Raycast(ray, out hit, 200))
+        Vector3 rayOrigin = MainCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
+
+        // If movable then Raycast
+        if (Movable)
         {
-            Debug.Log("Initiating Raycast");
-            if (movable)
-            {   
-                if (hit.transform.tag == "TrafficLight")
+            if (Physics.Raycast(rayOrigin, MainCam.transform.forward, out hit, 200))
+            {
+                //Debug.DrawRay(rayOrigin, MainCam.transform.forward, Color.red, 1f);
+                if (Movable)
                 {
-                    HandleTrafficControllerHit(hit.collider.gameObject);
-                }
-                else
-                {
-                    HandleWalkableHit(hit.point);
+                    if (hit.transform.tag == "TrafficLight")
+                    {
+                        HandleTrafficControllerHit(hit.collider.gameObject);
+                        return;
+                    }
+                    else
+                    {
+                        HandleWalkableHit(hit.point);
+                        return;
+                    }
                 }
             }
+            return;
+        }
+
+        // Else sphere cast
+        else if(Physics.SphereCast(rayOrigin, shpereCastRadius, MainCam.transform.forward, out hit, 100f, shpereCastLayer))
+        {
+            //Debug.DrawRay(rayOrigin, MainCam.transform.forward, Color.green, 1f);
 
             if (hit.transform.tag == "Player")
             {
-                Debug.Log("Player Character Object Clicked");
+                //Debug.Log("Player Character Object Clicked");
                 HandlePlayerHit(hit.collider.gameObject);
             }
-        }
+        }        
     }
+    #endregion
 
+
+    #region Cast Hit Handler Methods
     private void HandleWalkableHit(Vector3 pos)
     {
         // If no character is selected
@@ -80,11 +100,13 @@ public class InputManager : MonoBehaviour
         TargetLocation.Instance.SetLocation(pos);
     }
 
+
     private void HandlePlayerHit(GameObject clickedPlayer)
     {
         SelectNewPlayer(hit.collider.gameObject);
         movable = true;
     }
+
 
     private void HandleTrafficControllerHit(GameObject clickedTrafficController)
     {
@@ -92,6 +114,7 @@ public class InputManager : MonoBehaviour
 
         hit.collider.gameObject.GetComponentInParent<TrafficLightScript>().OnTrafficButtonPress();
     }
+
 
     private void SelectNewPlayer(GameObject newPlayer)
     {
@@ -104,4 +127,5 @@ public class InputManager : MonoBehaviour
         selectedCharacter = newPlayer;
         selectedCharacter.GetComponent<PlayerScript>().SwitchComponents(true);
     }
+    #endregion
 }
