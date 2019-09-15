@@ -1,11 +1,11 @@
-﻿public enum GameState
+﻿public enum GAMESTATE
 {
     BLANK,
     BEGIN,
     PLACED,
 }
 
-public enum ARState
+public enum ARSTATE
 {
     BLANK,
     TUTORIAL,

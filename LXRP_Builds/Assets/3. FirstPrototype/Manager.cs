@@ -9,7 +9,7 @@ public class Manager : MonoBehaviour
     [SerializeField] WorldPlacementScript placementScript = null;
     [SerializeField] GameObject schoolKid = null;
 
-    private GameState curState = GameState.BLANK;
+    private GAMESTATE curState = GAMESTATE.BLANK;
 
     private void Awake()
     {
@@ -24,15 +24,15 @@ public class Manager : MonoBehaviour
 
     void Start()
     {
-        SetState(GameState.BEGIN);
+        SetState(GAMESTATE.BEGIN);
     }
 
     public void PSetState(int state)
     {
-        SetState((GameState)state);
+        SetState((GAMESTATE)state);
     }
 
-    void SetState(GameState newState)
+    void SetState(GAMESTATE newState)
     {
         if (curState == newState)
         {
@@ -45,17 +45,17 @@ public class Manager : MonoBehaviour
     }
 
     // Function to set up animations on state changes
-    void HandleStateChangedEvent(GameState state)
+    void HandleStateChangedEvent(GAMESTATE state)
     {
         // Starting state of the game
-        if (state == GameState.BEGIN)
+        if (state == GAMESTATE.BEGIN)
         {
             //Debug.Log("Manager started");
             placementScript.enabled = true;
         }
 
         // Once the player places the object
-        if (state == GameState.PLACED)
+        if (state == GAMESTATE.PLACED)
         {
             //Debug.Log("World placed");
 

@@ -8,6 +8,7 @@ TagManager:
   - TrafficLight
   - TrafficButton
   - Vehicle
+  - MainCanvas
   layers:
   - Default
   - TransparentFX

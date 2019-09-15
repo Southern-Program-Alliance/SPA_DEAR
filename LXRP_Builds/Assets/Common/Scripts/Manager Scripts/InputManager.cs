@@ -29,21 +29,19 @@ public class InputManager : MonoBehaviour
     #region Casting Methods
     void Update()
     {
-        // Listen for input on mobile
-        if (!Application.isEditor)
-        {
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-            {
-                InitiateCast();
-            }
-        }
-        // Listen for input on editor
-        else
+        // Listen for input on the editor
+        if (Application.isEditor)
         {
             if (Input.GetMouseButtonDown(0))
             {
                 InitiateCast();
             }
+            return;
+        }
+
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            InitiateCast();
         }
     }
 

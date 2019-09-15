@@ -43,15 +43,20 @@ public class CharacterSpawnner : MonoBehaviour
 
     IEnumerator SpawnCountdown()
     {
+        Debug.Log("SpawnCountdown of Character Spawnner started");
         yield return new WaitForSeconds(3.0f);
 
         for (int i = 0; i < _objPoolAmt && _canSpawn; i++)
         {
             GameObject spawnedPedestrian = _arrayCharacterPool[i];
 
+            Debug.Log("asdfhgasdfkjhgasdfkhjgasdfs-------------------");
+
             // Skip if already active
             if (spawnedPedestrian.activeSelf)
                 continue;
+
+            Debug.Log("----------------------------------------------");
 
             // Add Path Follower Component with PedAnimController
             PathFollower pathFollowComponent = spawnedPedestrian.AddComponent<PathFollower>();

@@ -14,19 +14,16 @@ public class WorldPlacementScript : MonoBehaviour
 {
     private ARRaycastManager arRaycast;
     private ARSessionOrigin arOrigin;
-    private Pose placementPose;
-    private bool placementPoseIsValid = false;
+    private Camera mainCam;
 
-    private bool ObjectPlaced = false;
-
-    // Variables for placement script state machine
-    private ARState curState = ARState.BLANK;
+    private bool isObjectPlaced = false;
+    private ARSTATE CURRSTATE = ARSTATE.BLANK;
 
     [SerializeField] GameObject objectToPlace = null;
     [SerializeField] GameObject placementIndicator = null;
-    Camera MainCam = null;
 
-    [SerializeField] MainManager manager = null;
+    private Pose placementPose;
+    private bool placementPoseIsValid = false;
 
     [Space]
     /// The time to delay, after ARCore loses tracking of any planes, showing the plane
@@ -80,86 +77,96 @@ public class WorldPlacementScript : MonoBehaviour
     [Tooltip("The Game Object that contains the button to close the help window.")]
     [SerializeField] private Button m_GotItButton = null;
 
+    [Space][Space]
     /// The elapsed time ARCore has been detecting at least one plane.
-    private float m_DetectedPlaneElapsed = 0;
+    [SerializeField] private float m_DetectedPlaneElapsed = 0;
 
     /// The elapsed time ARCore has been tracking but not detected any planes.
-    private float m_NotDetectedPlaneElapsed;
+    [SerializeField] private float m_NotDetectedPlaneElapsed;
 
     /// Indicates whether a lost tracking reason is displayed.
-    private bool m_IsLostTrackingDisplayed;
+    [SerializeField] private bool m_IsLostTrackingDisplayed;
 
-    void Start()
+    private void Awake()
     {
-        MainCam = GameObject.FindObjectOfType<Camera>();
-
-        // Disable and log error if missing references 
-        _CheckFieldsAreNotNull();
+        mainCam = GameObject.FindObjectOfType<Camera>();
 
         arRaycast = GetComponent<ARRaycastManager>();
         arOrigin = GetComponent<ARSessionOrigin>();
+
+        m_OpenButton.GetComponent<Button>().onClick.AddListener(_OnOpenButtonClicked);
+        m_GotItButton.onClick.AddListener(_OnGotItButtonClicked);
+    }
+
+    void Start()
+    {
+        // Disable and log error if missing references 
+        _CheckFieldsAreNotNull();
 
         // Disable world model
         objectToPlace.SetActive(false);
 
         // Start the state machince
-        SetState(ARState.TUTORIAL);
+        //SetState(ARSTATE.BLANK);
+    }
+
+    public void OnDestroy()
+    {
+        m_OpenButton.GetComponent<Button>().onClick.RemoveListener(_OnOpenButtonClicked);
+        m_GotItButton.onClick.RemoveListener(_OnGotItButtonClicked);
     }
 
     // Function to change the state
-    void SetState(ARState newState)
+    public void SetState(ARSTATE newState)
     {
-        if (curState == newState)
+        if (CURRSTATE == newState)
         {
             return;
         }
 
-        curState = newState;
-        Debug.Log(curState);
-        HandleStateChangedEvent(curState);
+        Debug.Log("ARSTATE change from:  " + CURRSTATE + "  to:  " + newState);
+        CURRSTATE = newState;
+        HandleStateChangedEvent(CURRSTATE);
     }
 
     // Function to handle state changes
-    void HandleStateChangedEvent(ARState state)
+    void HandleStateChangedEvent(ARSTATE state)
     {
         // Show tutorial
-        if (state == ARState.TUTORIAL)
+        if (state == ARSTATE.TUTORIAL)
         {
-            Debug.Log("Playing Tutorial");
             placementIndicator.SetActive(false);
         }
 
         // Starting state of the game
-        if (state == ARState.PLACEMENT)
+        if (state == ARSTATE.PLACEMENT)
         {
-            Debug.Log("Placement Started");
+            
         }
 
-        if(state == ARState.PLACED)
+        if(state == ARSTATE.PLACED)
         {
-            Debug.Log("World Placed");
-            ObjectPlaced = true;
-            m_SnackBar.SetActive(false);
+            isObjectPlaced = true;
 
-            // Change the state of the Game Manager to 'Placed'
-            
-        //Manager.instance.PSetState(2);
+            m_HandAnimation.enabled = false;
+            m_SnackBar.SetActive(false);
+            m_OpenButton.SetActive(false);
+
+            MainManager.Instance.SetState(GAMESTATE.PLACED);
         }
     }
 
     void Update()
     {
         // Dont pass if world is already placed.
-        if (ObjectPlaced)
+        if (isObjectPlaced)
             return;
 
-        Debug.Log("Placement script working");
-
-        if(curState == ARState.TUTORIAL)
+        if(CURRSTATE == ARSTATE.TUTORIAL)
         {
             UpdatePlacementPose(); // Check for trackable plane surfaces
 
-            if(m_NotDetectedPlaneElapsed > DisplayGuideDelay)
+            if (m_NotDetectedPlaneElapsed > DisplayGuideDelay)
             {
                 if (!m_HandAnimation.enabled)
                 {
@@ -177,10 +184,11 @@ public class WorldPlacementScript : MonoBehaviour
                 }
                 else
                 {
-                    m_SnackBarText.text = "Point your camera to where you want to place an object.";
+                    m_SnackBarText.text = "Look for a flat surface with objects near it.";
                     m_OpenButton.SetActive(false);
                 }
             }
+
             else if (m_NotDetectedPlaneElapsed <= 0f || m_DetectedPlaneElapsed > k_AnimationHideDelay)
             {
                 m_OpenButton.SetActive(false);
@@ -196,26 +204,56 @@ public class WorldPlacementScript : MonoBehaviour
                 m_SnackBar.SetActive(true);
                 m_SnackBarText.text = "Point your camera to where you want to place an object.";
 
-                SetState(ARState.PLACEMENT);
+                SetState(ARSTATE.PLACEMENT);
             }
         }
 
-        else if(curState == ARState.PLACEMENT)
+        else if(CURRSTATE == ARSTATE.PLACEMENT)
         {
+            //Placeobject at origin if in the editor
+            if (Application.isEditor)
+            {
+                PlaceObject(Vector3.zero, Quaternion.identity);
+                return;
+            }
+
             UpdatePlacementPose(); // Check for trackable plane surfaces
             UpdatePlacementIndicator();
 
             // If player taps the screen when a plane is detected
             if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
-                PlaceObject();
+                PlaceObject(placementPose.position, placementPose.rotation);
             }
         }
     }
 
+    /// <summary>
+    /// Callback executed when the open button has been clicked by the user.
+    /// </summary>
+    private void _OnOpenButtonClicked()
+    {
+        m_MoreHelpWindow.SetActive(true);
+
+        enabled = false;
+        //-------------------------------------------------------------------------
+        //m_FeaturePoints.SetActive(false);
+        m_HandAnimation.enabled = false;
+        m_SnackBar.SetActive(false);
+    }
+
+    /// <summary>
+    /// Callback executed when the got-it button has been clicked by the user.
+    /// </summary>
+    private void _OnGotItButtonClicked()
+    {
+        m_MoreHelpWindow.SetActive(false);
+        enabled = true;
+    }
+
     private void UpdatePlacementPose()
     {
-        var screenCenter = MainCam.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
+        var screenCenter = mainCam.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
         var hits = new List<ARRaycastHit>();
         arRaycast.Raycast(screenCenter, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
 
@@ -227,14 +265,14 @@ public class WorldPlacementScript : MonoBehaviour
 
             placementPose = hits[0].pose;
 
-            var cameraForward = MainCam.transform.forward;
+            var cameraForward = mainCam.transform.forward;
             var cameraBearing = new Vector3(cameraForward.x, 0, cameraForward.z).normalized;
             placementPose.rotation = Quaternion.LookRotation(cameraBearing);
         }
         else
         {
             m_DetectedPlaneElapsed += 0;
-            m_NotDetectedPlaneElapsed = Time.deltaTime;
+            m_NotDetectedPlaneElapsed += Time.deltaTime;
         }
     }
 
@@ -251,15 +289,15 @@ public class WorldPlacementScript : MonoBehaviour
         }
     }
 
-    private void PlaceObject()
+    private void PlaceObject(Vector3 pos, Quaternion rot)
     {
         //Instantiate(objectToPlace, placementPose.position, placementPose.rotation);
         objectToPlace.SetActive(true);
 
-        objectToPlace.transform.position = placementPose.position;
-        objectToPlace.transform.rotation = placementPose.rotation;
+        objectToPlace.transform.position = pos;
+        objectToPlace.transform.rotation = rot;
 
-        SetState(ARState.PLACED);
+        SetState(ARSTATE.PLACED);
     }
 
 
