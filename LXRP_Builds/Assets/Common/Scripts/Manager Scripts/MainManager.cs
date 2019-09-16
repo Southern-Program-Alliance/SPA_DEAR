@@ -17,9 +17,13 @@ public class MainManager : MonoBehaviour
     GameObject currentPlayerCharacter;
     public GameObject CurrentPlayerCharacter { get => currentPlayerCharacter; set => currentPlayerCharacter = value; }
 
-    [SerializeField] WorldPlacementScript placementScript;
+    [SerializeField] WorldPlacementScript placementScript = null;
 
     [SerializeField] PlayerScript[] _arrayPlayers = null;
+
+    [Space]
+    [SerializeField] CarSpawnner carSpawnner = null;
+    [SerializeField] CharacterSpawnner characterSpawnner = null;
 
     private void Awake()
     {
@@ -81,14 +85,20 @@ public class MainManager : MonoBehaviour
 
     void StartGame()
     {
-        placementScript.enabled = false;
+        //placementScript.enabled = false;
 
         StartCoroutine(PlayerSpawn());
+
+        // Start Spawnning
+        carSpawnner.StartCarSpawn();
+        characterSpawnner.StartPedSpawn();
     }
 
     IEnumerator PlayerSpawn()
     {
         yield return new WaitForSeconds(UnityEngine.Random.Range(5, 10));
+
+        Debug.Log("Player Spawnner started");
 
         foreach (PlayerScript player in _arrayPlayers)
         {

@@ -5,22 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/2. BasicPlacement/1. MBasicPlacement.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: Assets/3. FirstPrototype/2. MPlacement.unity
-    guid: b78d383222051984f8c3eb69871c2289
-  - enabled: 0
-    path: Assets/4. SecondPrototype/TestingGround.unity
-    guid: e6329d54855422544a8695947e21904c
-  - enabled: 0
-    path: Assets/_TestBuilds/TestingBuild.unity
-    guid: 3c518f5dda67471498ea48c2a538c9a5
-  - enabled: 0
-    path: Assets/_TestBuilds/P3Build.unity
-    guid: d4f32927c70781c45aa534b69f37c2d6
   - enabled: 1
-    path: Assets/1. Final/Final Game.unity
+    path: Assets/1. Final/MainMenu.unity
+    guid: 1ddfae8ab28a32546891e5ff18fdcef2
+  - enabled: 1
+    path: Assets/1. Final/MainLevel.unity
     guid: 575c910af577b794c9686a2eb7090a49
   m_configObjects: {}

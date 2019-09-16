@@ -24,7 +24,7 @@ public class CarSpawnner : MonoBehaviour
         Random.InitState(System.DateTime.Now.Millisecond);
 
         InitialzePool(_vehicleArray);
-        StartCoroutine(SpawnCountdown());
+        //StartCoroutine(SpawnCountdown());
     }
 
 
@@ -45,10 +45,17 @@ public class CarSpawnner : MonoBehaviour
         vehicleArray = null;
     }
 
-
-    IEnumerator SpawnCountdown()
+    public void StartCarSpawn()
     {
-        for(int i = 0; i < _objPoolAmt && _canSpawn; i++)
+        StartCoroutine(VehicleSpawnCountdown());
+    }
+
+    IEnumerator VehicleSpawnCountdown()
+    {
+        yield return new WaitForSeconds(1.0f);
+        Debug.Log("Vehicle Spawnner started");
+
+        for (int i = 0; i < _objPoolAmt && _canSpawn; i++)
         {
             GameObject spawnCar = _arrayVehiclePool[i];
 

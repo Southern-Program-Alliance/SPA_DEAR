@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class InputManager : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class InputManager : MonoBehaviour
 
         selectedCharacter = null;
         Movable = false;
+
+        Input.multiTouchEnabled = false;
     }
 
     #region Casting Methods
@@ -41,7 +44,8 @@ public class InputManager : MonoBehaviour
 
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            InitiateCast();
+            if (!EventSystem.current.IsPointerOverGameObject(0))
+                InitiateCast();
         }
     }
 
@@ -90,12 +94,16 @@ public class InputManager : MonoBehaviour
     #region Cast Hit Handler Methods
     private void HandleWalkableHit(Vector3 pos)
     {
+        TargetLocation.Instance.gameObject.SetActive(false);
+
         // If no character is selected
         if (!selectedCharacter)
             return;
 
         selectedCharacter.GetComponent<NavMeshAgent>().SetDestination(pos);
         TargetLocation.Instance.SetLocation(pos);
+
+        TargetLocation.Instance.gameObject.SetActive(true);
     }
 
 

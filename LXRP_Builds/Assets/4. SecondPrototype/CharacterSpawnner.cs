@@ -19,7 +19,7 @@ public class CharacterSpawnner : MonoBehaviour
         Random.InitState(System.DateTime.Now.Millisecond);
 
         InitialzePool(_characterArray);
-        StartCoroutine(SpawnCountdown());
+        //StartCoroutine(SpawnCountdown());
     }
 
 
@@ -41,37 +41,37 @@ public class CharacterSpawnner : MonoBehaviour
     }
 
 
-    IEnumerator SpawnCountdown()
+    public void StartPedSpawn()
     {
-        Debug.Log("SpawnCountdown of Character Spawnner started");
-        yield return new WaitForSeconds(3.0f);
+        StartCoroutine(PedSpawnCountdown());
+    }
+
+    IEnumerator PedSpawnCountdown()
+    {
+        Debug.Log("Character Spawnner started");
 
         for (int i = 0; i < _objPoolAmt && _canSpawn; i++)
         {
             GameObject spawnedPedestrian = _arrayCharacterPool[i];
 
-            Debug.Log("asdfhgasdfkjhgasdfkhjgasdfs-------------------");
-
             // Skip if already active
             if (spawnedPedestrian.activeSelf)
                 continue;
-
-            Debug.Log("----------------------------------------------");
 
             // Add Path Follower Component with PedAnimController
             PathFollower pathFollowComponent = spawnedPedestrian.AddComponent<PathFollower>();
             spawnedPedestrian.AddComponent<PedAnimController>();
 
             // Choose a random path in the scene
-            PathCreator path = _arrayPath[Random.Range(0, _arrayPath.Length)];
+            PathCreator path = _arrayPath[UnityEngine.Random.Range(0, _arrayPath.Length)];
             pathFollowComponent.pathCreator = path;
             pathFollowComponent.endOfPathInstruction = EndOfPathInstruction.Loop;
             pathFollowComponent.speed = 0.5f;
             // Make it child of the path gameobject
             spawnedPedestrian.transform.parent = path.gameObject.transform;
-
-            yield return new WaitForSeconds(Random.Range(1 , 5));
             spawnedPedestrian.SetActive(true);
+
+            yield return new WaitForSeconds(UnityEngine.Random.Range(1 , 5));   
         }
     }
 }

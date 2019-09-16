@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.UI;
-//using UnityEngine.XR.ARSubsystems;
-//using UnityEngine.Experimental.XR;
 using System;
 
 [RequireComponent(typeof(ARRaycastManager))]
@@ -82,10 +80,10 @@ public class WorldPlacementScript : MonoBehaviour
     [SerializeField] private float m_DetectedPlaneElapsed = 0;
 
     /// The elapsed time ARCore has been tracking but not detected any planes.
-    [SerializeField] private float m_NotDetectedPlaneElapsed;
+    [SerializeField] private float m_NotDetectedPlaneElapsed = 0.0f;
 
     /// Indicates whether a lost tracking reason is displayed.
-    [SerializeField] private bool m_IsLostTrackingDisplayed;
+    //[SerializeField] private bool m_IsLostTrackingDisplayed = false;
 
     private void Awake()
     {
@@ -101,7 +99,8 @@ public class WorldPlacementScript : MonoBehaviour
     void Start()
     {
         // Disable and log error if missing references 
-        _CheckFieldsAreNotNull();
+        if(!CheckMissingRefs())
+            return;
 
         // Disable world model
         objectToPlace.SetActive(false);
@@ -132,16 +131,20 @@ public class WorldPlacementScript : MonoBehaviour
     // Function to handle state changes
     void HandleStateChangedEvent(ARSTATE state)
     {
+        if (CURRSTATE != state)
+            return;
+
         // Show tutorial
         if (state == ARSTATE.TUTORIAL)
         {
             placementIndicator.SetActive(false);
+            return;
         }
 
         // Starting state of the game
         if (state == ARSTATE.PLACEMENT)
         {
-            
+            return;
         }
 
         if(state == ARSTATE.PLACED)
@@ -153,6 +156,7 @@ public class WorldPlacementScript : MonoBehaviour
             m_OpenButton.SetActive(false);
 
             MainManager.Instance.SetState(GAMESTATE.PLACED);
+            return;
         }
     }
 
@@ -304,41 +308,51 @@ public class WorldPlacementScript : MonoBehaviour
     /// <summary>
     /// Checks the required fields are not null, and logs a Warning otherwise.
     /// </summary>
-    private void _CheckFieldsAreNotNull()
+    private bool CheckMissingRefs()
     {
         if (m_MoreHelpWindow == null)
         {
-            Debug.LogError("MoreHelpWindow is null");
+            Debug.LogError("WorldPlacementScript: Reference missing - MoreHelpWindow");
+            return false;
         }
 
-        if (m_GotItButton == null)
+        else if (m_GotItButton == null)
         {
-            Debug.LogError("GotItButton is null");
+            Debug.LogError("WorldPlacementScript: Reference missing - GotItButton");
+            return false;
         }
 
-        if (m_SnackBarText == null)
+        else if (m_SnackBarText == null)
         {
-            Debug.LogError("SnackBarText is null");
+            Debug.LogError("WorldPlacementScript: Reference missing - SnackBarText");
+            return false;
         }
 
-        if (m_SnackBar == null)
+        else if (m_SnackBar == null)
         {
-            Debug.LogError("SnackBar is null");
+            Debug.LogError("WorldPlacementScript: Reference missing - SnackBar");
+            return false;
         }
 
-        if (m_OpenButton == null)
+        else if (m_OpenButton == null)
         {
-            Debug.LogError("OpenButton is null");
+            Debug.LogError("WorldPlacementScript: Reference missing - OpenButton");
+            return false;
         }
+
         else if (m_OpenButton.GetComponent<Button>() == null)
         {
-            Debug.LogError("OpenButton does not have a Button Component.");
+            Debug.LogError("WorldPlacementScript: Reference missing - OpenButton");
+            return false;
         }
 
-        if (m_HandAnimation == null)
+        else if (m_HandAnimation == null)
         {
-            Debug.LogError("HandAnimation is null");
+            Debug.LogError("WorldPlacementScript: Reference missing - HandAnimation");
+            return false;
         }
+
+        return true;
     }
 
 }
