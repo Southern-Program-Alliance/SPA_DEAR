@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
 using UnityEngine.UI;
 using System;
 
@@ -12,6 +13,7 @@ public class WorldPlacementScript : MonoBehaviour
 {
     private ARRaycastManager arRaycast;
     private ARSessionOrigin arOrigin;
+    private ARSession arSession;
     private Camera mainCam;
 
     private bool isObjectPlaced = false;
@@ -91,6 +93,7 @@ public class WorldPlacementScript : MonoBehaviour
 
         arRaycast = GetComponent<ARRaycastManager>();
         arOrigin = GetComponent<ARSessionOrigin>();
+        arSession = FindObjectOfType<ARSession>();
 
         m_OpenButton.GetComponent<Button>().onClick.AddListener(_OnOpenButtonClicked);
         m_GotItButton.onClick.AddListener(_OnGotItButtonClicked);
@@ -109,10 +112,14 @@ public class WorldPlacementScript : MonoBehaviour
         //SetState(ARSTATE.BLANK);
     }
 
+
     public void OnDestroy()
     {
-        m_OpenButton.GetComponent<Button>().onClick.RemoveListener(_OnOpenButtonClicked);
-        m_GotItButton.onClick.RemoveListener(_OnGotItButtonClicked);
+        if(m_OpenButton != null)
+            m_OpenButton.GetComponent<Button>().onClick.RemoveListener(_OnOpenButtonClicked);
+
+        if(m_GotItButton != null)
+            m_GotItButton.onClick.RemoveListener(_OnGotItButtonClicked);
     }
 
     // Function to change the state
@@ -159,6 +166,7 @@ public class WorldPlacementScript : MonoBehaviour
             return;
         }
     }
+
 
     void Update()
     {

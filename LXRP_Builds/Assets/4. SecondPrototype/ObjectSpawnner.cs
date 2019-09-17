@@ -15,6 +15,11 @@ public class ObjectSpawnner : MonoBehaviour
     {
         // Get all prefabs from the list 
         GameObject[] _characterArray = Resources.LoadAll<GameObject>("AICharacters");
+
+        // Get all prefabs from the list 
+        GameObject[] _vehicleArray = Resources.LoadAll<GameObject>("Vehicles");
+
+
         // Initialize Random Seed
         Random.InitState(System.DateTime.Now.Millisecond);
 

@@ -27,7 +27,10 @@ public class MenuManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        startGameButton.GetComponent<Button>().onClick.RemoveListener(OnStartGameButtonClicked);
-        exitButton.GetComponent<Button>().onClick.RemoveListener(OnExitButtonClicked);
+        if(startGameButton != null)
+            startGameButton.GetComponent<Button>().onClick.RemoveListener(OnStartGameButtonClicked);
+
+        if(exitButton != null)
+            exitButton.GetComponent<Button>().onClick.RemoveListener(OnExitButtonClicked);
     }
 }

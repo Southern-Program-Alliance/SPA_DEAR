@@ -9,6 +9,7 @@ TagManager:
   - TrafficButton
   - Vehicle
   - MainCanvas
+  - ARSession
   layers:
   - Default
   - TransparentFX

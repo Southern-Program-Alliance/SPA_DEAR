@@ -19,12 +19,13 @@ public class MainManager : MonoBehaviour
 
     [SerializeField] WorldPlacementScript placementScript = null;
 
+    [Space]
     [SerializeField] PlayerScript[] _arrayPlayers = null;
 
     [Space]
     [SerializeField] CarSpawnner carSpawnner = null;
     [SerializeField] CharacterSpawnner characterSpawnner = null;
-
+   
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -34,7 +35,7 @@ public class MainManager : MonoBehaviour
         else
         {
             _instance = this;
-        }
+        }      
     }
 
     private void Start()
@@ -42,6 +43,7 @@ public class MainManager : MonoBehaviour
         //StartCoroutine(PlayerSpawn());
         SetState(GAMESTATE.BEGIN);
     }
+
 
     // Function to change the state
     public void SetState(GAMESTATE newState)

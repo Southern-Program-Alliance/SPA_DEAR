@@ -7,9 +7,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] Button resetButton = null;
-
     [SerializeField] Button backToMenuButton = null;
-
 
     private void Start()
     {
