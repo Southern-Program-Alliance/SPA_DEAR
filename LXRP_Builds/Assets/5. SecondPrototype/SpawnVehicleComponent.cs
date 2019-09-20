@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using PathCreation;
-public class CarSpawnner : MonoBehaviour
+public class SpawnVehicleComponent : MonoBehaviour
 {
     [SerializeField] PathCreator[] _arrayPath = null;
 
-    [SerializeField] int _objPoolAmt = 25;
     [SerializeField] GameObject[] _arrayVehiclePool = null;
 
     [SerializeField] bool _canSpawn = true;
@@ -16,23 +15,16 @@ public class CarSpawnner : MonoBehaviour
         TrafficLightScript.stopCarSapwn += EventStopSpawn;
     }
 
-    void Start()
+
+    void InitialzePool(int poolAmt, int seed)
     {
+        Random.InitState(seed);
         // Get all prefabs from the list 
-        GameObject[] _vehicleArray = Resources.LoadAll<GameObject>("Vehicles");
-        // Initialize Random Seed
-        Random.InitState(System.DateTime.Now.Millisecond);
+        GameObject[] vehicleArray = Resources.LoadAll<GameObject>("Vehicles");
 
-        InitialzePool(_vehicleArray);
-        //StartCoroutine(SpawnCountdown());
-    }
-
-
-    void InitialzePool(GameObject[] vehicleArray)
-    {
         // Initialize Object Pool
-        _arrayVehiclePool = new GameObject[_objPoolAmt];
-        for (int i = 0; i < _objPoolAmt; i++)
+        _arrayVehiclePool = new GameObject[poolAmt];
+        for (int i = 0; i < poolAmt; i++)
         {
             GameObject car = Instantiate(vehicleArray[Random.Range(0, vehicleArray.Length)]);
             car.SetActive(false);
@@ -55,7 +47,7 @@ public class CarSpawnner : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         Debug.Log("Vehicle Spawnner started");
 
-        for (int i = 0; i < _objPoolAmt && _canSpawn; i++)
+        for (int i = 0; i <   && _canSpawn; i++)
         {
             GameObject spawnCar = _arrayVehiclePool[i];
 

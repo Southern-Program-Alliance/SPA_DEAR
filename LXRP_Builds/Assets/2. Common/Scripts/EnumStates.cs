@@ -13,3 +13,10 @@ public enum ARSTATE
     HELP,
     PLACED
 }
+
+public enum SPAWNSTATE
+{
+    PEDESTRAIN,
+    VEHILCES,
+    RULES
+}

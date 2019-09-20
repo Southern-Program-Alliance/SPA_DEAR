@@ -2,42 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 using PathCreation;
-public class CharacterSpawnner : MonoBehaviour
+public class SpawnPedestrianComponent : MonoBehaviour
 {
     [SerializeField] PathCreator[] _arrayPath = null;
 
-    [SerializeField] int _objPoolAmt = 25;
     [SerializeField] GameObject[] _arrayCharacterPool = null;
 
     [SerializeField] bool _canSpawn = true;
 
-    void Start()
+
+    void InitialzePool(int poolAmt, int seed)
     {
+        Random.InitState(seed);
+
         // Get all prefabs from the list 
-        GameObject[] _characterArray = Resources.LoadAll<GameObject>("AICharacters");
-        // Initialize Random Seed
-        Random.InitState(System.DateTime.Now.Millisecond);
+        GameObject[] characterArray = Resources.LoadAll<GameObject>("AICharacters");
 
-        InitialzePool(_characterArray);
-        //StartCoroutine(SpawnCountdown());
-    }
-
-
-    void InitialzePool(GameObject[] characterArray)
-    {
         // Initialize Object Pool
-        _arrayCharacterPool = new GameObject[_objPoolAmt];
-        for (int i = 0; i < _objPoolAmt; i++)
+        _arrayCharacterPool = new GameObject[poolAmt];
+        for (int i = 0; i < poolAmt; i++)
         {
-            GameObject pedestrian = Instantiate(characterArray[Random.Range(0, characterArray.Length)]);
-            pedestrian.SetActive(false);
-            pedestrian.transform.parent = this.gameObject.transform;
-            _arrayCharacterPool[i] = pedestrian;
+            SpawnPedestrian(characterArray);
         }
-
         //Clear array
         System.Array.Clear(characterArray, 0, characterArray.Length);
         characterArray = null;
+    }
+
+    private void SpawnPedestrian(GameObject[] characterArray)
+    {
+        GameObject pedestrian = Instantiate(characterArray[Random.Range(0, characterArray.Length)]);
+        pedestrian.SetActive(false);
+        pedestrian.transform.parent = this.gameObject.transform;
+        _arrayCharacterPool[_arrayCharacterPool.Length - 1] = pedestrian;
     }
 
 

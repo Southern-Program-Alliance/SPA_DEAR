@@ -23,8 +23,8 @@ public class MainManager : MonoBehaviour
     [SerializeField] PlayerScript[] _arrayPlayers = null;
 
     [Space]
-    [SerializeField] CarSpawnner carSpawnner = null;
-    [SerializeField] CharacterSpawnner characterSpawnner = null;
+    [SerializeField] SpawnVehicleComponent carSpawnner = null;
+    [SerializeField] SpawnPedestrianComponent characterSpawnner = null;
    
     private void Awake()
     {
