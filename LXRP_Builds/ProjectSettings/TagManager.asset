@@ -10,6 +10,7 @@ TagManager:
   - Vehicle
   - MainCanvas
   - ARSession
+  - Building
   layers:
   - Default
   - TransparentFX

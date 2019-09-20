@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using PathCreation;
-public class ObjectSpawnner : MonoBehaviour
+public class SpawnManager : MonoBehaviour
 {
     [SerializeField] PathCreator[] _arrayPath = null;
 
@@ -10,6 +10,18 @@ public class ObjectSpawnner : MonoBehaviour
     [SerializeField] GameObject[] _arrayCharacterPool = null;
 
     [SerializeField] bool _canSpawn = true;
+
+    GameObject[] targetArray;
+
+    private void SpawnPedestrains()
+    {
+
+    }
+
+    private void ReadyTargetArray()
+    {
+        
+    }
 
     void Start()
     {
@@ -23,8 +35,8 @@ public class ObjectSpawnner : MonoBehaviour
         // Initialize Random Seed
         Random.InitState(System.DateTime.Now.Millisecond);
 
-        InitialzePool(_characterArray);
-        StartCoroutine(SpawnCountdown());
+        InitialzePool(_characterArray); 
+        StartCoroutine(CountdownSpawn());
     }
 
 
@@ -46,7 +58,7 @@ public class ObjectSpawnner : MonoBehaviour
     }
 
 
-    IEnumerator SpawnCountdown()
+    IEnumerator CountdownSpawn()
     {
         yield return new WaitForSeconds(3.0f);
 
@@ -54,7 +66,7 @@ public class ObjectSpawnner : MonoBehaviour
         {
             GameObject spawnCharacter = _arrayCharacterPool[i];
 
-            // Skip if already active
+            // Skip if already activew
             if (spawnCharacter.activeSelf)
                 continue;
 
