@@ -1163,10 +1163,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203294322}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.009999848, y: 0.1, z: 0.037523437}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1510140884}
+  m_Father: {fileID: 1336356705}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &203294324
@@ -2496,10 +2496,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424579651}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.011000061, y: 0.115, z: -0.069000006}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1510140884}
+  m_Father: {fileID: 1336356705}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &424579653
@@ -3565,8 +3565,6 @@ MonoBehaviour:
   - {fileID: 1428467500}
   - {fileID: 308889417}
   - {fileID: 869250459}
-  carSpawnner: {fileID: 1566376816}
-  characterSpawnner: {fileID: 1510140885}
 --- !u!114 &617138901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4002,10 +4000,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 783346250}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.115, z: -0.262}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1510140884}
+  m_Father: {fileID: 1336356705}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &783346252
@@ -4619,6 +4617,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 942831319}
+  - component: {fileID: 942831320}
   m_Layer: 0
   m_Name: VehicleSpawns
   m_TagString: Untagged
@@ -4636,10 +4635,24 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1313632307}
+  - {fileID: 1547119345}
   m_Father: {fileID: 2071152388}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &942831320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942831318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef5a7e78cc1585746bcd76f3494a2f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &944640824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4754,7 +4767,7 @@ Transform:
   - {fileID: 1537657206}
   - {fileID: 1101527907}
   m_Father: {fileID: 2808553501711092492}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &973060906 stripped
 MonoBehaviour:
@@ -6102,7 +6115,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.1
+  near clip plane: 0.01
   far clip plane: 20
   field of view: 60
   orthographic: 0
@@ -6512,10 +6525,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313632305}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.28, y: 0.59, z: -3.12}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1566376815}
+  m_Father: {fileID: 942831319}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1322634821
@@ -6648,6 +6661,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1336356705}
+  - component: {fileID: 1336356706}
   m_Layer: 0
   m_Name: PedestrianSpawns
   m_TagString: Untagged
@@ -6665,10 +6679,25 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 203294323}
+  - {fileID: 783346251}
+  - {fileID: 424579652}
   m_Father: {fileID: 2071152388}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1336356706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336356704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef5a7e78cc1585746bcd76f3494a2f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1337112208
 GameObject:
   m_ObjectHideFlags: 0
@@ -7434,59 +7463,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509407068}
   m_CullTransparentMesh: 0
---- !u!1 &1510140883
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1510140884}
-  - component: {fileID: 1510140885}
-  m_Layer: 0
-  m_Name: Pedestrain Paths
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1510140884
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1510140883}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -108.74248, y: -0.82, z: -0.75046873}
-  m_LocalScale: {x: 20, y: 20, z: 20}
-  m_Children:
-  - {fileID: 203294323}
-  - {fileID: 783346251}
-  - {fileID: 424579652}
-  m_Father: {fileID: 2808553501711092492}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1510140885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1510140883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7697251bdec1e7248bc81b9f4ef9d32e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _arrayPath:
-  - {fileID: 203294324}
-  - {fileID: 783346252}
-  - {fileID: 424579653}
-  _objPoolAmt: 25
-  _arrayCharacterPool: []
-  _canSpawn: 1
 --- !u!1 &1514771717
 GameObject:
   m_ObjectHideFlags: 0
@@ -7522,7 +7498,7 @@ Transform:
   - {fileID: 15335699}
   - {fileID: 6121376547196812335}
   m_Father: {fileID: 2808553501711092492}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &1517133589
 GameObject:
@@ -7874,10 +7850,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547119344}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.25, y: 0.59, z: -3.09}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1566376815}
+  m_Father: {fileID: 942831319}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1547119346
@@ -7941,57 +7917,6 @@ MonoBehaviour:
     showNormalsHelpInfo: 0
     tabIndex: 0
   initialized: 1
---- !u!1 &1566376814
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1566376815}
-  - component: {fileID: 1566376816}
-  m_Layer: 0
-  m_Name: VehiclePaths
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1566376815
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1566376814}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -105.316154, y: -10.5, z: 10.315837}
-  m_LocalScale: {x: 20, y: 20, z: 20}
-  m_Children:
-  - {fileID: 1313632307}
-  - {fileID: 1547119345}
-  m_Father: {fileID: 2808553501711092492}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1566376816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1566376814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32ebdb4b55875ee4db7f94d0df129652, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _arrayPath:
-  - {fileID: 1313632306}
-  - {fileID: 1547119346}
-  _objPoolAmt: 15
-  _arrayVehiclePool: []
-  _canSpawn: 1
 --- !u!1 &1566915500
 GameObject:
   m_ObjectHideFlags: 0
@@ -9906,10 +9831,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd782b158a20924eb611ab6c9ba71f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _arrayPath: []
-  _objPoolAmt: 25
-  _arrayPool: []
-  _canSpawn: 1
+  pedestrianComponent: {fileID: 1336356706}
+  vehicleComponent: {fileID: 942831320}
+  vehiclePrefabs: []
+  pedestriansPrefabs: []
+  pedestrianMaxSpawnDelay: 5
+  vehicleMaxSpawnDelay: 5
+  pedestrianPoolAmt: 25
+  vehiclePoolAmt: 25
+  pedestrianPaths:
+  - {fileID: 203294324}
+  - {fileID: 783346252}
+  - {fileID: 424579653}
+  vehiclePaths:
+  - {fileID: 1313632306}
+  - {fileID: 1547119346}
 --- !u!1 &2089349739
 GameObject:
   m_ObjectHideFlags: 0
@@ -41835,8 +41771,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
-  - {fileID: 1566376815}
-  - {fileID: 1510140884}
   - {fileID: 1514771720}
   - {fileID: 7916587395001069969}
   - {fileID: 948357984}
@@ -53956,7 +53890,7 @@ Transform:
   - {fileID: 5108235996247915372}
   - {fileID: 5108235995437414310}
   m_Father: {fileID: 2808553501711092492}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5108235996451640151
 GameObject:
@@ -67400,7 +67334,7 @@ Transform:
   - {fileID: 7916587395715966346}
   - {fileID: 4120267832271607990}
   m_Father: {fileID: 2808553501711092492}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -40, z: 0}
 --- !u!1 &7916587395001069980
 GameObject:
