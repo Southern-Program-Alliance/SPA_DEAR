@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PlayerObjectsSpawnComponent : MonoBehaviour
 {
-    [SerializeField] SO_Rules[] rules;
-    [SerializeField] GameObject rulesPrefab;
+    [SerializeField] SO_RuleInfo[] rules = null;
+    [SerializeField] GameObject rulesPrefab = null;
 
-    [SerializeField] Transform[] spawnLocations;
+    [SerializeField] Transform[] spawnLocations = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        rules = Resources.LoadAll<SO_Rules>("RULES");
+        rules = Resources.LoadAll<SO_RuleInfo>("RULES");
 
         SpawnRules();
     }
@@ -23,7 +23,7 @@ public class PlayerObjectsSpawnComponent : MonoBehaviour
         for (int i = 0; i < rules.Length; i++)
         {
             GameObject spawn = Instantiate(rulesPrefab, GetLocation(spawnLocations), Quaternion.identity, transform);
-            spawn.GetComponent<RulesScript>().RuleText = rules[i].ruleText;
+            spawn.GetComponent<RulesScript>().RuleInfo = rules[i];
         }       
     }
 

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f090ebe10245e844fb46333332ec96b5, type: 3}
-  m_Name: Rule2
+  m_Name: Rule 3
   m_EditorClassIdentifier: 
-  ruleText: osa;odjask
-  isCorrect: 1
-  spawnTransform: {fileID: 0}
-  mesh: {fileID: 0}
+  ruleNo: 3
+  ruleText: A census taker once tried to test me. I ate his liver with some fava beans
+    and a nice Chianti
+  isCorrect: 0

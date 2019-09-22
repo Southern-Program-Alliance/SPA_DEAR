@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class RulesScript : MonoBehaviour
 {
-    private string ruleText;
-    public string RuleText { get => ruleText; set => ruleText = value; }
-
-    private bool isCorrect;
-    
+    private SO_RuleInfo ruleInfo;
+    public SO_RuleInfo RuleInfo { get => ruleInfo; set => ruleInfo = value; }
 }
