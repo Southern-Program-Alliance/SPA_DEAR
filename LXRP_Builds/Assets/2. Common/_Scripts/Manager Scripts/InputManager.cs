@@ -113,6 +113,10 @@ public class InputManager : MonoBehaviour
         movable = true;
     }
 
+    private void HandleRuleHit(GameObject clickedRule)
+    {
+        Debug.LogWarning(clickedRule.GetComponent<RulesScript>().RuleText);
+    }
 
     private void HandleTrafficControllerHit(GameObject clickedTrafficController)
     {

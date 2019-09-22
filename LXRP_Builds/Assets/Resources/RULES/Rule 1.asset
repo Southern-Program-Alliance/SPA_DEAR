@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f090ebe10245e844fb46333332ec96b5, type: 3}
   m_Name: Rule 1
   m_EditorClassIdentifier: 
-  rule: 
+  ruleText: nidsauhfvlasdifuha
   isCorrect: 0
   spawnTransform: {fileID: 0}
+  mesh: {fileID: 0}

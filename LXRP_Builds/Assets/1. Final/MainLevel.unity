@@ -1526,6 +1526,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261175461}
   m_CullTransparentMesh: 0
+--- !u!1 &264137489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 264137490}
+  - component: {fileID: 264137491}
+  m_Layer: 0
+  m_Name: PlayerObjectSpawns
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &264137490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264137489}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2071152388}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &264137491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264137489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56200066c013e2548858abfc92f94c91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rules: []
+  rulesPrefab: {fileID: 32015454452951314, guid: 946029c3c1c06d341a046346eced91e7,
+    type: 3}
+  spawnLocations:
+  - {fileID: 6790453402418724939}
+  - {fileID: 1831533067756125153}
+  - {fileID: 7680284719764913390}
+  - {fileID: 4780607749762295446}
+  - {fileID: 8650589007872850782}
+  - {fileID: 9070734775471886259}
+  - {fileID: 3645914873225560574}
+  - {fileID: 396989576915280435}
+  - {fileID: 3618668739726567102}
+  - {fileID: 3347659244505572382}
+  - {fileID: 122687060318685893}
 --- !u!1 &303015270
 GameObject:
   m_ObjectHideFlags: 0
@@ -9816,6 +9874,7 @@ Transform:
   m_Children:
   - {fileID: 1336356705}
   - {fileID: 942831319}
+  - {fileID: 264137490}
   m_Father: {fileID: 1044330799}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9832,20 +9891,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pedestrianComponent: {fileID: 1336356706}
-  vehicleComponent: {fileID: 942831320}
-  vehiclePrefabs: []
-  pedestriansPrefabs: []
-  pedestrianMaxSpawnDelay: 5
-  vehicleMaxSpawnDelay: 5
   pedestrianPoolAmt: 25
-  vehiclePoolAmt: 25
+  pedestrianMaxSpawnDelay: 5
   pedestrianPaths:
   - {fileID: 203294324}
   - {fileID: 783346252}
   - {fileID: 424579653}
+  vehicleComponent: {fileID: 942831320}
+  vehiclePoolAmt: 25
+  vehicleMaxSpawnDelay: 5
   vehiclePaths:
   - {fileID: 1313632306}
   - {fileID: 1547119346}
+  playerObjectsComponent: {fileID: 264137491}
 --- !u!1 &2089349739
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,4 @@ public class SO_Rules : ScriptableObject
     public bool isCorrect;
 
     public Transform spawnTransform;
-
-    public Mesh mesh;
 }
