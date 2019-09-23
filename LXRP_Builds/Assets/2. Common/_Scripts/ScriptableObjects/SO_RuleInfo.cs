@@ -6,8 +6,9 @@ using UnityEngine;
 public class SO_RuleInfo : ScriptableObject
 {
     public int ruleNo;
-
     public string ruleText;
-
     public bool isCorrect;
+
+    private bool isSelected = false;
+    public bool IsSelected { get => isSelected; set => isSelected = value; }
 }

@@ -21,6 +21,9 @@ public class MainManager : MonoBehaviour
 
     [Space]
     [SerializeField] PlayerScript[] _arrayPlayers = null;
+
+    [Space]
+    public List<SO_RuleInfo> selectedRules;
    
     private void Awake()
     {
@@ -68,6 +71,20 @@ public class MainManager : MonoBehaviour
                 StartGame();
                 break;
         }
+    }
+
+    public void OnRuleSelect(bool isSelected, SO_RuleInfo info)
+    {
+        info.IsSelected = isSelected;
+        if (isSelected && !selectedRules.Contains(info))
+        {
+            selectedRules.Add(info);
+        }
+        else
+        {
+            selectedRules.Remove(info);
+        }
+        UIManager.Instance.UpdateRules(selectedRules.Count);
     }
 
     private void InitializeGame()

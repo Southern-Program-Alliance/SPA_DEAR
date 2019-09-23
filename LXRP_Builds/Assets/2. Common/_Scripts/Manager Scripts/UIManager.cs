@@ -27,9 +27,12 @@ public class UIManager : MonoBehaviour
 
     // Rule UI Members
     [SerializeField] GameObject ruleUI = null;
+
+    [SerializeField] GameObject ruleBookUI = null;
     [SerializeField] Toggle ruleSelection = null;
     [SerializeField] Text ruleText = null;
     [SerializeField] Text ruleNo = null;
+    private SO_RuleInfo ruleInfo = null;
 
     private void Start()
     {
@@ -42,16 +45,25 @@ public class UIManager : MonoBehaviour
         ruleSelection.GetComponent<Toggle>().onValueChanged.AddListener(OnRuleSelection);
     }
     
-    private void OnRuleSelection(bool isSlected)
-    {
-        //if(isSlected)
-    }
-
     public void SetRuleInfo(SO_RuleInfo info)
     {
-        ruleNo.text = "#" + info.ruleNo;
-        ruleText.text = info.ruleText;
+        ruleInfo = info;
+        ruleNo.text = "#" + ruleInfo.ruleNo;
+        ruleText.text = ruleInfo.ruleText;
+        ruleSelection.isOn = ruleInfo.IsSelected;
+        ruleBookUI.SetActive(true);
+    }
+
+    private void OnRuleSelection(bool isSlected)
+    {
+        MainManager.Instance.OnRuleSelect(isSlected, ruleInfo);
+    }
+
+    public void UpdateRules(int no)
+    {
+        string text = no + " / 5 Rules Selected";
         ruleUI.SetActive(true);
+        ruleUI.GetComponentInChildren<Text>().text = text;
     }
 
     #region MainMenuUI Methods

@@ -5,5 +5,5 @@ using UnityEngine;
 public class RulesScript : MonoBehaviour
 {
     private SO_RuleInfo ruleInfo;
-    public SO_RuleInfo RuleInfo { get => ruleInfo; set => ruleInfo = value; }
+    public SO_RuleInfo RuleInfo { get => ruleInfo; set => ruleInfo = value; }    
 }

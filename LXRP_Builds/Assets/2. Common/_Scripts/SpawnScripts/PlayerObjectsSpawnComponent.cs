@@ -19,17 +19,23 @@ public class PlayerObjectsSpawnComponent : MonoBehaviour
 
     public void SpawnRules()
     {
-        Vector3[] previouslySpawnned = new Vector3[rules.Length];
         for (int i = 0; i < rules.Length; i++)
         {
-            GameObject spawn = Instantiate(rulesPrefab, GetLocation(spawnLocations), Quaternion.identity, transform);
+            GameObject spawn = Instantiate(rulesPrefab, GetLocation(), Quaternion.identity, transform);
             spawn.GetComponent<RulesScript>().RuleInfo = rules[i];
         }       
     }
 
-    private Vector3 GetLocation(Transform[] array)
+    private Vector3 GetLocation()
     {
-        Vector3 position = array[Random.Range(0, spawnLocations.Length)].position;
-        return position;
+        int pos = Random.Range(0, spawnLocations.Length);
+        if (spawnLocations[pos] != null)
+        {
+            Vector3 position = spawnLocations[pos].position;
+            spawnLocations[pos] = null;
+            return position;
+        }
+        else
+            return GetLocation();
     }
 }

@@ -120,7 +120,7 @@ public class InputManager : MonoBehaviour
 
     private void HandleRuleHit(GameObject clickedRule)
     {
-        Debug.Log("Rule Game Object Clicked");
+        //Debug.Log("Rule Game Object Clicked");
         UIManager.Instance.SetRuleInfo(clickedRule.GetComponent<RulesScript>().RuleInfo);
     }
 
