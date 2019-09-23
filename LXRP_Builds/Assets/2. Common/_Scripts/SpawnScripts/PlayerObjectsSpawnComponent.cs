@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class PlayerObjectsSpawnComponent : MonoBehaviour
 {
-    [SerializeField] SO_RuleInfo[] rules = null;
+    private SO_RuleInfo[] rules = null;
     [SerializeField] GameObject rulesPrefab = null;
-
     [SerializeField] Transform[] spawnLocations = null;
 
-    // Start is called before the first frame update
-    void Start()
+    private GameObject[] playerCharacters;
+    private int nextPlayer;
+    
+    private void Awake()
     {
         rules = Resources.LoadAll<SO_RuleInfo>("RULES");
+        playerCharacters = Resources.LoadAll<GameObject>("PLAYERS");
 
-        SpawnRules();
+        nextPlayer = 0;
     }
 
     public void SpawnRules()
@@ -37,5 +39,20 @@ public class PlayerObjectsSpawnComponent : MonoBehaviour
         }
         else
             return GetLocation();
+    }
+
+    public void SpawnPlayer()
+    {
+        Debug.LogWarning("Intantiating Player");
+        StartCoroutine(PlayerSpawn());
+    }
+
+    IEnumerator PlayerSpawn()
+    {
+        yield return new WaitForSeconds(4.0f);
+        GameObject spawn = Instantiate(playerCharacters[nextPlayer]);
+        nextPlayer++;
+
+        MainManager.Instance.SetState(GAMESTATE.PLAYER_START);
     }
 }

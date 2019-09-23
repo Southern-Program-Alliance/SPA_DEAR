@@ -6,6 +6,30 @@ using UnityEngine.EventSystems;
 
 public class InputManager : MonoBehaviour
 {
+    // Singleton Members
+    private static InputManager _instance;
+    public static InputManager Instance { get { return _instance; } }
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+
+        // Setup Raycast
+        MainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
+        selectedCharacter = null;
+        IsMovable = false;
+
+        Input.multiTouchEnabled = false;
+    }
+
     private Camera MainCam;
     private Ray ray;
     private RaycastHit hit;
@@ -14,20 +38,10 @@ public class InputManager : MonoBehaviour
     [SerializeField] float shpereCastRadius = 0.05f;
 
     private GameObject selectedCharacter;
+    public GameObject SelectedCharacter => selectedCharacter;
 
-    private bool movable;
-    public bool Movable { get => movable; set => movable = value; }
-
-    private void Awake()
-    {
-        // Setup Raycast
-        MainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-
-        selectedCharacter = null;
-        Movable = false;
-
-        Input.multiTouchEnabled = false;
-    }
+    private bool isMovable;
+    public bool IsMovable { get => isMovable; set => isMovable = value; }
 
     #region Casting Methods
     void Update()
@@ -54,12 +68,12 @@ public class InputManager : MonoBehaviour
         Vector3 rayOrigin = MainCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
 
         // If movable then Raycast
-        if (Movable)
+        if (IsMovable)
         {
             if (Physics.Raycast(rayOrigin, MainCam.transform.forward, out hit, 200))
             {
                 //Debug.DrawRay(rayOrigin, MainCam.transform.forward, Color.red, 1f);
-                if (Movable)
+                if (IsMovable)
                 {
                     if (hit.transform.tag == "TrafficLight")
                     {
@@ -101,10 +115,10 @@ public class InputManager : MonoBehaviour
         TargetLocation.Instance.gameObject.SetActive(false);
 
         // If no character is selected
-        if (!selectedCharacter)
+        if (!SelectedCharacter)
             return;
 
-        selectedCharacter.GetComponent<NavMeshAgent>().SetDestination(pos);
+        SelectedCharacter.GetComponent<NavMeshAgent>().SetDestination(pos);
         TargetLocation.Instance.SetLocation(pos);
 
         TargetLocation.Instance.gameObject.SetActive(true);
@@ -115,7 +129,7 @@ public class InputManager : MonoBehaviour
     {
         //Debug.Log("Player Character Object Clicked");
         SelectNewPlayer(hit.collider.gameObject);
-        movable = true;
+        isMovable = true;
     }
 
     private void HandleRuleHit(GameObject clickedRule)
@@ -134,14 +148,16 @@ public class InputManager : MonoBehaviour
 
     private void SelectNewPlayer(GameObject newPlayer)
     {
-        if (selectedCharacter == newPlayer)
+        if (SelectedCharacter == newPlayer)
             return;
 
-        if (selectedCharacter != null)
-            selectedCharacter.GetComponent<PlayerScript>().SwitchComponents(false);
+        if (SelectedCharacter != null)
+            SelectedCharacter.GetComponent<ABPlayerScript>().SwitchComponents(false);
 
         selectedCharacter = newPlayer;
-        selectedCharacter.GetComponent<PlayerScript>().SwitchComponents(true);
+        selectedCharacter.GetComponent<ABPlayerScript>().SwitchComponents(true);
+
+        MainManager.Instance.SetState(GAMESTATE.QUEST_START);
     }
     #endregion
 }

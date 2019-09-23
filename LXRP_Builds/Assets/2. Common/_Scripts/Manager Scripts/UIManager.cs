@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Button backToMenuButton = null;
 
     // Rule UI Members
+    [Space]
     [SerializeField] GameObject ruleUI = null;
 
     [SerializeField] GameObject ruleBookUI = null;

@@ -26,8 +26,8 @@ public class SpawnManager : MonoBehaviour
     private GameObject[] vehiclePrefabs;
     private IPoolInfo vehiclePoolInfo;
 
-    //[Space]
-    //[SerializeField] PlayerObjectsSpawnComponent playerObjectsComponent = null;
+    [Space]
+    [SerializeField] PlayerObjectsSpawnComponent playerObjectsComponent = null;
     
     private void Awake()
     {
@@ -80,6 +80,7 @@ public class SpawnManager : MonoBehaviour
                 break;
 
             case SPAWNSELECTION.RULES:
+                playerObjectsComponent.SpawnRules();
                 break;
         }
     }

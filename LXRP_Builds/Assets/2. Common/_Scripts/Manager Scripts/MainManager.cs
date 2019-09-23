@@ -12,15 +12,14 @@ public class MainManager : MonoBehaviour
     private static MainManager _instance;
     public static MainManager Instance { get { return _instance; } }
 
-    GAMESTATE managerState;
-    // Main selected character
-    GameObject currentPlayerCharacter;
-    public GameObject CurrentPlayerCharacter { get => currentPlayerCharacter; set => currentPlayerCharacter = value; }
-
     [SerializeField] WorldPlacementScript placementScript = null;
 
-    [Space]
-    [SerializeField] PlayerScript[] _arrayPlayers = null;
+    GAMESTATE managerState;
+
+    // Main selected character
+    GameObject currentSelectedCharacter;
+    public GameObject CurrentSelectedCharacter { get => currentSelectedCharacter; set => currentSelectedCharacter = value; }
+    
 
     [Space]
     public List<SO_RuleInfo> selectedRules;
@@ -39,10 +38,8 @@ public class MainManager : MonoBehaviour
 
     private void Start()
     {
-        //StartCoroutine(PlayerSpawn());
         SetState(GAMESTATE.BEGIN);
     }
-
 
     // Function to change the state
     public void SetState(GAMESTATE newState)
@@ -70,7 +67,48 @@ public class MainManager : MonoBehaviour
                 // Enable Game
                 StartGame();
                 break;
+
+            case GAMESTATE.PLAYER_START:
+                SetupNewPlayerCharacter();
+                break;
+
+            case GAMESTATE.PLAYER_COMPLETE:
+                //SetupNewPlayerCharacter();
+                break;
+
+            case GAMESTATE.QUEST_START:
+                //SetupNewPlayerCharacter();
+                break;
+
+            case GAMESTATE.QUEST_COMPLETE:
+                //SetupNewPlayerCharacter();
+                break;
         }
+    }
+
+    private void SetupNewPlayerCharacter()
+    {
+        currentSelectedCharacter = InputManager.Instance.SelectedCharacter;
+
+        // Enable UI 
+    }
+
+    private void InitializeGame()
+    {
+        if (Application.isEditor)
+        {
+            placementScript.SetState(ARSTATE.PLACEMENT);
+            return;
+        }
+        placementScript.SetState(ARSTATE.TUTORIAL);
+    }
+
+    void StartGame()
+    {
+        SpawnManager.Instance.StartSpawn(SPAWNSELECTION.PEDESTRIANS);
+        SpawnManager.Instance.StartSpawn(SPAWNSELECTION.VEHICLES);
+
+        SpawnManager.Instance.StartSpawn(SPAWNSELECTION.PLAYERS);
     }
 
     public void OnRuleSelect(bool isSelected, SO_RuleInfo info)
@@ -85,42 +123,6 @@ public class MainManager : MonoBehaviour
             selectedRules.Remove(info);
         }
         UIManager.Instance.UpdateRules(selectedRules.Count);
-    }
-
-    private void InitializeGame()
-    {
-        if (Application.isEditor)
-        {
-            placementScript.SetState(ARSTATE.PLACEMENT);
-            return;
-        }
-
-        placementScript.SetState(ARSTATE.TUTORIAL);
-
-
-    }
-
-    void StartGame()
-    {
-        //placementScript.enabled = false;
-
-        StartCoroutine(PlayerSpawn());
-
-        SpawnManager.Instance.StartSpawn(SPAWNSELECTION.PEDESTRIANS);
-        SpawnManager.Instance.StartSpawn(SPAWNSELECTION.VEHICLES);
-    }
-
-    IEnumerator PlayerSpawn()
-    {
-        yield return new WaitForSeconds(UnityEngine.Random.Range(5, 10));
-
-        Debug.Log("Player Spawnner started");
-
-        foreach (PlayerScript player in _arrayPlayers)
-        {
-            yield return new WaitForSeconds(UnityEngine.Random.Range(10, 15));
-            player.gameObject.SetActive(true);
-        }
     }
 }
 

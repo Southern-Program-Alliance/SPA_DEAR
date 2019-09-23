@@ -3,6 +3,10 @@
     BLANK,
     BEGIN,
     PLACED,
+    PLAYER_START,
+    QUEST_START,
+    QUEST_COMPLETE,
+    PLAYER_COMPLETE
 }
 
 public enum ARSTATE
@@ -18,5 +22,14 @@ public enum SPAWNSELECTION
 {
     PEDESTRIANS,
     VEHICLES,
+    PLAYERS,
     RULES
+}
+
+public enum MISSIONTYPE
+{
+    FIND_CORRECT_RULES,
+    GET_TO_STATION,
+    SHOPPING,
+    FIND_MISTAKES
 }
