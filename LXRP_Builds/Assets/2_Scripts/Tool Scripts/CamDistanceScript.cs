@@ -21,7 +21,7 @@ public class CamDistanceScript : MonoBehaviour
     // Set up listener to event
     private void OnEnable()
     {
-        PlacementScript.onplaced += OnObjectPlaced;
+        
     }
 
     // Start is called before the first frame update
