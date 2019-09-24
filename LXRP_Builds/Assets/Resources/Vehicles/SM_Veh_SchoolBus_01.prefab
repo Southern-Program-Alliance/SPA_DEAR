@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4469676343351622}
   - component: {fileID: 33902998110575154}
   - component: {fileID: 23936964520131888}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_SchoolBus_Door_02_Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4617940988027082}
   - component: {fileID: 33310735774355494}
   - component: {fileID: 23060280380387628}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_SchoolBus_Wheel_fr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 4012716300612450}
   - component: {fileID: 33087504898151986}
   - component: {fileID: 23327787830491600}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_SchoolBus_Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 4201282778715246}
   - component: {fileID: 33324359236931674}
   - component: {fileID: 23884720597834836}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_SchoolBus_Sign_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 4409738944009258}
   - component: {fileID: 33636453411043470}
   - component: {fileID: 23961337142955584}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_SchoolBus_Door_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,7 +397,7 @@ GameObject:
   - component: {fileID: 4987184747279078}
   - component: {fileID: 33581540538902792}
   - component: {fileID: 23552386439770542}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_SchoolBus_Wheel_rr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 4940678543109128}
   - component: {fileID: 33767885526218928}
   - component: {fileID: 23767986936700416}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_SchoolBus_Door_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -554,8 +554,7 @@ GameObject:
   - component: {fileID: 23043152942745320}
   - component: {fileID: 5467971145019465593}
   - component: {fileID: 9147825344033761012}
-  - component: {fileID: -5072081518517345020}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_SchoolBus_01
   m_TagString: Vehicle
   m_Icon: {fileID: 0}
@@ -657,21 +656,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.537943, y: 2.993744, z: 8.089359}
-  m_Center: {x: 0.043736458, y: 1.7257574, z: 0.044294596}
---- !u!135 &-5072081518517345020
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1530585983919378}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0.043736458, y: 1.7257574, z: 5}
+  m_Size: {x: 1.9288298, y: 2.993744, z: 9.488168}
+  m_Center: {x: 0.004490465, y: 1.7257575, z: 0.74370056}
 --- !u!1 &1535231646543204
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,7 +669,7 @@ GameObject:
   - component: {fileID: 4548934904151254}
   - component: {fileID: 33133203468360988}
   - component: {fileID: 23265051055780242}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_SchoolBus_Wheel_fl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -760,7 +746,7 @@ GameObject:
   - component: {fileID: 4750553054481636}
   - component: {fileID: 33692145119113806}
   - component: {fileID: 23843284502024088}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_SchoolBus_Door_01_Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -837,7 +823,7 @@ GameObject:
   - component: {fileID: 4948902285514766}
   - component: {fileID: 33972581199829400}
   - component: {fileID: 23762463801495272}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_SchoolBus_Wheel_rl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -914,7 +900,7 @@ GameObject:
   - component: {fileID: 4783601905412688}
   - component: {fileID: 33986798971451196}
   - component: {fileID: 23717108523268836}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_SchoolBus_Sign_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -991,7 +977,7 @@ GameObject:
   - component: {fileID: 4850069738576526}
   - component: {fileID: 33646833699820828}
   - component: {fileID: 23611336530241842}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_SchoolBus_SteeringW
   m_TagString: Untagged
   m_Icon: {fileID: 0}

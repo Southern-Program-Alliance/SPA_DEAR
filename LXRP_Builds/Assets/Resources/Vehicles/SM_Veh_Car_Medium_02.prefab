@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 469864}
   - component: {fileID: 3331630}
   - component: {fileID: 2377250}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Car_Medium_Wheel_fr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 410608}
   - component: {fileID: 3307674}
   - component: {fileID: 2316170}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Car_Medium_Wheel_rl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 408926}
   - component: {fileID: 3372830}
   - component: {fileID: 2325216}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Car_Medium_Plates
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 412088}
   - component: {fileID: 3350984}
   - component: {fileID: 2349334}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Car_Medium_Wheel_fl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,8 +321,7 @@ GameObject:
   - component: {fileID: 2324734}
   - component: {fileID: 5814915296079622005}
   - component: {fileID: -4687284039516473457}
-  - component: {fileID: 8229144931070347031}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Car_Medium_02
   m_TagString: Vehicle
   m_Icon: {fileID: 0}
@@ -421,21 +420,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.3655212, y: 1.6393872, z: 4.968236}
-  m_Center: {x: 0, y: 1.0645186, z: 0.041665196}
---- !u!135 &8229144931070347031
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 157676}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 1.0645186, z: 3.2}
+  m_Size: {x: 1.3590304, y: 1.6393872, z: 5.9313574}
+  m_Center: {x: 0.0029596966, y: 1.0645186, z: 0.5232271}
 --- !u!1 &169676
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +433,7 @@ GameObject:
   - component: {fileID: 452396}
   - component: {fileID: 3342002}
   - component: {fileID: 2312570}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Car_Medium_SteeringW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -524,7 +510,7 @@ GameObject:
   - component: {fileID: 444414}
   - component: {fileID: 3375490}
   - component: {fileID: 2375642}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Car_Medium_Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,7 +587,7 @@ GameObject:
   - component: {fileID: 414136}
   - component: {fileID: 3334790}
   - component: {fileID: 2321010}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Car_Medium_Wheel_rr
   m_TagString: Untagged
   m_Icon: {fileID: 0}

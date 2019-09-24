@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4122020359203578}
   - component: {fileID: 33340854026501944}
   - component: {fileID: 23938421969144152}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Pickup_SteeringW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4912061214276974}
   - component: {fileID: 33840077122166160}
   - component: {fileID: 23728311914733736}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Pickup_Wheel_fr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 4600063114720326}
   - component: {fileID: 33275844168471868}
   - component: {fileID: 23669539874101734}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Pickup_Wheel_rr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 4613024116164448}
   - component: {fileID: 33801679803538996}
   - component: {fileID: 23438452096570932}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Pickup_Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 4257130297459470}
   - component: {fileID: 33897666714706294}
   - component: {fileID: 23676387102494064}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Pickup_Wheel_rl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 4224051708729452}
   - component: {fileID: 33119788961019180}
   - component: {fileID: 23160785779338824}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Pickup_Wheel_fl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,8 +475,7 @@ GameObject:
   - component: {fileID: 23910729170130432}
   - component: {fileID: -4017057540144121127}
   - component: {fileID: -7063622579656015886}
-  - component: {fileID: -4561273954485500137}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Pickup_01
   m_TagString: Vehicle
   m_Icon: {fileID: 0}
@@ -574,18 +573,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.337614, y: 2.0367544, z: 5.43544}
-  m_Center: {x: 0, y: 1.2516423, z: 0}
---- !u!135 &-4561273954485500137
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1968802732931520}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 1.2516423, z: 3.2}
+  m_Size: {x: 1.3572544, y: 2.0367544, z: 6.452799}
+  m_Center: {x: 0.0000004656613, y: 1.2516422, z: 0.50868064}

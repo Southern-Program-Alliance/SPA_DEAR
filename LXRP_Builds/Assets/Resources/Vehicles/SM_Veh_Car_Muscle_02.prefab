@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 434452}
   - component: {fileID: 3323882}
   - component: {fileID: 2312058}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Car_Muscle_Wheel_fr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 468440}
   - component: {fileID: 3340520}
   - component: {fileID: 2307898}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Car_Muscle_Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,8 +167,7 @@ GameObject:
   - component: {fileID: 2383878}
   - component: {fileID: 953272905928649235}
   - component: {fileID: 324621895025249565}
-  - component: {fileID: -2127085255271414326}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Car_Muscle_02
   m_TagString: Vehicle
   m_Icon: {fileID: 0}
@@ -267,21 +266,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.429984, y: 1.3140848, z: 5.642581}
-  m_Center: {x: 0.000000059604645, y: 0.8365443, z: 0.13018548}
---- !u!135 &-2127085255271414326
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 141870}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0.8365443, z: 3.5}
+  m_Size: {x: 1.4726943, y: 1.3140846, z: 6.5730596}
+  m_Center: {x: -0.006741192, y: 0.8365443, z: 0.59542555}
 --- !u!1 &166256
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +279,7 @@ GameObject:
   - component: {fileID: 469928}
   - component: {fileID: 3394820}
   - component: {fileID: 2309912}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Car_Muscle_Wheel_fl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -370,7 +356,7 @@ GameObject:
   - component: {fileID: 402862}
   - component: {fileID: 3313690}
   - component: {fileID: 2358478}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Car_Muscle_Wheel_rl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -447,7 +433,7 @@ GameObject:
   - component: {fileID: 485822}
   - component: {fileID: 3382168}
   - component: {fileID: 2339652}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Car_Muscle_Wheel_rr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -524,7 +510,7 @@ GameObject:
   - component: {fileID: 433090}
   - component: {fileID: 3300608}
   - component: {fileID: 2355766}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Car_Muscle_Plates
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,7 +587,7 @@ GameObject:
   - component: {fileID: 475942}
   - component: {fileID: 3317494}
   - component: {fileID: 2303044}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Car_Muscle_SteeringW
   m_TagString: Untagged
   m_Icon: {fileID: 0}

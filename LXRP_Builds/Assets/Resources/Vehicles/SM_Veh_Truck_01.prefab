@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4249897037329260}
   - component: {fileID: 33050720376419108}
   - component: {fileID: 23347566401626050}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Truck_Wheel_rr_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,8 +90,7 @@ GameObject:
   - component: {fileID: 23546897265785356}
   - component: {fileID: -8143648601126032080}
   - component: {fileID: -7306208434614564092}
-  - component: {fileID: -4165778414620288975}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Truck_01
   m_TagString: Vehicle
   m_Icon: {fileID: 0}
@@ -194,21 +193,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.7483556, y: 2.5206208, z: 6.646887}
-  m_Center: {x: 0, y: 1.5466294, z: 0.49226093}
---- !u!135 &-4165778414620288975
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1019793266773332}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 1.5466294, z: 4.5}
+  m_Size: {x: 1.4429256, y: 2.5206208, z: 7.806942}
+  m_Center: {x: -0.00805743, y: 1.5466295, z: 1.0722868}
 --- !u!1 &1108815790798554
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +206,7 @@ GameObject:
   - component: {fileID: 4712186879444894}
   - component: {fileID: 33139144341675214}
   - component: {fileID: 23048438570705400}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Truck_Wheel_rl_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +283,7 @@ GameObject:
   - component: {fileID: 4393120813749308}
   - component: {fileID: 33124398260778566}
   - component: {fileID: 23090230521441812}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Truck_SteeringW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +360,7 @@ GameObject:
   - component: {fileID: 4310904565565650}
   - component: {fileID: 33428848285811286}
   - component: {fileID: 23606780079700470}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Truck_Wheel_rl_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -451,7 +437,7 @@ GameObject:
   - component: {fileID: 4804500460569738}
   - component: {fileID: 33440833030040140}
   - component: {fileID: 23839482411319528}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Truck_Attachment_Garbage_Lid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -528,7 +514,7 @@ GameObject:
   - component: {fileID: 4643626968042526}
   - component: {fileID: 33807185906722946}
   - component: {fileID: 23341420228714352}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Truck_Wheel_fr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +591,7 @@ GameObject:
   - component: {fileID: 4029787370348636}
   - component: {fileID: 33885442581842772}
   - component: {fileID: 23870570603438454}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Truck_Wheel_fl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -682,7 +668,7 @@ GameObject:
   - component: {fileID: 4735696885631694}
   - component: {fileID: 33133520622770976}
   - component: {fileID: 23303733946966654}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Truck_Wheel_rr_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -759,7 +745,7 @@ GameObject:
   - component: {fileID: 4971036144595430}
   - component: {fileID: 33751006011447394}
   - component: {fileID: 23836655244110668}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Truck_Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -836,7 +822,7 @@ GameObject:
   - component: {fileID: 4434953248834818}
   - component: {fileID: 33511369124563608}
   - component: {fileID: 23444069046055430}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Truck_Attachment_Delivery_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -915,7 +901,7 @@ GameObject:
   - component: {fileID: 4469010810510096}
   - component: {fileID: 33911680417157954}
   - component: {fileID: 23871493572118174}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Truck_Attachment_Delivery_Door_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -992,7 +978,7 @@ GameObject:
   - component: {fileID: 4906314881013322}
   - component: {fileID: 33275000564829156}
   - component: {fileID: 23401220353599012}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Truck_Attachment_Flatbed_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1069,7 +1055,7 @@ GameObject:
   - component: {fileID: 4067976644119372}
   - component: {fileID: 33120978552861388}
   - component: {fileID: 23965951085323664}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Truck_Attachment_Delivery_Door_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1146,7 +1132,7 @@ GameObject:
   - component: {fileID: 4038460624913648}
   - component: {fileID: 33907194424872040}
   - component: {fileID: 23579841178800540}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Truck_Attachment_Garbage_Pile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1223,7 +1209,7 @@ GameObject:
   - component: {fileID: 4284612546246026}
   - component: {fileID: 33493789049457380}
   - component: {fileID: 23695773206637144}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Veh_Truck_Attachment_Garbage_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
