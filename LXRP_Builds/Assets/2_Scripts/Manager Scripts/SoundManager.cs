@@ -5,16 +5,27 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField] AudioSource audioSource = null;
+    AudioSource audioSource = null;
     [SerializeField] List<AudioClip> audioClips = null;
-    /// <summary>
-    /// The list of audio clips should be listed as follows:
-    /// 1. 
-    /// </summary>
 
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     public void EVENTFall()
     {
-        audioSource.clip = audioClips[0];
+        PlayAudio(audioClips[0], 0.4f);
+    }
+
+    public void StartBgMusic()
+    {
+        PlayAudio(audioClips[1]);
+    }
+
+    private void PlayAudio(AudioClip clip, float vol = 0.6f)
+    {
+        audioSource.clip = clip;
+        audioSource.volume = vol;
         audioSource.Play();
     }
 }
