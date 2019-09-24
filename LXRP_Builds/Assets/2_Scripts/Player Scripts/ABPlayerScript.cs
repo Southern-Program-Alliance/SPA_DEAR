@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using PathCreation;
 using UnityEngine.AI;
+using TMPro;
 
 [RequireComponent(typeof(PlayerAnimController))]
 [RequireComponent(typeof(CapsuleCollider))]
@@ -19,8 +20,10 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
     PathFollower pathFollower;
     NavMeshAgent navMeshAgent;
 
+    [SerializeField] GameObject floatingText;
     [SerializeField] GameObject pointerComponent = null;
     [SerializeField] SO_PlayerInfo playerInfo = null;
+
     public SO_PlayerInfo PlayerInfo { get => playerInfo; }
 
     private void Awake()
@@ -31,7 +34,7 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
-    void Start()
+    private void Start()
     {
         if (!CheckRefs())
             return;
@@ -39,15 +42,6 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
         playerInfo.attachedObject = gameObject;
 
         SwitchComponents(false);
-    }
-
-    public void SwitchComponents(bool condition)
-    {
-        outlineComponent.enabled = condition;
-        animController.enabled = condition;
-        pointerComponent.SetActive(condition);
-
-        pathFollower.enabled = !condition;
     }
 
     private void OnEnable()
@@ -66,6 +60,11 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
                 onGameEvent(0);
             }
         }
+    }
+
+    private void ShowFloatingText()
+    {
+        //floatingText.en
     }
 
     private bool CheckRefs()
@@ -96,7 +95,21 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
             Debug.LogError("Character UI Info : Ref Missing - on " + transform.name);
             check = false;
         }
+        else if (floatingText == null)
+        {
+            Debug.LogError("Floating Text : Ref Missing - on " + transform.name);
+            check = false;
+        }
         return check;
+    }
+
+    public void SwitchComponents(bool condition)
+    {
+        outlineComponent.enabled = condition;
+        animController.enabled = condition;
+        pointerComponent.SetActive(condition);
+
+        pathFollower.enabled = !condition;
     }
 
     public void OnClick()
