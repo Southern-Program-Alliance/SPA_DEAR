@@ -4,7 +4,7 @@ using UnityEngine;
 using PathCreation;  
 
 [RequireComponent (typeof(Animator))]
-public class TrafficLightScript : MonoBehaviour
+public class TrafficLightScript : MonoBehaviour, IClickable
 {
     [SerializeField] Animation _animButtonPress = null;
     [SerializeField] Animator _animaTrafficCont = null;
@@ -20,29 +20,12 @@ public class TrafficLightScript : MonoBehaviour
     public delegate void StopCarSpawn(bool condition);
     public static event StopCarSpawn stopCarSapwn;
 
-    public void OnTrafficButtonPress()
-    {
-        _animButtonPress.Play();
-        _animaTrafficCont.SetBool("ButtonPressed", true);
-
-        StartCoroutine(StartTrafficCountdown());
-    }
-
     IEnumerator StartTrafficCountdown()
     {
         yield return new WaitForSeconds(_trafficCountdownDelay);
         _animaTrafficCont.SetBool("ResumeTraffic", true);
     }
 
-    void AnimPedestrianCanWalk()
-    {
-
-    }
-
-    void AnimPedestrianCannotWalk()
-    {
-
-    }
 
     void AnimResumeTraffic()
     {
@@ -86,5 +69,20 @@ public class TrafficLightScript : MonoBehaviour
         {
             stopCarSapwn?.Invoke(true);
         }
+    }
+
+    public void OnClick()
+    {
+        Debug.Log("Traffic Light Object Clicked");
+
+        _animButtonPress.Play();
+        _animaTrafficCont.SetBool("ButtonPressed", true);
+
+        StartCoroutine(StartTrafficCountdown());
+    }
+
+    public void SendMessageToManager()
+    {
+        throw new System.NotImplementedException();
     }
 }

@@ -165,9 +165,9 @@ GameObject:
   - component: {fileID: 487146}
   - component: {fileID: 3320634}
   - component: {fileID: 2369120}
+  - component: {fileID: -631984096039252750}
   - component: {fileID: 2606601650904583868}
   - component: {fileID: -4843684713646268677}
-  - component: {fileID: -631984096039252750}
   m_Layer: 0
   m_Name: SM_Veh_Car_Van_02
   m_TagString: Vehicle
@@ -243,6 +243,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &-631984096039252750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33aabe1a2dec93349b06e6e5dc51bc06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathCreator: {fileID: 0}
+  endOfPathInstruction: 0
+  speed: 2
 --- !u!65 &2606601650904583868
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -269,21 +284,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: -0.000000059604645, y: 1.1358304, z: 3.2}
---- !u!114 &-631984096039252750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 130278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33aabe1a2dec93349b06e6e5dc51bc06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathCreator: {fileID: 0}
-  endOfPathInstruction: 0
-  speed: 0.05
 --- !u!1 &148594
 GameObject:
   m_ObjectHideFlags: 0

@@ -88,9 +88,9 @@ GameObject:
   - component: {fileID: 4956868172205330}
   - component: {fileID: 33147891530052890}
   - component: {fileID: 23453952507279772}
+  - component: {fileID: -7861595206319446843}
   - component: {fileID: -1061475309929450520}
   - component: {fileID: -5746385919409156501}
-  - component: {fileID: -7861595206319446843}
   m_Layer: 0
   m_Name: SM_Veh_Firetruck_01
   m_TagString: Vehicle
@@ -167,6 +167,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &-7861595206319446843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209555985277952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33aabe1a2dec93349b06e6e5dc51bc06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathCreator: {fileID: 0}
+  endOfPathInstruction: 0
+  speed: 2
 --- !u!65 &-1061475309929450520
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -193,21 +208,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 1.5879507, z: 5}
---- !u!114 &-7861595206319446843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1209555985277952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33aabe1a2dec93349b06e6e5dc51bc06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathCreator: {fileID: 0}
-  endOfPathInstruction: 0
-  speed: 0.05
 --- !u!1 &1271201421836116
 GameObject:
   m_ObjectHideFlags: 0

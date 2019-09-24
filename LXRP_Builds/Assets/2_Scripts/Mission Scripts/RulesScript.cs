@@ -1,0 +1,20 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class RulesScript : MonoBehaviour, IClickable
+{
+    private SO_RuleInfo ruleInfo;
+    public SO_RuleInfo RuleInfo { get => ruleInfo; set => ruleInfo = value; }
+
+    public void OnClick()
+    {
+        Debug.Log("Rule Game Object Clicked");
+        UIManager.Instance.SetRuleInfo(RuleInfo);
+    }
+
+    public void SendMessageToManager()
+    {
+        throw new System.NotImplementedException();
+    }
+}

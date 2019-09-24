@@ -476,7 +476,6 @@ GameObject:
   - component: {fileID: -5479786194107831536}
   - component: {fileID: -3079179026734171291}
   - component: {fileID: 9163320283713424843}
-  - component: {fileID: 716764341114837344}
   m_Layer: 0
   m_Name: SM_Veh_Car_Ambo_02
   m_TagString: Vehicle
@@ -566,7 +565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathCreator: {fileID: 0}
   endOfPathInstruction: 0
-  speed: 0.1
+  speed: 2
 --- !u!65 &-3079179026734171291
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -593,21 +592,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 1.396498, z: 3.5}
---- !u!114 &716764341114837344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 164098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33aabe1a2dec93349b06e6e5dc51bc06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathCreator: {fileID: 0}
-  endOfPathInstruction: 0
-  speed: 0.05
 --- !u!1 &174714
 GameObject:
   m_ObjectHideFlags: 0

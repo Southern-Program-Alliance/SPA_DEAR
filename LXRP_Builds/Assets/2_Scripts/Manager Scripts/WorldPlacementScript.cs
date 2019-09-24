@@ -130,7 +130,7 @@ public class WorldPlacementScript : MonoBehaviour
             return;
         }
 
-        Debug.Log("ARSTATE change from:  " + CURRSTATE + "  to:  " + newState);
+        //Debug.Log("ARSTATE change from:  " + CURRSTATE + "  to:  " + newState);
         CURRSTATE = newState;
         HandleStateChangedEvent(CURRSTATE);
     }
