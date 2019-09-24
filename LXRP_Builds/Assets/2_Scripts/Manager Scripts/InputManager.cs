@@ -61,24 +61,7 @@ public class InputManager : MonoBehaviour
     private void InitiateCast()
     {
         Vector3 rayOrigin = MainCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
-
-        //// If movable then Raycast
-        //if (IsLookingForPlayer)
-        //{
-        //    // Else sphere cast
-        //    if (Physics.SphereCast(rayOrigin, shpereCastRadius, MainCam.transform.forward, out hit, 100f, shpereCastLayer))
-        //    {
-        //        //Debug.DrawRay(rayOrigin, MainCam.transform.forward, Color.green, 1f);
-        //        hit.collider.GetComponent<IClickable>().OnClick();
-        //    }
-        //}
-        //else
-        //{
-        //    if (Physics.Raycast(rayOrigin, MainCam.transform.forward, out hit, 200))
-        //    {
-        //       
-        //    }
-        //}     
+    
         if (Physics.SphereCast(rayOrigin, shpereCastRadius, MainCam.transform.forward, out hit, 100f))
         {
             //Debug.DrawRay(rayOrigin, MainCam.transform.forward, Color.green, 1f);

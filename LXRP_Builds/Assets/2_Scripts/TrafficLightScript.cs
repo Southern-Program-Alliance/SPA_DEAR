@@ -4,7 +4,7 @@ using UnityEngine;
 using PathCreation;  
 
 [RequireComponent (typeof(Animator))]
-public class TrafficLightScript : MonoBehaviour, IClickable
+public class TrafficLightScript : MonoBehaviour
 {
     [SerializeField] Animation _animButtonPress = null;
     [SerializeField] Animator _animaTrafficCont = null;
@@ -79,10 +79,5 @@ public class TrafficLightScript : MonoBehaviour, IClickable
         _animaTrafficCont.SetBool("ButtonPressed", true);
 
         StartCoroutine(StartTrafficCountdown());
-    }
-
-    public void SendMessageToManager()
-    {
-        throw new System.NotImplementedException();
     }
 }
