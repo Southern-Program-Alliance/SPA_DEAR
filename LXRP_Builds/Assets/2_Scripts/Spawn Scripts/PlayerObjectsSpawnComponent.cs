@@ -8,13 +8,23 @@ public class PlayerObjectsSpawnComponent : MonoBehaviour
     [SerializeField] GameObject rulesPrefab = null;
     [SerializeField] Transform[] spawnLocations = null;
 
+    private int amtOfRules;
+    public int AmtOfRules { get => amtOfRules; }
+    
+    private int amtOfPlayers;
+    public int AmtOfPlayers { get => amtOfPlayers; }
+
     private GameObject[] playerCharacters;
     private int nextPlayer;
+
     
     private void Awake()
     {
         rules = Resources.LoadAll<SO_RuleInfo>("RULES");
+        amtOfRules = rules.Length;
+
         playerCharacters = Resources.LoadAll<GameObject>("PLAYERS");
+        amtOfPlayers = playerCharacters.Length;
 
         nextPlayer = 0;
     }

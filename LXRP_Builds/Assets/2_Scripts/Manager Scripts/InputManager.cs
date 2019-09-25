@@ -14,7 +14,6 @@ public class InputManager : MonoBehaviour
     private Ray ray;
     private RaycastHit hit;
 
-    [SerializeField] LayerMask controllableLayer;
     [SerializeField] float shpereCastRadius = 0.05f;
 
     private bool isLookingForPlayer = true;
@@ -68,7 +67,7 @@ public class InputManager : MonoBehaviour
 
             if(hit.collider.gameObject.GetComponent<IClickable>() != null)
             {
-                Debug.Log("aslklhf");
+                Debug.Log("Player Object Hit");
                 hit.collider.gameObject.GetComponent<IClickable>().OnClick();
                 return;
             }
@@ -76,7 +75,7 @@ public class InputManager : MonoBehaviour
             {
                 if (Physics.Raycast(rayOrigin, MainCam.transform.forward, out hit, 200))
                 {
-                    Debug.Log("asljdfhblajksdhflasdflkahflasdhflajkhfalsdjhfalsdjfasdjklhf");
+                    Debug.Log("Walkable Object Hit");
                     HandleWalkableHit(hit.point);
                 }
             }

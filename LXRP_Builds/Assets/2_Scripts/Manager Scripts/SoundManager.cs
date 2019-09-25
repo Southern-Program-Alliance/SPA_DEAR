@@ -14,7 +14,7 @@ public class SoundManager : MonoBehaviour
     }
     public void EVENTFall()
     {
-        PlayAudio(audioClips[0], 0.4f);
+        PlayAudio(audioClips[0], 0.5f);
     }
 
     public void StartBgMusic()
@@ -22,7 +22,7 @@ public class SoundManager : MonoBehaviour
         PlayAudio(audioClips[1]);
     }
 
-    private void PlayAudio(AudioClip clip, float vol = 0.6f)
+    private void PlayAudio(AudioClip clip, float vol = 0.9f)
     {
         audioSource.clip = clip;
         audioSource.volume = vol;

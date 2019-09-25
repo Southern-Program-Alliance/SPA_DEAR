@@ -98,5 +98,18 @@ public class SpawnManager : MonoBehaviour
     {
         return pedestrianPaths[Random.Range(0, pedestrianPaths.Length)];
     }
+
+    public int getNoOfSpawns(SPAWNSELECTION whichObject)
+    {
+        switch(whichObject){
+
+            case SPAWNSELECTION.RULES:
+                return playerObjectsComponent.AmtOfRules;
+
+            case SPAWNSELECTION.PLAYERS:
+                return playerObjectsComponent.AmtOfPlayers;
+        }
+        return 0;
+    }
 }
 

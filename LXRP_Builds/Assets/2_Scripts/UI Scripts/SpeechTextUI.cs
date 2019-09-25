@@ -46,9 +46,9 @@ public class SpeechTextUI : MonoBehaviour
     private void NextSentence()
     {
         if (isTalking)
-            return;
+            return;      
 
-        else if (index < speechArray.Length - 1)
+        if (index < speechArray.Length - 1)
         {
             index++;
             introSpeechText.text = "";

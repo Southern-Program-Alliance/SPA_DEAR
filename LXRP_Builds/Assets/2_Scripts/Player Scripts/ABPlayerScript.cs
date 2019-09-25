@@ -50,7 +50,7 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.transform.tag == "Vehicle")
+        if(collision.transform.tag == "Road")
         {
             Debug.Log("____________Vehicle Hit");
 

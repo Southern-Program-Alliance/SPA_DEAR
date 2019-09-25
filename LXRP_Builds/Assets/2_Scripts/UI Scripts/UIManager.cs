@@ -92,7 +92,9 @@ public class UIManager : MonoBehaviour
 
     public void UpdateRules(int no)
     {
-        string text = no + " / 5 Rules Selected";
+        string text = no + " / " 
+            + SpawnManager.Instance.getNoOfSpawns(SPAWNSELECTION.RULES) 
+            +" Rules Selected";
         updateText.text = text;
     }
 
