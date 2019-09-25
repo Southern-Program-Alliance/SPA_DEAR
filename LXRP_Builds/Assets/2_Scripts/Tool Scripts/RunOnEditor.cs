@@ -3,7 +3,7 @@ using System.Collections;
 
 public class RunOnEditor : MonoBehaviour
 {
-    [SerializeField] Camera ARCamera;
+    [SerializeField] Camera ARCamera = null;
 
     private void Awake()
     {

@@ -1,4 +1,4 @@
-﻿public enum GAMESTATE
+﻿public enum EGameState
 {
     BLANK,
     BEGIN,
@@ -6,10 +6,11 @@
     PLAYER_START,
     QUEST_START,
     QUEST_COMPLETE,
-    PLAYER_COMPLETE
+    PLAYER_COMPLETE,
+    HIT_BY_CAR
 }
 
-public enum ARSTATE
+public enum EARState
 {
     BLANK,
     TUTORIAL,
@@ -18,7 +19,7 @@ public enum ARSTATE
     PLACED
 }
 
-public enum SPAWNSELECTION
+public enum ESpawnSelection
 {
     PEDESTRIANS,
     VEHICLES,
@@ -26,10 +27,17 @@ public enum SPAWNSELECTION
     RULES
 }
 
-public enum MISSIONTYPE
+public enum EMissionType
 {
     FIND_CORRECT_RULES,
     GET_TO_STATION,
     SHOPPING,
     FIND_MISTAKES
+}
+
+public enum EScoreEvent
+{
+    GAME_START,
+    ON_ROAD,
+    FOUND_PLAYER
 }

@@ -9,9 +9,6 @@ public class FloatingTextComponent : MonoBehaviour, IClickable
     [SerializeField] Transform floatingTextSpawnLoc = null;
     [SerializeField] Vector3 randomSpawnOffset = Vector3.zero;
 
-    private bool isSpeechText = false;
-    private string[] speechText = null;
-
     void Start()
     {
 

@@ -10,8 +10,11 @@ public class PlayerObjectsSpawnComponent : MonoBehaviour
 
     private int amtOfRules;
     public int AmtOfRules { get => amtOfRules; }
-    
-    private int amtOfPlayers;
+
+    private int amtOfCorrectRules;
+    public int AmtOfCorrectRules { get => amtOfCorrectRules; }
+
+    private int amtOfPlayers = 0;
     public int AmtOfPlayers { get => amtOfPlayers; }
 
     private GameObject[] playerCharacters;
@@ -35,6 +38,9 @@ public class PlayerObjectsSpawnComponent : MonoBehaviour
         {
             GameObject spawn = Instantiate(rulesPrefab, GetLocation(), Quaternion.identity, transform);
             spawn.GetComponent<RulesScript>().RuleInfo = rules[i];
+
+            if (rules[i].isCorrect)
+                amtOfCorrectRules++;
         }       
     }
 
@@ -67,6 +73,6 @@ public class PlayerObjectsSpawnComponent : MonoBehaviour
 
         nextPlayer++;
 
-        MainManager.Instance.SetState(GAMESTATE.PLAYER_START, spawn.GetComponent<ABPlayerScript>());
+        MainManager.Instance.SetState(EGameState.PLAYER_START, spawn.GetComponent<ABPlayerScript>());
     }
 }

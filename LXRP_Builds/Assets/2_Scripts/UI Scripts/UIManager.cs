@@ -26,6 +26,9 @@ public class UIManager : MonoBehaviour
         speechTextComponent = GetComponent<SpeechTextUI>();
     }
 
+    [SerializeField] TextMeshProUGUI scoreText = null;
+    private Animator animatorScoreText = null;
+
     [SerializeField] Button resetButton = null;
     [SerializeField] Button backToMenuButton = null;
 
@@ -46,20 +49,52 @@ public class UIManager : MonoBehaviour
     [SerializeField] Text ruleNo = null;
     private SO_RuleInfo ruleInfo = null;
 
-    SpeechTextUI speechTextComponent;
+    private SpeechTextUI speechTextComponent;
 
-    
     private void Start()
     {
         if (!CheckMissingRefs())
             return;
+
+        animatorScoreText = scoreText.gameObject.GetComponent<Animator>();
 
         resetButton.onClick.AddListener(OnResetButtonClicked);
         backToMenuButton.onClick.AddListener(OnBackToMenuButtonClicked);
 
         ruleSelection.onValueChanged.AddListener(OnRuleSelection);
     }
-    
+
+    private void OnRuleSelection(bool isSlected)
+    {
+        MainManager.Instance.OnRuleSelect(isSlected, ruleInfo);
+    }
+
+    private void OnDestroy()
+    {
+        if (resetButton != null)
+            resetButton.GetComponent<Button>().onClick.RemoveListener(OnResetButtonClicked);
+
+        if (backToMenuButton != null)
+            backToMenuButton.GetComponent<Button>().onClick.RemoveListener(OnBackToMenuButtonClicked);
+
+        if (ruleSelection != null)
+            ruleSelection.GetComponent<Toggle>().onValueChanged.RemoveListener(OnRuleSelection);
+    }
+
+    #region MainMenuUI Methods
+
+    private void OnResetButtonClicked()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void OnBackToMenuButtonClicked()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    #endregion
+
     public void SetRuleInfo(SO_RuleInfo info)
     {
         ruleInfo = info;
@@ -85,44 +120,21 @@ public class UIManager : MonoBehaviour
         speechTextComponent.StartIntroSpeech(speechText, characterPortrait);
     }
 
-    private void OnRuleSelection(bool isSlected)
-    {
-        MainManager.Instance.OnRuleSelect(isSlected, ruleInfo);
-    }
-
     public void UpdateRules(int no)
     {
-        string text = no + " / " 
-            + SpawnManager.Instance.getNoOfSpawns(SPAWNSELECTION.RULES) 
-            +" Rules Selected";
+        string text = no + " / "
+            + SpawnManager.Instance.getNoOfSpawns(ESpawnSelection.RULES)
+            + " Rules Selected";
         updateText.text = text;
     }
 
-    #region MainMenuUI Methods
-
-    private void OnResetButtonClicked()
+    public void UpdateScore(int score)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        scoreText.text = score.ToString();
+        animatorScoreText.SetBool("isScoreEvent", true);
+
     }
 
-    private void OnBackToMenuButtonClicked()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-
-    #endregion
-
-    private void OnDestroy()
-    {
-        if (resetButton != null)
-            resetButton.GetComponent<Button>().onClick.RemoveListener(OnResetButtonClicked);
-
-        if (backToMenuButton != null)
-            backToMenuButton.GetComponent<Button>().onClick.RemoveListener(OnBackToMenuButtonClicked);
-
-        if(ruleSelection != null)
-            ruleSelection.GetComponent<Toggle>().onValueChanged.RemoveListener(OnRuleSelection);
-    }
 
     private bool CheckMissingRefs()
     {

@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 2369120}
   - component: {fileID: -631984096039252750}
   - component: {fileID: 2606601650904583868}
+  - component: {fileID: -5340763508718946218}
   m_Layer: 12
   m_Name: SM_Veh_Car_Van_02
   m_TagString: Vehicle
@@ -265,11 +266,27 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130278}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.4229538, y: 1.7831538, z: 6.118952}
   m_Center: {x: -0.012800749, y: 1.1358304, z: 0.63652396}
+--- !u!54 &-5340763508718946218
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130278}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &148594
 GameObject:
   m_ObjectHideFlags: 0

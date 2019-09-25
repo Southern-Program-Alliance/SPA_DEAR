@@ -52,8 +52,10 @@ public class InputManager : MonoBehaviour
 
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            if (!EventSystem.current.IsPointerOverGameObject(0))
-                InitiateCast();
+            if (EventSystem.current.IsPointerOverGameObject(0))
+                return;
+
+            InitiateCast();
         }
     }
 

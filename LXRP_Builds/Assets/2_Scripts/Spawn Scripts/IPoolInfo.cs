@@ -6,7 +6,7 @@ using PathCreation;
 // Interface Class containting all the necessary information for object spawnner.
 public class IPoolInfo
 {
-    private readonly SPAWNSELECTION whatToSpawn;
+    private readonly ESpawnSelection whatToSpawn;
 
     readonly private int poolAmt;
     private Dictionary<GameObject, PathCreator> poolDictionery;
@@ -16,7 +16,7 @@ public class IPoolInfo
 
     private bool canSpawn;
 
-    public IPoolInfo(SPAWNSELECTION objectsToSpawn, int poolAmt, float maxSpawnDelay, PathCreator[] pathsArray, bool canSpawn = true)
+    public IPoolInfo(ESpawnSelection objectsToSpawn, int poolAmt, float maxSpawnDelay, PathCreator[] pathsArray, bool canSpawn = true)
     {
         this.whatToSpawn = objectsToSpawn;
 
@@ -29,7 +29,7 @@ public class IPoolInfo
         this.canSpawn = canSpawn;
     }
 
-    public SPAWNSELECTION WhatToSpawn => whatToSpawn;
+    public ESpawnSelection WhatToSpawn => whatToSpawn;
 
     public int PoolAmt => poolAmt;
     public Dictionary<GameObject, PathCreator> PoolDictionery { get => poolDictionery; set => poolDictionery = value; }

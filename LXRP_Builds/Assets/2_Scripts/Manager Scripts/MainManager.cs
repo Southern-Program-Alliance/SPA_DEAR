@@ -12,17 +12,16 @@ public class MainManager : MonoBehaviour
     private static MainManager _instance;
     public static MainManager Instance { get { return _instance; } }
 
-    [SerializeField] WorldPlacementScript placementScript = null;
-
-    GAMESTATE managerState;
-
     // Main selected character
     ABPlayerScript currSelectedPlayer;
-    public ABPlayerScript CurrSelectedPlayer { get => currSelectedPlayer;}
-    
+    public ABPlayerScript CurrSelectedPlayer { get => currSelectedPlayer; }
 
-    [Space]
-    public List<SO_RuleInfo> selectedRules;
+    private EGameState managerState = EGameState.BLANK;
+    private List<SO_RuleInfo> selectedRules = null;
+
+    [SerializeField] WorldPlacementScript placementScript = null;
+
+    private int score = 100;
 
     #region Private Methods
 
@@ -40,41 +39,41 @@ public class MainManager : MonoBehaviour
 
     private void Start()
     {
-        SetState(GAMESTATE.BEGIN);
+        SetState(EGameState.BEGIN);
     }
 
 
     // Function to handle state changes
-    private void HandleStateChangedEvent(GAMESTATE state)
+    private void HandleStateChangedEvent(EGameState state)
     {
         switch (state)
         {
-            case GAMESTATE.BEGIN:
+            case EGameState.BEGIN:
                 InitializeGame();
                 break;
 
-            case GAMESTATE.PLACED:
+            case EGameState.PLACED:
                 // Enable Game
                 StartGame();
                 break;
             
             // When new Player is spawned
-            case GAMESTATE.PLAYER_START:
+            case EGameState.PLAYER_START:
                 SetupNewPlayerCharacter();
                 break;
 
             // When new player is found
-            case GAMESTATE.QUEST_START:
+            case EGameState.QUEST_START:
                 StartMission(currSelectedPlayer.PlayerInfo.characterMission);
                 break;
 
             // When player's mission is complete
-            case GAMESTATE.QUEST_COMPLETE:
+            case EGameState.QUEST_COMPLETE:
                 //SetupNewPlayerCharacter();
                 break;
 
             // When player is taken to the station
-            case GAMESTATE.PLAYER_COMPLETE:
+            case EGameState.PLAYER_COMPLETE:
                 //SetupNewPlayerCharacter();
                 break;
         }
@@ -84,18 +83,18 @@ public class MainManager : MonoBehaviour
     {
         if (Application.isEditor)
         {
-            placementScript.SetState(ARSTATE.PLACEMENT);
+            placementScript.SetState(EARState.PLACEMENT);
             return;
         }
-        placementScript.SetState(ARSTATE.TUTORIAL);
+        placementScript.SetState(EARState.TUTORIAL);
     }
 
     private void StartGame()
     {
-        SpawnManager.Instance.StartSpawn(SPAWNSELECTION.PEDESTRIANS);
-        SpawnManager.Instance.StartSpawn(SPAWNSELECTION.VEHICLES);
+        SpawnManager.Instance.StartSpawn(ESpawnSelection.PEDESTRIANS);
+        SpawnManager.Instance.StartSpawn(ESpawnSelection.VEHICLES);
 
-        SpawnManager.Instance.StartSpawn(SPAWNSELECTION.PLAYERS);
+        SpawnManager.Instance.StartSpawn(ESpawnSelection.PLAYERS);
     }
 
     private void SetupNewPlayerCharacter()
@@ -109,7 +108,7 @@ public class MainManager : MonoBehaviour
         InputManager.Instance.IsLookingForPlayer = true;
     }
 
-    private void StartMission(MISSIONTYPE mission)
+    private void StartMission(EMissionType mission)
     {
         // Start Talk UI
         UIManager.Instance.StartIntroSpeech(currSelectedPlayer.PlayerInfo.introSpeechText
@@ -117,8 +116,8 @@ public class MainManager : MonoBehaviour
         
         switch (mission)
         {
-            case MISSIONTYPE.FIND_CORRECT_RULES:
-                SpawnManager.Instance.StartSpawn(SPAWNSELECTION.RULES);
+            case EMissionType.FIND_CORRECT_RULES:
+                SpawnManager.Instance.StartSpawn(ESpawnSelection.RULES);
                 break;
         }
         // Change Casting on Input Manager
@@ -130,7 +129,7 @@ public class MainManager : MonoBehaviour
     #region Public Methods
 
     // Function to change the state
-    public void SetState(GAMESTATE newState)
+    public void SetState(EGameState newState)
     {
         if (managerState == newState)
         {
@@ -142,7 +141,7 @@ public class MainManager : MonoBehaviour
         HandleStateChangedEvent(managerState);
     }
 
-    public void SetState(GAMESTATE newState, ABPlayerScript player)
+    public void SetState(EGameState newState, ABPlayerScript player)
     {
         currSelectedPlayer = player;
         SetState(newState);
@@ -160,6 +159,16 @@ public class MainManager : MonoBehaviour
             selectedRules.Remove(info);
         }
         UIManager.Instance.UpdateRules(selectedRules.Count);
+    }
+
+    public void UpdateScore(EScoreEvent eScoreEvent)
+    {
+        switch (eScoreEvent)
+        {
+            case EScoreEvent.GAME_START:
+                UIManager.Instance.
+                break;
+        }
     }
 
     #endregion

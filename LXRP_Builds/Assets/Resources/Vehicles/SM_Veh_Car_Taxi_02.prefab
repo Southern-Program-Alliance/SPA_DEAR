@@ -475,6 +475,7 @@ GameObject:
   - component: {fileID: 2335232}
   - component: {fileID: -7713459296837185610}
   - component: {fileID: 8066971985203518107}
+  - component: {fileID: -8478209392601798205}
   m_Layer: 12
   m_Name: SM_Veh_Car_Taxi_02
   m_TagString: Vehicle
@@ -571,11 +572,27 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 175378}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.2587805, y: 1.496331, z: 6.123519}
   m_Center: {x: -0.006255321, y: 0.9742627, z: 0.59362084}
+--- !u!54 &-8478209392601798205
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175378}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &176960
 GameObject:
   m_ObjectHideFlags: 0

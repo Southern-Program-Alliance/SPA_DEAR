@@ -48,17 +48,26 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
         pathFollower.enabled = true;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.transform.tag == "Road")
-        {
-            Debug.Log("____________Vehicle Hit");
+        //Debug.Log("Player entered " + other.name);
 
-            if (onGameEvent != null)
-            {
-                onGameEvent(0);
-            }
+        if(other.gameObject.tag == "Vehicle")
+        {
+            Debug.Log("Player got hit by a vehicle");
         }
+
+        else if(other.gameObject.tag == "Road")
+        {
+            Debug.Log("Player stepped on to the road");
+            // Game End
+
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log("Player exited " + other.name);
     }
 
     private bool CheckRefs()
@@ -108,7 +117,7 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
 
         SwitchComponents(true);
 
-        MainManager.Instance.SetState(GAMESTATE.QUEST_START);
+        MainManager.Instance.SetState(EGameState.QUEST_START);
     }
 
     public void SendMessageToManager()

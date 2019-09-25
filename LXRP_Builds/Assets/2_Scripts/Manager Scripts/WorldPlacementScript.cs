@@ -17,7 +17,7 @@ public class WorldPlacementScript : MonoBehaviour
     private Camera mainCam;
 
     private bool isObjectPlaced = false;
-    private ARSTATE CURRSTATE = ARSTATE.BLANK;
+    private EARState CURRSTATE = EARState.BLANK;
 
     [SerializeField] GameObject objectToPlace = null;
     [SerializeField] GameObject placementIndicator = null;
@@ -123,7 +123,7 @@ public class WorldPlacementScript : MonoBehaviour
     }
 
     // Function to change the state
-    public void SetState(ARSTATE newState)
+    public void SetState(EARState newState)
     {
         if (CURRSTATE == newState)
         {
@@ -136,25 +136,25 @@ public class WorldPlacementScript : MonoBehaviour
     }
 
     // Function to handle state changes
-    void HandleStateChangedEvent(ARSTATE state)
+    void HandleStateChangedEvent(EARState state)
     {
         if (CURRSTATE != state)
             return;
 
         // Show tutorial
-        if (state == ARSTATE.TUTORIAL)
+        if (state == EARState.TUTORIAL)
         {
             placementIndicator.SetActive(false);
             return;
         }
 
         // Starting state of the game
-        if (state == ARSTATE.PLACEMENT)
+        if (state == EARState.PLACEMENT)
         {
             return;
         }
 
-        if(state == ARSTATE.PLACED)
+        if(state == EARState.PLACED)
         {
             isObjectPlaced = true;
 
@@ -162,7 +162,7 @@ public class WorldPlacementScript : MonoBehaviour
             m_SnackBar.SetActive(false);
             m_OpenButton.SetActive(false);
 
-            MainManager.Instance.SetState(GAMESTATE.PLACED);
+            MainManager.Instance.SetState(EGameState.PLACED);
             return;
         }
     }
@@ -174,7 +174,7 @@ public class WorldPlacementScript : MonoBehaviour
         if (isObjectPlaced)
             return;
 
-        if(CURRSTATE == ARSTATE.TUTORIAL)
+        if(CURRSTATE == EARState.TUTORIAL)
         {
             UpdatePlacementPose(); // Check for trackable plane surfaces
 
@@ -216,11 +216,11 @@ public class WorldPlacementScript : MonoBehaviour
                 m_SnackBar.SetActive(true);
                 m_SnackBarText.text = "Point your camera to where you want to place an object.";
 
-                SetState(ARSTATE.PLACEMENT);
+                SetState(EARState.PLACEMENT);
             }
         }
 
-        else if(CURRSTATE == ARSTATE.PLACEMENT)
+        else if(CURRSTATE == EARState.PLACEMENT)
         {
             //Placeobject at origin if in the editor
             if (Application.isEditor)
@@ -309,7 +309,7 @@ public class WorldPlacementScript : MonoBehaviour
         objectToPlace.transform.position = pos;
         objectToPlace.transform.rotation = rot;
 
-        SetState(ARSTATE.PLACED);
+        SetState(EARState.PLACED);
     }
 
 

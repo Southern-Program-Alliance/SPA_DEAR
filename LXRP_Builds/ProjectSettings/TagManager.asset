@@ -12,6 +12,7 @@ TagManager:
   - ARSession
   - Building
   - Rule
+  - Road
   layers:
   - Default
   - TransparentFX

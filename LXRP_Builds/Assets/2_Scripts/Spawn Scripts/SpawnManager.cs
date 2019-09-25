@@ -54,36 +54,36 @@ public class SpawnManager : MonoBehaviour
     public void PreparePools(int seed)
     {
         // Prepare the poolInfos
-        pedestrianPoolInfo = new IPoolInfo(SPAWNSELECTION.PEDESTRIANS, pedestrianPoolAmt, pedestrianMaxSpawnDelay,
+        pedestrianPoolInfo = new IPoolInfo(ESpawnSelection.PEDESTRIANS, pedestrianPoolAmt, pedestrianMaxSpawnDelay,
             pedestrianPaths, true);
         // Get all prefabs from the list 
         pedestriansPrefabs = Resources.LoadAll<GameObject>("PEDESTRIANS");
         pedestrianComponent.InitialzePool(pedestrianPoolInfo, seed, pedestriansPrefabs);
 
         // Same for the vehicles as well
-        vehiclePoolInfo = new IPoolInfo(SPAWNSELECTION.VEHICLES, vehiclePoolAmt, vehicleMaxSpawnDelay,
+        vehiclePoolInfo = new IPoolInfo(ESpawnSelection.VEHICLES, vehiclePoolAmt, vehicleMaxSpawnDelay,
             vehiclePaths, true);
         vehiclePrefabs = Resources.LoadAll<GameObject>("VEHICLES");
         vehicleComponent.InitialzePool(vehiclePoolInfo, seed, vehiclePrefabs);
     }
 
-    public void StartSpawn(SPAWNSELECTION whatToSpawn)
+    public void StartSpawn(ESpawnSelection whatToSpawn)
     {
         switch(whatToSpawn)
         {
-            case SPAWNSELECTION.PEDESTRIANS:
+            case ESpawnSelection.PEDESTRIANS:
                 pedestrianComponent.StartSpawn();
                 break;
 
-            case SPAWNSELECTION.VEHICLES:
+            case ESpawnSelection.VEHICLES:
                 vehicleComponent.StartSpawn();
                 break;
 
-            case SPAWNSELECTION.RULES:
+            case ESpawnSelection.RULES:
                 playerObjectsComponent.SpawnRules();
                 break;
 
-            case SPAWNSELECTION.PLAYERS:
+            case ESpawnSelection.PLAYERS:
                 playerObjectsComponent.SpawnPlayer();
                 break;
         }
@@ -99,14 +99,14 @@ public class SpawnManager : MonoBehaviour
         return pedestrianPaths[Random.Range(0, pedestrianPaths.Length)];
     }
 
-    public int getNoOfSpawns(SPAWNSELECTION whichObject)
+    public int getNoOfSpawns(ESpawnSelection whichObject)
     {
         switch(whichObject){
 
-            case SPAWNSELECTION.RULES:
+            case ESpawnSelection.RULES:
                 return playerObjectsComponent.AmtOfRules;
 
-            case SPAWNSELECTION.PLAYERS:
+            case ESpawnSelection.PLAYERS:
                 return playerObjectsComponent.AmtOfPlayers;
         }
         return 0;

@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 23453952507279772}
   - component: {fileID: -7861595206319446843}
   - component: {fileID: -1061475309929450520}
+  - component: {fileID: 7782911812249137468}
   m_Layer: 12
   m_Name: SM_Veh_Firetruck_01
   m_TagString: Vehicle
@@ -189,11 +190,27 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1209555985277952}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.57326, y: 2.8393257, z: 10.110363}
   m_Center: {x: -0.020221435, y: 1.5879506, z: 0.45202002}
+--- !u!54 &7782911812249137468
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209555985277952}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1271201421836116
 GameObject:
   m_ObjectHideFlags: 0

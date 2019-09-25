@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CharacterInfo 1", menuName = "ScriptableObjects/CharacterInfo", order = 2)]
 public class SO_PlayerInfo : ScriptableObject
 {
-    public MISSIONTYPE characterMission;
+    public EMissionType characterMission;
     public GameObject attachedObject;
 
     [Space]
