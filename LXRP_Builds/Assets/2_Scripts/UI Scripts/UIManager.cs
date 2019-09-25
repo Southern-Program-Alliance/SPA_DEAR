@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; 
+using UnityEngine.UI;
+using TMPro;
 
+[RequireComponent(typeof(SpeechTextUI))]
 public class UIManager : MonoBehaviour
 {
     // Singleton Members
@@ -20,10 +22,21 @@ public class UIManager : MonoBehaviour
         {
             _instance = this;
         }
+
+        speechTextComponent = GetComponent<SpeechTextUI>();
     }
 
     [SerializeField] Button resetButton = null;
     [SerializeField] Button backToMenuButton = null;
+
+    // Character Info UI members
+    [Space]
+    [SerializeField] Text characterNameTxt = null;
+    [SerializeField] Image portraitImage = null;
+    [SerializeField] Image fullImage = null;
+    [SerializeField] Image collectibleImage = null;
+    [SerializeField] Text objectiveText = null;
+    [SerializeField] Text updateText = null;
 
     // Rule UI Members
     [Space]
@@ -33,23 +46,18 @@ public class UIManager : MonoBehaviour
     [SerializeField] Text ruleNo = null;
     private SO_RuleInfo ruleInfo = null;
 
-    [Space]
-    [SerializeField] Text characterNameTxt = null;
-    [SerializeField] Image portraitImage = null;
-    [SerializeField] Image fullImage = null;
-    [SerializeField] Image collectibleImage = null;
-    [SerializeField] Text objectiveText = null;
-    [SerializeField] Text updateText = null;
+    SpeechTextUI speechTextComponent;
 
+    
     private void Start()
     {
         if (!CheckMissingRefs())
             return;
 
-        resetButton.GetComponent<Button>().onClick.AddListener(OnResetButtonClicked);
-        backToMenuButton.GetComponent<Button>().onClick.AddListener(OnBackToMenuButtonClicked);
+        resetButton.onClick.AddListener(OnResetButtonClicked);
+        backToMenuButton.onClick.AddListener(OnBackToMenuButtonClicked);
 
-        ruleSelection.GetComponent<Toggle>().onValueChanged.AddListener(OnRuleSelection);
+        ruleSelection.onValueChanged.AddListener(OnRuleSelection);
     }
     
     public void SetRuleInfo(SO_RuleInfo info)
@@ -70,6 +78,11 @@ public class UIManager : MonoBehaviour
         objectiveText.text = info.objectivesText;
 
         UpdateRules(0);
+    }
+
+    public void StartIntroSpeech(string[] speechText, Sprite characterPortrait)
+    {
+        speechTextComponent.StartIntroSpeech(speechText, characterPortrait);
     }
 
     private void OnRuleSelection(bool isSlected)

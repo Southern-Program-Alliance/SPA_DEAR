@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PlayerInfo_Construction
   m_EditorClassIdentifier: 
   characterMission: 0
+  attachedObject: {fileID: 0}
   portraitImage: {fileID: 21300000, guid: e5b039bb56a88c4419a0bacd0f7049ad, type: 3}
   fullImage: {fileID: 21300000, guid: 0eaaecbd4090f6b468ae9e5e5b03ba32, type: 3}
   collectibleImage: {fileID: 21300000, guid: c359449f24f44ad4cb51feb2851cc506, type: 3}
@@ -24,3 +25,9 @@ MonoBehaviour:
     - Guide him to the station
 
     - Follow traffic rules'
+  introSpeechText:
+  - Hello there! Im a road safety worker
+  - I have lost my handy safety rule books
+  - Could you help me look for them
+  - They are scattered around here
+  - Make sure to choose the right ones

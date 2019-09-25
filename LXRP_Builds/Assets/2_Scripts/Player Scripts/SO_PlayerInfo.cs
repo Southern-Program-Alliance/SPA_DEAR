@@ -17,5 +17,7 @@ public class SO_PlayerInfo : ScriptableObject
     public string characterName;
     [TextArea]
     public string objectivesText;
+    [TextArea]
+    public string[] introSpeechText;
 }
 

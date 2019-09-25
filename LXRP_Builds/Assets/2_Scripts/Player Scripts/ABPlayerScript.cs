@@ -15,12 +15,11 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
     public delegate void OnGameEvent(int i);
     public static event OnGameEvent onGameEvent;
 
-    Outline outlineComponent;
-    PlayerAnimController animController;
-    PathFollower pathFollower;
-    NavMeshAgent navMeshAgent;
+    private Outline outlineComponent;
+    private PlayerAnimController animController;
+    private PathFollower pathFollower;
+    private NavMeshAgent navMeshAgent;
 
-    [SerializeField] GameObject floatingText;
     [SerializeField] GameObject pointerComponent = null;
     [SerializeField] SO_PlayerInfo playerInfo = null;
 
@@ -62,11 +61,6 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
         }
     }
 
-    private void ShowFloatingText()
-    {
-        //floatingText.en
-    }
-
     private bool CheckRefs()
     {
         bool check = true;
@@ -93,11 +87,6 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
         else if (PlayerInfo == null)
         {
             Debug.LogError("Character UI Info : Ref Missing - on " + transform.name);
-            check = false;
-        }
-        else if (floatingText == null)
-        {
-            Debug.LogError("Floating Text : Ref Missing - on " + transform.name);
             check = false;
         }
         return check;

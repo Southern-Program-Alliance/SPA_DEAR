@@ -111,7 +111,10 @@ public class MainManager : MonoBehaviour
 
     private void StartMission(MISSIONTYPE mission)
     {
-        Debug.Log("asljdfhb");
+        // Start Talk UI
+        UIManager.Instance.StartIntroSpeech(currSelectedPlayer.PlayerInfo.introSpeechText
+            , currSelectedPlayer.PlayerInfo.portraitImage);
+        
         switch (mission)
         {
             case MISSIONTYPE.FIND_CORRECT_RULES:
