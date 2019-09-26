@@ -4,6 +4,7 @@ using UnityEngine;
 using PathCreation;
 using UnityEngine.AI;
 using TMPro;
+using System;
 
 [RequireComponent(typeof(PlayerAnimController))]
 [RequireComponent(typeof(CapsuleCollider))]
@@ -22,6 +23,8 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
 
     [SerializeField] GameObject pointerComponent = null;
     [SerializeField] SO_PlayerInfo playerInfo = null;
+    private bool isDecreaseScoreRunning = false;
+    private bool isOnRoad;
 
     public SO_PlayerInfo PlayerInfo { get => playerInfo; }
 
@@ -54,20 +57,43 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
 
         if(other.gameObject.tag == "Vehicle")
         {
-            Debug.Log("Player got hit by a vehicle");
+            //Debug.Log("Player got hit by a vehicle");
         }
 
         else if(other.gameObject.tag == "Road")
         {
             Debug.Log("Player stepped on to the road");
-            // Game End
 
+            isOnRoad = true;
+            StartCoroutine(DecreaseScore());
+        }
+    }
+
+    IEnumerator DecreaseScore()
+    {
+        if (!isDecreaseScoreRunning && isOnRoad)
+        {
+            isDecreaseScoreRunning = true;
+
+            while (isOnRoad)
+            {
+                yield return new WaitForSeconds(1.5f);
+
+                MainManager.Instance.UpdateScore(EScoreEvent.ON_ROAD);
+                isDecreaseScoreRunning = false;
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Player exited " + other.name);
+        //Debug.Log("Player exited " + other.name);
+        if (other.gameObject.tag == "Road")
+        {
+            Debug.Log("Player stepped on to the road");
+            // Game End
+            isOnRoad = false;
+        }
     }
 
     private bool CheckRefs()

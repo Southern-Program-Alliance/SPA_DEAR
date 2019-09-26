@@ -4467,6 +4467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d5af7ab875cd84787b6d981f675d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 1427385313}
   resetButton: {fileID: 1537425201}
   backToMenuButton: {fileID: 379528661}
   characterNameTxt: {fileID: 1463884598}
@@ -5098,7 +5099,7 @@ GameObject:
   - component: {fileID: 731292128}
   - component: {fileID: 731292127}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ScoreTitleTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6839,7 +6840,7 @@ GameObject:
   - component: {fileID: 1028317883}
   - component: {fileID: 1028317882}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ScoreUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10175,8 +10176,9 @@ GameObject:
   - component: {fileID: 1427385314}
   - component: {fileID: 1427385313}
   - component: {fileID: 1427385312}
+  - component: {fileID: 1427385315}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10198,7 +10200,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -35.3, y: 0}
+  m_AnchoredPosition: {x: -12.3, y: -0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1427385312
@@ -10286,7 +10288,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -10307,7 +10309,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 127.27211, y: 0, z: 0, w: 17.845457}
+  m_margin: {x: 53.246204, y: 0, z: 0, w: -29.431852}
   m_textInfo:
     textComponent: {fileID: 1427385313}
     characterCount: 3
@@ -10341,6 +10343,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427385310}
   m_CullTransparentMesh: 0
+--- !u!114 &1427385315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427385310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76593ca5066c40a4988610b80f1c6439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1463884596
 GameObject:
   m_ObjectHideFlags: 0
@@ -13861,7 +13875,7 @@ MonoBehaviour:
   - {fileID: 783346252}
   - {fileID: 424579653}
   vehicleComponent: {fileID: 942831320}
-  vehiclePoolAmt: 25
+  vehiclePoolAmt: 15
   vehicleMaxSpawnDelay: 5
   vehiclePaths:
   - {fileID: 1313632306}

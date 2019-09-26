@@ -95,6 +95,8 @@ public class MainManager : MonoBehaviour
         SpawnManager.Instance.StartSpawn(ESpawnSelection.VEHICLES);
 
         SpawnManager.Instance.StartSpawn(ESpawnSelection.PLAYERS);
+
+        UpdateScore(EScoreEvent.GAME_START);
     }
 
     private void SetupNewPlayerCharacter()
@@ -136,7 +138,7 @@ public class MainManager : MonoBehaviour
             return;
         }
 
-        Debug.Log("Manager State changed from:  " + managerState + "  to:  " + newState);
+        //Debug.Log("Manager State changed from:  " + managerState + "  to:  " + newState);
         managerState = newState;
         HandleStateChangedEvent(managerState);
     }
@@ -166,7 +168,12 @@ public class MainManager : MonoBehaviour
         switch (eScoreEvent)
         {
             case EScoreEvent.GAME_START:
-                UIManager.Instance.
+                UIManager.Instance.UpdateScore(score);
+                break;
+
+            case EScoreEvent.ON_ROAD:
+                score -= 5;
+                UIManager.Instance.UpdateScore(score);
                 break;
         }
     }

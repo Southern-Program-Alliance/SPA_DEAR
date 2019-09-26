@@ -45,18 +45,19 @@ public class InputManager : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                InitiateCast();
+                if (!EventSystem.current.IsPointerOverGameObject())
+                    InitiateCast();
             }
             return;
         }
-
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        else
         {
-            if (EventSystem.current.IsPointerOverGameObject(0))
-                return;
-
-            InitiateCast();
-        }
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                if (!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+                    InitiateCast();
+            }
+        }   
     }
 
     private void InitiateCast()
@@ -67,7 +68,7 @@ public class InputManager : MonoBehaviour
         {
             //Debug.DrawRay(rayOrigin, MainCam.transform.forward, Color.green, 1f);
 
-            if(hit.collider.gameObject.GetComponent<IClickable>() != null)
+            if (hit.collider.gameObject.GetComponent<IClickable>() != null)
             {
                 Debug.Log("Player Object Hit");
                 hit.collider.gameObject.GetComponent<IClickable>().OnClick();
@@ -85,7 +86,6 @@ public class InputManager : MonoBehaviour
     }
 
     #endregion
-
 
     #region Cast Hit Handler Methods
 

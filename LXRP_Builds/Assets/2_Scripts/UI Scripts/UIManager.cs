@@ -130,9 +130,9 @@ public class UIManager : MonoBehaviour
 
     public void UpdateScore(int score)
     {
+        Debug.Log("UI Manager Update Score");
         scoreText.text = score.ToString();
         animatorScoreText.SetBool("isScoreEvent", true);
-
     }
 
 
