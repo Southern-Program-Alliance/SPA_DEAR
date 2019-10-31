@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Rule 5
   m_EditorClassIdentifier: 
   ruleNo: 5
-  ruleText: Here's Johnny!
+  ruleText: "Be vigilant when you\u2019ve got your headphones in and avoid playing
+    on your phone while you\u2019re walking. Be safe and pay attention."
   isCorrect: 0

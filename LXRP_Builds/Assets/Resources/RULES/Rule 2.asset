@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Rule 2
   m_EditorClassIdentifier: 
   ruleNo: 2
-  ruleText: I'm going to make him an offer he can't refuse.
+  ruleText: Be mindful at Level Crossings. Level Crossings have safety warnings for
+    a reason, so pay attention to booms and signals. Be safe around level crossings,
+    and trains.
   isCorrect: 0

@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Rule 1
   m_EditorClassIdentifier: 
   ruleNo: 1
-  ruleText: "I am a servant of the Secret Fire, wielder of the flame of Anor. You
-    cannot pass! The dark fire will not avail you, flame of Ud\xFBn. Go back to the
-    Shadow! You cannot pass!\\n You shall not pass!"
+  ruleText: It is illegal to go on train tracks unless you are walking across a pedestrian
+    level crossing or driving across a level crossing.
   isCorrect: 1

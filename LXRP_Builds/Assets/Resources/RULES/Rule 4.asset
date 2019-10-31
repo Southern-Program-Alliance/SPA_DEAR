@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Rule 4
   m_EditorClassIdentifier: 
   ruleNo: 4
-  ruleText: Carpe diem. Seize the day, boys. Make your lives extraordinary
+  ruleText: If you drop something on the track always ask staff for help! They have
+    long tongs to pick things up and can get special permission to access the tracks
+    when there are no trains coming. It's always the safest option!
   isCorrect: 1
