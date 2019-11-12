@@ -17,7 +17,7 @@ public class MainManager : MonoBehaviour
     public ABPlayerScript CurrSelectedPlayer { get => currSelectedPlayer; }
 
     private EGameState managerState = EGameState.BLANK;
-    private List<SO_RuleInfo> selectedRules = null;
+    private List<SO_RuleInfo> selectedRules = new List<SO_RuleInfo>();
 
     [SerializeField] WorldPlacementScript placementScript = null;
 
@@ -106,8 +106,6 @@ public class MainManager : MonoBehaviour
             // Enable UI 
             UIManager.Instance.SetPlayerInfo(currSelectedPlayer.PlayerInfo);
         }
-        // Look for player
-        InputManager.Instance.IsLookingForPlayer = true;
     }
 
     private void StartMission(EMissionType mission)
@@ -122,8 +120,6 @@ public class MainManager : MonoBehaviour
                 SpawnManager.Instance.StartSpawn(ESpawnSelection.RULES);
                 break;
         }
-        // Change Casting on Input Manager
-        InputManager.Instance.IsLookingForPlayer = false;
     }
 
     #endregion
@@ -159,6 +155,7 @@ public class MainManager : MonoBehaviour
         else
         {
             selectedRules.Remove(info);
+            Debug.Log("_________________________fdxgnfn");
         }
         UIManager.Instance.UpdateRules(selectedRules.Count);
     }

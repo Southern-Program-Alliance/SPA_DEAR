@@ -16,9 +16,6 @@ public class InputManager : MonoBehaviour
 
     [SerializeField] float shpereCastRadius = 0.05f;
 
-    private bool isLookingForPlayer = true;
-    public bool IsLookingForPlayer { get => isLookingForPlayer; set => isLookingForPlayer = value; }
-
     private void Awake()
     {
         if (_instance != null && _instance != this)
