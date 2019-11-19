@@ -85,13 +85,12 @@ public class UIManager : MonoBehaviour
 
     private void OnResetButtonClicked()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void OnBackToMenuButtonClicked()
     {
         SceneManager.LoadScene("MainMenu");
-
     }
 
     #endregion

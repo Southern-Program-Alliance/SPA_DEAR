@@ -8,7 +8,6 @@ using Random = UnityEngine.Random;
 public class ObjectSpawnComponent : MonoBehaviour
 {
     public IPoolInfo poolInfo;
-    private GameObject previousObject = null;
 
     public void InitialzePool(IPoolInfo poolClassObject, int seed, GameObject[] prefabArray)
     {
@@ -51,13 +50,15 @@ public class ObjectSpawnComponent : MonoBehaviour
     IEnumerator SpawnCountdown()
     {
         yield return new WaitForSeconds(1.0f);
-        
+        //Debug.Log(poolInfo.WhatToSpawn.ToString() + " Spawnner started");
+
         foreach(GameObject spawnObject in poolInfo.PoolDictionery.Keys)
         {
             if (poolInfo.CanSpawn)
             {
-                //yield return new WaitForSeconds(Random.Range(2.0f, poolInfo.MaxSpawnDelay));
-                yield return new WaitForSeconds(0.5f);
+                //Debug.Log("Spawnning " + spawnObject.name);
+
+                yield return new WaitForSeconds(Random.Range(2.0f , poolInfo.MaxSpawnDelay));
 
                 // Skip if already active
                 if (spawnObject.activeSelf)

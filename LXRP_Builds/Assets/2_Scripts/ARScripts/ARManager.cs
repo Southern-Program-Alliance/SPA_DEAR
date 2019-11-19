@@ -21,17 +21,17 @@ public class ARManager : MonoBehaviour
         else
         {
             _instance = this;
-            //DontDestroyOnLoad(this);
+            DontDestroyOnLoad(this);
         }
     }
 
-    //private void OnLevelWasLoaded(int level)
-    //{
+    private void OnLevelWasLoaded(int level)
+    {
         //arSession.Reset();
         //arSession.subsystem.Reset();
         //aRCamera.subsystem.Start();
         //arOrigin.camera.Reset();
-    //}
+    }
 
 
 }

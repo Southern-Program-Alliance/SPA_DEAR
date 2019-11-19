@@ -13,7 +13,6 @@ TagManager:
   - Building
   - Rule
   - Road
-  - Balcombe
   layers:
   - Default
   - TransparentFX
