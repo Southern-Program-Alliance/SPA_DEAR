@@ -21,7 +21,7 @@ public class MainManager : MonoBehaviour
 
     [SerializeField] WorldPlacementScript placementScript = null;
 
-    private int score = 100;
+    private int score = 0;
 
     #region Private Methods
 
@@ -41,7 +41,6 @@ public class MainManager : MonoBehaviour
     {
         SetState(EGameState.BEGIN);
     }
-
 
     // Function to handle state changes
     private void HandleStateChangedEvent(EGameState state)
@@ -85,6 +84,7 @@ public class MainManager : MonoBehaviour
         {
             placementScript.SetState(EARState.PLACEMENT);
             return;
+
         }
         placementScript.SetState(EARState.TUTORIAL);
     }
