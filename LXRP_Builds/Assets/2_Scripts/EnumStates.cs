@@ -30,8 +30,8 @@ public enum ESpawnSelection
 
 public enum EMissionType
 {
-    FIND_CORRECT_RULES,
     GET_TO_STATION,
+    FIND_CORRECT_RULES,
     COLLECT_HOTDOGS,
     SHOPPING,
     FIND_MISTAKES

@@ -116,6 +116,7 @@ public class MainManager : MonoBehaviour
 
     private void StartLevel()
     {
+        Debug.Log("Current Mission: " + currSelectedPlayer.PlayerInfo.characterMission);
         // Display "Level" label 
         UIManager.Instance.DisplayLevelStatusMessage(EGameState.QUEST_START, currSelectedPlayer.PlayerInfo.characterMission);
 

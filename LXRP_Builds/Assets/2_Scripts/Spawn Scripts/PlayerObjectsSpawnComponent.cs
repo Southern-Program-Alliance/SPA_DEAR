@@ -76,6 +76,7 @@ public class PlayerObjectsSpawnComponent : MonoBehaviour
         yield return new WaitForSeconds(0.0f);
         //Debug.Log("Instantiating Player");
 
+        Debug.Log("Player: " + playerCharacters[nextPlayer]);
         GameObject spawn = Instantiate(playerCharacters[nextPlayer]);
         spawn.GetComponent<PathCreation.PathFollower>().pathCreator = SpawnManager.Instance.GetRandomPedestrianPath();
         spawn.GetComponent<ABPlayerScript>().SwitchComponents(false);
