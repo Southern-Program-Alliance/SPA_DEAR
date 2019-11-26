@@ -21,7 +21,7 @@ public class MainManager : MonoBehaviour
     private List<SO_RuleInfo> selectedRules = new List<SO_RuleInfo>();
 
     [SerializeField] WorldPlacementScript placementScript = null;
-    [SerializeField] float LevelStartDelay = 2.0f;
+    [SerializeField] float LevelStartDelay = 3.0f;
 
     // constant
     int levelOnePartTwoIndex = 1;
@@ -78,6 +78,7 @@ public class MainManager : MonoBehaviour
             // When player's mission is complete
             case EGameState.QUEST_COMPLETE:
                 //SetupNewPlayerCharacter();
+                EndMission();
                 break;
 
             // When player is taken to the station
@@ -135,6 +136,21 @@ public class MainManager : MonoBehaviour
            , currSelectedPlayer.PlayerInfo.portraitImage, currSelectedPlayer.PlayerInfo.instructionsIndex);
 
     }
+    
+    private void EndLevel()
+    {
+        UIManager.Instance.ShowLevelStatusText();
+        UIManager.Instance.DisplayLevelStatusMessage(EGameState.QUEST_COMPLETE, currSelectedPlayer.PlayerInfo.characterMission);
+        StartCoroutine(DisplayEndLevelDelay());
+    }
+
+    private IEnumerator DisplayEndLevelDelay()
+    {
+        yield return new WaitForSeconds(LevelStartDelay);
+        Destroy(currSelectedPlayer);
+        Destroy(GameObject.FindWithTag("Player"));
+        SpawnManager.Instance.StartSpawn(ESpawnSelection.PLAYERS);
+    }
 
     private void SetupNewPlayerCharacter()
     {
@@ -146,7 +162,7 @@ public class MainManager : MonoBehaviour
         }
     }
 
-    private void StartMission(EMissionType mission)
+    public void StartMission(EMissionType mission)
     {
         // if playinf 2nd part of Level 1, shift index to further along in instructions array
         if (currSelectedPlayer.PlayerInfo.characterMission == EMissionType.COLLECT_HOTDOGS)
@@ -162,6 +178,11 @@ public class MainManager : MonoBehaviour
                 SpawnManager.Instance.StartSpawn(ESpawnSelection.RULES);
                 break;
         }
+    }
+
+    public void EndMission()
+    {
+        EndLevel();
     }
 
     #endregion

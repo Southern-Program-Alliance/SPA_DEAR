@@ -109,15 +109,19 @@ public class UIManager : MonoBehaviour
         {
             LevelStatus.SetText("Level " + ++level);
         }
-        else
+        else if (inLevelState == EGameState.QUEST_COMPLETE)
         {
-
+            LevelStatus.SetText("Level " + ++level + " Completed");
         }
     }
 
     public void HideLevelStatusText()
     {
         LevelStatus.gameObject.SetActive(false);
+    }
+    public void ShowLevelStatusText()
+    {
+        LevelStatus.gameObject.SetActive(true);
     }
 
     public void SetRuleInfo(SO_RuleInfo info)
