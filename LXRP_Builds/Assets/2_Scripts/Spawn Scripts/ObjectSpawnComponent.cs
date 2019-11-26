@@ -58,7 +58,8 @@ public class ObjectSpawnComponent : MonoBehaviour
             {
                 //Debug.Log("Spawnning " + spawnObject.name);
 
-                yield return new WaitForSeconds(Random.Range(2.0f , poolInfo.MaxSpawnDelay));
+                //yield return new WaitForSeconds(Random.Range(2.0f , poolInfo.MaxSpawnDelay));
+                yield return new WaitForSeconds(0.5f);
 
                 // Skip if already active
                 if (spawnObject.activeSelf)
