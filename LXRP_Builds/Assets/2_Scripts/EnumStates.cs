@@ -3,6 +3,7 @@
     BLANK,
     BEGIN,
     PLACED,
+    LEVEL2_START,
     PLAYER_START,
     QUEST_START,
     QUEST_COMPLETE,
@@ -31,6 +32,7 @@ public enum EMissionType
 {
     FIND_CORRECT_RULES,
     GET_TO_STATION,
+    COLLECT_HOTDOGS,
     SHOPPING,
     FIND_MISTAKES
 }

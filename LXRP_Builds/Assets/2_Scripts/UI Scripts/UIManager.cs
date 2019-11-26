@@ -27,6 +27,10 @@ public class UIManager : MonoBehaviour
     }
 
     [SerializeField] TextMeshProUGUI scoreText = null;
+    [SerializeField] TextMeshProUGUI LevelStatus = null;
+    TextMeshProUGUI[] TextElements = null;
+    [SerializeField] GameObject LevelStatusObject = null;
+
     private Animator animatorScoreText = null;
 
     [SerializeField] Button resetButton = null;
@@ -95,6 +99,27 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
+    public void DisplayLevelStatusMessage(EGameState inLevelState, EMissionType inMission)
+    {
+        TextElements = FindObjectsOfType<TextMeshProUGUI>();
+        LevelStatus = TextElements[2];
+        int level = (int)inMission;
+
+        if (inLevelState == EGameState.QUEST_START)
+        {
+            LevelStatus.SetText("Level " + ++level);
+        }
+        else
+        {
+
+        }
+    }
+
+    public void HideLevelStatusText()
+    {
+        LevelStatus.gameObject.SetActive(false);
+    }
+
     public void SetRuleInfo(SO_RuleInfo info)
     {
         ruleInfo = info;
@@ -115,9 +140,9 @@ public class UIManager : MonoBehaviour
         UpdateRules(0);
     }
 
-    public void StartIntroSpeech(string[] speechText, Sprite characterPortrait)
+    public void StartIntroSpeech(string[] speechText, Sprite characterPortrait, int startIndex)
     {
-        speechTextComponent.StartIntroSpeech(speechText, characterPortrait);
+        speechTextComponent.StartIntroSpeech(speechText, characterPortrait, startIndex);
     }
 
     public void UpdateRules(int no)

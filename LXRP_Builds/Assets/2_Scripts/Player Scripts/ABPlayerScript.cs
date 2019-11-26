@@ -62,10 +62,17 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
 
         else if(other.gameObject.tag == "Road")
         {
-            Debug.Log("Player stepped on to the road");
+            if (MainManager.Instance.GetState() == EGameState.QUEST_START)
+            {
+                Debug.Log("Player stepped on to the road - Collider");
 
-            isOnRoad = true;
-            StartCoroutine(DecreaseScore());
+                isOnRoad = true;
+                StartCoroutine(DecreaseScore());
+            }
+        }
+        else if (other.gameObject.tag == "Station")
+        {
+            Debug.Log("Station hit");
         }
     }
 
@@ -90,9 +97,12 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
         //Debug.Log("Player exited " + other.name);
         if (other.gameObject.tag == "Road")
         {
-            Debug.Log("Player stepped on to the road");
-            // Game End
-            isOnRoad = false;
+            if (MainManager.Instance.GetState() == EGameState.QUEST_START)
+            {
+                Debug.Log("Player stepped off the road - Trigger exit");
+                // Game End
+                isOnRoad = false;
+            }
         }
     }
 

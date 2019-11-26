@@ -21,7 +21,7 @@ public class ARManager : MonoBehaviour
         else
         {
             _instance = this;
-            DontDestroyOnLoad(this);
+            //DontDestroyOnLoad(this);
         }
     }
 

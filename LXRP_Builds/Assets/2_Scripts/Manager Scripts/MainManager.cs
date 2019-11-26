@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
+using TMPro;
 
 // Singleton class
 public class MainManager : MonoBehaviour
@@ -20,8 +21,12 @@ public class MainManager : MonoBehaviour
     private List<SO_RuleInfo> selectedRules = new List<SO_RuleInfo>();
 
     [SerializeField] WorldPlacementScript placementScript = null;
+    [SerializeField] float LevelStartDelay = 2.0f;
 
-    private int score = 100;
+    // constant
+    int levelOnePartTwoIndex = 1;
+
+    private int score = 0;
 
     #region Private Methods
 
@@ -54,17 +59,20 @@ public class MainManager : MonoBehaviour
 
             case EGameState.PLACED:
                 // Enable Game
-                StartGame();
+                //StartGame();
+                InitLevel();
                 break;
-            
+
             // When new Player is spawned
             case EGameState.PLAYER_START:
                 SetupNewPlayerCharacter();
+                // For Stage 2 - Same above function
                 break;
 
-            // When new player is found
+            // When new player selecteds
             case EGameState.QUEST_START:
                 StartMission(currSelectedPlayer.PlayerInfo.characterMission);
+                // For Stage 2 - begin
                 break;
 
             // When player's mission is complete
@@ -89,7 +97,14 @@ public class MainManager : MonoBehaviour
         placementScript.SetState(EARState.TUTORIAL);
     }
 
-    private void StartGame()
+    //private void startgame()
+    //{
+    //    mainmanager.instance.setstate(egamestate.level2_start);
+    //    debug.log("state: " + mainmanager.instance.getstate());
+    //}
+
+    // Initliase next level - spawn level elements and adjust score
+    private void InitLevel()
     {
         SpawnManager.Instance.StartSpawn(ESpawnSelection.PEDESTRIANS);
         SpawnManager.Instance.StartSpawn(ESpawnSelection.VEHICLES);
@@ -99,20 +114,46 @@ public class MainManager : MonoBehaviour
         UpdateScore(EScoreEvent.GAME_START);
     }
 
+    private void StartLevel()
+    {
+        // Display "Level" label 
+        UIManager.Instance.DisplayLevelStatusMessage(EGameState.QUEST_START, currSelectedPlayer.PlayerInfo.characterMission);
+
+        // Delay then display character level instructions
+        StartCoroutine(DelayThenStartLevel());
+    }
+
+    // Coroutine to delay (2 seconds default) then show level instructions 
+    private IEnumerator DelayThenStartLevel()
+    {
+        yield return new WaitForSeconds(LevelStartDelay);
+        UIManager.Instance.HideLevelStatusText();
+
+        // Display Level Instructions UI
+        UIManager.Instance.StartIntroSpeech(currSelectedPlayer.PlayerInfo.instructionsSpeechText
+           , currSelectedPlayer.PlayerInfo.portraitImage, currSelectedPlayer.PlayerInfo.instructionsIndex);
+
+    }
+
     private void SetupNewPlayerCharacter()
     {
         if (currSelectedPlayer != null)
         {
             // Enable UI 
             UIManager.Instance.SetPlayerInfo(currSelectedPlayer.PlayerInfo);
+            StartLevel();
         }
     }
 
     private void StartMission(EMissionType mission)
     {
+        // if playinf 2nd part of Level 1, shift index to further along in instructions array
+        if (currSelectedPlayer.PlayerInfo.characterMission == EMissionType.COLLECT_HOTDOGS)
+            currSelectedPlayer.PlayerInfo.instructionsIndex = levelOnePartTwoIndex;
+
         // Start Talk UI
-        UIManager.Instance.StartIntroSpeech(currSelectedPlayer.PlayerInfo.introSpeechText
-            , currSelectedPlayer.PlayerInfo.portraitImage);
+        UIManager.Instance.StartIntroSpeech(currSelectedPlayer.PlayerInfo.introSpeechText, 
+            currSelectedPlayer.PlayerInfo.portraitImage, currSelectedPlayer.PlayerInfo.instructionsIndex);
         
         switch (mission)
         {
@@ -143,6 +184,11 @@ public class MainManager : MonoBehaviour
     {
         currSelectedPlayer = player;
         SetState(newState);
+    }
+
+    public EGameState GetState()
+    {
+        return managerState;
     }
 
     public void OnRuleSelect(bool isSelected, SO_RuleInfo info)

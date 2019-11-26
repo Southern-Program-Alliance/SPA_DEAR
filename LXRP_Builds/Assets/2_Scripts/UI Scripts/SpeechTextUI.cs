@@ -29,8 +29,9 @@ public class SpeechTextUI : MonoBehaviour
         introSpeechNext.onClick.AddListener(NextSentence);
     }
 
-    public void StartIntroSpeech(string[] speechText, Sprite characterPortrait)
+    public void StartIntroSpeech(string[] speechText, Sprite characterPortrait, int inStartIndex)
     {
+        index = inStartIndex;
         introSpeechPortrait.sprite = characterPortrait;
         speechArray = speechText;
 

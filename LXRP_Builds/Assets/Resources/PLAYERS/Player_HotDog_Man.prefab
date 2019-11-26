@@ -825,7 +825,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d1c46152c97f4c4bbfe7d5e4596c95e, type: 2}
+  - {fileID: 2100000, guid: 26fa10a4c40808342a1dde99bd21d9e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -849,7 +849,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300036, guid: 4a5a8c8ff5d6d2e48ab8d2b27100cf57, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 4a5a8c8ff5d6d2e48ab8d2b27100cf57, type: 3}
   m_Bones:
   - {fileID: 430016}
   - {fileID: 421694}
@@ -1040,7 +1040,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 492574}
-  - component: {fileID: 1607302018878855235}
   - component: {fileID: 9568514}
   - component: {fileID: 1501629660177486039}
   - component: {fileID: 6413781791997718696}
@@ -1048,8 +1047,9 @@ GameObject:
   - component: {fileID: 8005719161070558066}
   - component: {fileID: 7257050231169387047}
   - component: {fileID: 1079551283964334642}
+  - component: {fileID: 4919294533767225140}
   m_Layer: 10
-  m_Name: Player_Construction
+  m_Name: Player_HotDog_Man
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1072,20 +1072,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1607302018878855235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4e0eee71ebd5bc41bd8ccd136935376, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointerComponent: {fileID: 6673120137703796442}
-  playerInfo: {fileID: 11400000, guid: c3a8da8033c7363428c3c50ad60605bf, type: 2}
 --- !u!95 &9568514
 Animator:
   serializedVersion: 3
@@ -1176,7 +1162,7 @@ NavMeshAgent:
   m_AgentTypeID: -1372625422
   m_Radius: 0.5
   m_Speed: 0.1
-  m_Acceleration: 2.21
+  m_Acceleration: 2
   avoidancePriority: 50
   m_AngularSpeed: 360
   m_StoppingDistance: 0
@@ -1202,6 +1188,20 @@ MonoBehaviour:
   pathCreator: {fileID: 0}
   endOfPathInstruction: 0
   speed: 0.5
+--- !u!114 &4919294533767225140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ec1c741d7eeec840b3b73c09100a9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointerComponent: {fileID: 6673120137703796442}
+  playerInfo: {fileID: 11400000, guid: 8276d39983b8da449b8226fc0df55411, type: 2}
 --- !u!1 &165812
 GameObject:
   m_ObjectHideFlags: 0

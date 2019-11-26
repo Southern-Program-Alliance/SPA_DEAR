@@ -6,6 +6,7 @@ using UnityEngine;
 public class SO_PlayerInfo : ScriptableObject
 {
     public EMissionType characterMission;
+    public int missionIndex;
     public GameObject attachedObject;
 
     [Space]
@@ -15,6 +16,9 @@ public class SO_PlayerInfo : ScriptableObject
 
     [Space]
     public string characterName;
+    public int instructionsIndex;
+    [TextArea]
+    public string[] instructionsSpeechText;
     [TextArea]
     public string objectivesText;
     [TextArea]

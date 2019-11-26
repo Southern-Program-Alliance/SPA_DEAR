@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,6 +30,14 @@ public class PlayerObjectsSpawnComponent : MonoBehaviour
         playerCharacters = Resources.LoadAll<GameObject>("PLAYERS");
         amtOfPlayers = playerCharacters.Length;
 
+        Array.Sort(playerCharacters, delegate (GameObject a, GameObject b) { return b.GetComponent<ABPlayerScript>().PlayerInfo.missionIndex.CompareTo((int)a.GetComponent<ABPlayerScript>().PlayerInfo.missionIndex); });
+
+        //foreach (GameObject player in playerCharacters)
+        //{
+        //    Debug.Log("Player: " + player);
+        //    Debug.Log("Info: " + player.GetComponent<ABPlayerScript>().PlayerInfo); 
+        //}
+
         nextPlayer = 0;
     }
 
@@ -46,7 +55,7 @@ public class PlayerObjectsSpawnComponent : MonoBehaviour
 
     private Vector3 GetLocation()
     {
-        int pos = Random.Range(0, spawnLocations.Length);
+        int pos = UnityEngine.Random.Range(0, spawnLocations.Length);
         if (spawnLocations[pos] != null)
         {
             Vector3 position = spawnLocations[pos].position;
@@ -64,7 +73,7 @@ public class PlayerObjectsSpawnComponent : MonoBehaviour
 
     IEnumerator PlayerSpawn()
     {
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(0.0f);
         //Debug.Log("Instantiating Player");
 
         GameObject spawn = Instantiate(playerCharacters[nextPlayer]);
@@ -72,7 +81,7 @@ public class PlayerObjectsSpawnComponent : MonoBehaviour
         spawn.GetComponent<ABPlayerScript>().SwitchComponents(false);
 
         nextPlayer++;
-
+ 
         MainManager.Instance.SetState(EGameState.PLAYER_START, spawn.GetComponent<ABPlayerScript>());
     }
 }
