@@ -73,6 +73,8 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
         else if (other.gameObject.tag == "Station")
         {
             Debug.Log("Station hit");
+            Outline outline = other.GetComponent<Outline>();
+            outline.OutlineWidth = 0.0f;
             MainManager.Instance.SetState(EGameState.QUEST_COMPLETE);
         }
     }

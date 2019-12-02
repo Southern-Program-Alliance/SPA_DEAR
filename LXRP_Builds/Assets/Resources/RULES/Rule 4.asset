@@ -16,4 +16,4 @@ MonoBehaviour:
   ruleText: If you drop something on the track always ask staff for help! They have
     long tongs to pick things up and can get special permission to access the tracks
     when there are no trains coming. It's always the safest option!
-  isCorrect: 1
+  isCorrect: 0

@@ -21,8 +21,10 @@ MonoBehaviour:
   characterName: Hotdog Vendor
   instructionsIndex: 0
   instructionsSpeechText:
-  - Part 1 - Hot dog vendor instructions
-  - Part 2 - Hot dog vendor instructions
+  - Welcome to Mentone. Can you find the hotdog?
   objectivesText: 
   introSpeechText:
-  - Hello there! I'm a Hot dog vendor
+  - Hi I need to go the hotdog convention.
+  - "I can\u2019t see out of my costume. "
+  - Could you please help me safely find my way to the station?
+  - 'Make sure I use the crossings. '

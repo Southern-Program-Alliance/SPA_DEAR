@@ -21,10 +21,7 @@ MonoBehaviour:
   characterName: Construction Worker
   instructionsIndex: 0
   instructionsSpeechText:
-  - Find the road safety worker-he's walking along the footpath either side of the
-    road.
-  - Click on him and he will tell you how to help him out.
-  - He's in a hurry so you'll have to be quick to catch him.
+  - Can you find the construction worker. He needs some help.
   objectivesText: '- Find all rule books
 
     - Select the correct rules
@@ -33,8 +30,7 @@ MonoBehaviour:
 
     - Follow traffic rules'
   introSpeechText:
-  - Hello there! Im a road safety worker
-  - I have lost my handy safety rule books
-  - Could you help me look for them
-  - They are scattered around here
-  - Make sure to choose the right ones
+  - "Hi. I can\u2019t find my safety books. "
+  - I think they are around Mentone.
+  - Can you please help me find them?
+  - Make sure the safety tips inside them are correct.

@@ -15,6 +15,12 @@ TagManager:
   - Road
   - LevelMessage
   - Station
+  - Book0
+  - Book1
+  - Book2
+  - Book3
+  - Book4
+  - RuleUI
   layers:
   - Default
   - TransparentFX

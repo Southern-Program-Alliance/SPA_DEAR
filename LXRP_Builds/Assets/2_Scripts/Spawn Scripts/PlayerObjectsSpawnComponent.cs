@@ -38,7 +38,7 @@ public class PlayerObjectsSpawnComponent : MonoBehaviour
         //    Debug.Log("Info: " + player.GetComponent<ABPlayerScript>().PlayerInfo); 
         //}
 
-        nextPlayer = 0;
+        nextPlayer = 1; //0
     }
 
     public void SpawnRules()
@@ -48,6 +48,7 @@ public class PlayerObjectsSpawnComponent : MonoBehaviour
             GameObject spawn = Instantiate(rulesPrefab, GetLocation(), Quaternion.identity, transform);
             spawn.GetComponent<RulesScript>().RuleInfo = rules[i];
 
+            rulesPrefab.gameObject.tag = "Book" + i;
             if (rules[i].isCorrect)
                 amtOfCorrectRules++;
         }       

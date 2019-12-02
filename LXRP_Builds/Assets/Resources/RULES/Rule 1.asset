@@ -15,4 +15,4 @@ MonoBehaviour:
   ruleNo: 1
   ruleText: It is illegal to go on train tracks unless you are walking across a pedestrian
     level crossing or driving across a level crossing.
-  isCorrect: 1
+  isCorrect: 0

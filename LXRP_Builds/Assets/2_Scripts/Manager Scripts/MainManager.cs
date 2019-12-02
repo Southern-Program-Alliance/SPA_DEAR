@@ -21,7 +21,8 @@ public class MainManager : MonoBehaviour
     private List<SO_RuleInfo> selectedRules = new List<SO_RuleInfo>();
 
     [SerializeField] WorldPlacementScript placementScript = null;
-    [SerializeField] float LevelStartDelay = 3.0f;
+    [SerializeField] float LevelStartDelay = 6.0f;
+    [SerializeField] float LevelEndDelay = 4.0f;
 
     // constant
     int levelOnePartTwoIndex = 1;
@@ -146,7 +147,7 @@ public class MainManager : MonoBehaviour
 
     private IEnumerator DisplayEndLevelDelay()
     {
-        yield return new WaitForSeconds(LevelStartDelay);
+        yield return new WaitForSeconds(LevelEndDelay);
         Destroy(currSelectedPlayer);
         Destroy(GameObject.FindWithTag("Player"));
         SpawnManager.Instance.StartSpawn(ESpawnSelection.PLAYERS);
@@ -164,7 +165,7 @@ public class MainManager : MonoBehaviour
 
     public void StartMission(EMissionType mission)
     {
-        // if playinf 2nd part of Level 1, shift index to further along in instructions array
+        // if playing 2nd part of Level 1, shift index to further along in instructions array
         if (currSelectedPlayer.PlayerInfo.characterMission == EMissionType.COLLECT_HOTDOGS)
             currSelectedPlayer.PlayerInfo.instructionsIndex = levelOnePartTwoIndex;
 
@@ -215,10 +216,21 @@ public class MainManager : MonoBehaviour
 
     public void OnRuleSelect(bool isSelected, SO_RuleInfo info)
     {
+        string tagVal = "";
+                
         info.IsSelected = isSelected;
+
         if (isSelected && !selectedRules.Contains(info))
         {
             selectedRules.Add(info);
+        }
+
+        if (isSelected)
+        {
+            tagVal = RulesScript.bookTag;
+            Debug.Log("TAGVAL: " + tagVal);
+            Destroy(GameObject.FindGameObjectWithTag(tagVal));
+            Debug.Log("Destroyed " + tagVal);
         }
         else
         {
@@ -226,6 +238,11 @@ public class MainManager : MonoBehaviour
             Debug.Log("_________________________fdxgnfn");
         }
         UIManager.Instance.UpdateRules(selectedRules.Count);
+        if (selectedRules.Count == 5)
+        {
+            GameObject.FindGameObjectWithTag("RuleUI").SetActive(false);
+            MainManager.Instance.SetState(EGameState.QUEST_COMPLETE);
+        }
     }
 
     public void UpdateScore(EScoreEvent eScoreEvent)
