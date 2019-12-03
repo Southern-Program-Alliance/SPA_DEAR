@@ -38,7 +38,7 @@ public class PlayerObjectsSpawnComponent : MonoBehaviour
         //    Debug.Log("Info: " + player.GetComponent<ABPlayerScript>().PlayerInfo); 
         //}
 
-        nextPlayer = 1; //0
+        nextPlayer = 0;
     }
 
     public void SpawnRules()

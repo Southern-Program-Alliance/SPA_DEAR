@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI scoreText = null;
     [SerializeField] TextMeshProUGUI LevelStatus = null;
+    [SerializeField] TextMeshProUGUI GameOver = null;
     TextMeshProUGUI[] TextElements = null;
     [SerializeField] GameObject LevelStatusObject = null;
 
@@ -54,6 +55,8 @@ public class UIManager : MonoBehaviour
     private SO_RuleInfo ruleInfo = null;
 
     private SpeechTextUI speechTextComponent;
+    private GameObject smallMenu = null;
+    private bool levelTextSet = false;
 
     private void Start()
     {
@@ -66,6 +69,10 @@ public class UIManager : MonoBehaviour
         backToMenuButton.onClick.AddListener(OnBackToMenuButtonClicked);
 
         ruleSelection.onValueChanged.AddListener(OnRuleSelection);
+        TextElements = FindObjectsOfType<TextMeshProUGUI>();
+        smallMenu = GameObject.FindGameObjectWithTag("menu");
+        smallMenu.SetActive(false);
+        
     }
 
     private void OnRuleSelection(bool isSlected)
@@ -101,8 +108,14 @@ public class UIManager : MonoBehaviour
 
     public void DisplayLevelStatusMessage(EGameState inLevelState, EMissionType inMission)
     {
-        TextElements = FindObjectsOfType<TextMeshProUGUI>();
-        LevelStatus = TextElements[2];
+        //Debug.Log("Level Status BEFORE text: " + LevelStatus.text);
+        if (!levelTextSet)
+        {
+            LevelStatus = getTextElement("level");
+            levelTextSet = true;
+        }
+        //LevelStatus = getTextElement("level");
+        //Debug.Log("Level Status AFTER text: " + LevelStatus.text);
         int level = (int)inMission;
 
         if (inLevelState == EGameState.QUEST_START)
@@ -115,9 +128,47 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public TextMeshProUGUI getTextElement(string inLabel)
+    {
+        TextMeshProUGUI result = null;
+
+        foreach (TextMeshProUGUI t in TextElements)
+        {
+            if (t.text == inLabel)
+            {
+                result = t;
+                break;
+            }
+        }
+        Debug.Log("RESULT: " + result);
+        return result;
+    }
+
+    public void InitGameOverMessage()
+    {
+        GameOver = getTextElement("gameover");
+        GameOver.gameObject.SetActive(false);
+    }
+    
+    public void DisplayGameOverMessage()
+    {
+        GameOver.text = "Game Over!";
+        GameOver.gameObject.SetActive(true);
+        StartCoroutine(DoGameOverDelay());
+    }
+
+    private IEnumerator DoGameOverDelay()
+    {
+        yield return new WaitForSeconds(3.0f);
+        smallMenu.SetActive(true);
+        GameOver.gameObject.SetActive(false);
+    }
+
+
     public void HideLevelStatusText()
     {
         LevelStatus.gameObject.SetActive(false);
+        LevelStatus.text = "level";
     }
     public void ShowLevelStatusText()
     {

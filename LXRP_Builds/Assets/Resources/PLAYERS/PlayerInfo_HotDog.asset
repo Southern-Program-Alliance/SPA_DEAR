@@ -15,7 +15,7 @@ MonoBehaviour:
   characterMission: 0
   missionIndex: 1
   attachedObject: {fileID: 0}
-  portraitImage: {fileID: 21300000, guid: e5b039bb56a88c4419a0bacd0f7049ad, type: 3}
+  portraitImage: {fileID: 21300000, guid: e25d2cb029dbe354087374434ee31818, type: 3}
   fullImage: {fileID: 21300000, guid: 0eaaecbd4090f6b468ae9e5e5b03ba32, type: 3}
   collectibleImage: {fileID: 21300000, guid: c359449f24f44ad4cb51feb2851cc506, type: 3}
   characterName: Hotdog Vendor

@@ -8,7 +8,8 @@
     QUEST_START,
     QUEST_COMPLETE,
     PLAYER_COMPLETE,
-    HIT_BY_CAR
+    HIT_BY_CAR,
+    GAME_OVER
 }
 
 public enum EARState
@@ -41,5 +42,6 @@ public enum EScoreEvent
 {
     GAME_START,
     ON_ROAD,
+    AT_STATION,
     FOUND_PLAYER
 }

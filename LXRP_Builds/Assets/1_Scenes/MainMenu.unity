@@ -24042,7 +24042,7 @@ GameObject:
   - component: {fileID: 54975231552196703}
   m_Layer: 8
   m_Name: SM_Env_Road_Crossing_01
-  m_TagString: Untagged
+  m_TagString: PedestrianBalcombe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60283,7 +60283,7 @@ GameObject:
   - component: {fileID: 7059650799387594684}
   m_Layer: 8
   m_Name: SM_Env_Road_Crossing_01 (1)
-  m_TagString: Untagged
+  m_TagString: PedestrianBalcombe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

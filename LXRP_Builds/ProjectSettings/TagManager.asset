@@ -21,6 +21,9 @@ TagManager:
   - Book3
   - Book4
   - RuleUI
+  - PedestrianBalcombe
+  - menu
+  - ComoCrossing
   layers:
   - Default
   - TransparentFX

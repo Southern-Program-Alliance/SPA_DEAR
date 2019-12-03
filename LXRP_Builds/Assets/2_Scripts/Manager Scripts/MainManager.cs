@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using TMPro;
+using PathCreation;
 
 // Singleton class
 public class MainManager : MonoBehaviour
@@ -23,6 +24,8 @@ public class MainManager : MonoBehaviour
     [SerializeField] WorldPlacementScript placementScript = null;
     [SerializeField] float LevelStartDelay = 6.0f;
     [SerializeField] float LevelEndDelay = 4.0f;
+
+    public int currentLevel = 0;
 
     // constant
     int levelOnePartTwoIndex = 1;
@@ -72,6 +75,7 @@ public class MainManager : MonoBehaviour
 
             // When new player selecteds
             case EGameState.QUEST_START:
+                currentLevel++;
                 StartMission(currSelectedPlayer.PlayerInfo.characterMission);
                 // For Stage 2 - begin
                 break;
@@ -85,6 +89,11 @@ public class MainManager : MonoBehaviour
             // When player is taken to the station
             case EGameState.PLAYER_COMPLETE:
                 //SetupNewPlayerCharacter();
+                break;
+
+            case EGameState.GAME_OVER:
+                Destroy(currSelectedPlayer);
+                UIManager.Instance.DisplayGameOverMessage();
                 break;
         }
     }
@@ -108,6 +117,7 @@ public class MainManager : MonoBehaviour
     // Initliase next level - spawn level elements and adjust score
     private void InitLevel()
     {
+        UIManager.Instance.InitGameOverMessage();
         SpawnManager.Instance.StartSpawn(ESpawnSelection.PEDESTRIANS);
         SpawnManager.Instance.StartSpawn(ESpawnSelection.VEHICLES);
 
@@ -150,6 +160,7 @@ public class MainManager : MonoBehaviour
         yield return new WaitForSeconds(LevelEndDelay);
         Destroy(currSelectedPlayer);
         Destroy(GameObject.FindWithTag("Player"));
+        //UIManager.Instance.HideLevelStatusText();
         SpawnManager.Instance.StartSpawn(ESpawnSelection.PLAYERS);
     }
 
@@ -245,6 +256,15 @@ public class MainManager : MonoBehaviour
         }
     }
 
+    public void SetVehicleSpeed(float inSpeed)
+    {
+        GameObject[] cars = GameObject.FindGameObjectsWithTag("Vehicle");
+        foreach (GameObject car in cars)
+        {
+            car.GetComponent<PathFollower>().speed = inSpeed;
+        }
+    }
+    
     public void UpdateScore(EScoreEvent eScoreEvent)
     {
         switch (eScoreEvent)
@@ -257,7 +277,13 @@ public class MainManager : MonoBehaviour
                 score -= 5;
                 UIManager.Instance.UpdateScore(score);
                 break;
+            case EScoreEvent.AT_STATION:
+                score += 20;
+                UIManager.Instance.UpdateScore(score);
+                break;
         }
+        if (score < 0)
+            SetState(EGameState.GAME_OVER);
     }
 
     #endregion

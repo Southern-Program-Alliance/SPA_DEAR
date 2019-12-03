@@ -5,6 +5,10 @@ public class RunOnEditor : MonoBehaviour
 {
     [SerializeField] Camera ARCamera = null;
 
+    private void Start()
+    {
+
+    }
     private void Awake()
     {
         if (Application.isEditor)

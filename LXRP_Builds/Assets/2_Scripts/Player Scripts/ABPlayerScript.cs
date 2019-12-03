@@ -24,6 +24,7 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
     [SerializeField] GameObject pointerComponent = null;
     [SerializeField] SO_PlayerInfo playerInfo = null;
     private bool isDecreaseScoreRunning = false;
+    private bool isOnCrossing = false;
     private bool isOnRoad;
 
     public SO_PlayerInfo PlayerInfo { get => playerInfo; }
@@ -55,28 +56,47 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
     {
         //Debug.Log("Player entered " + other.name);
 
-        if(other.gameObject.tag == "Vehicle")
+        if (other.gameObject.tag == "Vehicle")
         {
             //Debug.Log("Player got hit by a vehicle");
         }
-
-        else if(other.gameObject.tag == "Road")
+        else if (other.gameObject.tag == "PedestrianBalcombe")
+        {
+            Debug.Log("Xing ENTER");
+            MainManager.Instance.SetVehicleSpeed(0.0f);
+            isOnCrossing = true;
+        }
+        else if (other.gameObject.tag == "ComoCrossing")
+        {
+            Debug.Log("Como ENTER");
+            MainManager.Instance.SetVehicleSpeed(0.0f);
+            isOnCrossing = true;
+        }
+        else if (other.gameObject.tag == "Road")
         {
             if (MainManager.Instance.GetState() == EGameState.QUEST_START)
             {
                 Debug.Log("Player stepped on to the road - Collider");
-
+                Debug.Log("Is On Crosssing: " + isOnCrossing);
                 isOnRoad = true;
-                StartCoroutine(DecreaseScore());
+
+                if (!isOnCrossing)
+                    StartCoroutine(DecreaseScore());
             }
         }
         else if (other.gameObject.tag == "Station")
         {
-            Debug.Log("Station hit");
-            Outline outline = other.GetComponent<Outline>();
-            outline.OutlineWidth = 0.0f;
-            MainManager.Instance.SetState(EGameState.QUEST_COMPLETE);
+            Debug.Log("Current Level:" + MainManager.Instance.currentLevel);
+            if (MainManager.Instance.currentLevel == 1)
+            {
+                Debug.Log("Station hit");
+                Outline outline = other.GetComponent<Outline>();
+                outline.OutlineWidth = 0.0f;
+                MainManager.Instance.UpdateScore(EScoreEvent.AT_STATION);
+                MainManager.Instance.SetState(EGameState.QUEST_COMPLETE);
+            }
         }
+
     }
 
     IEnumerator DecreaseScore()
@@ -106,6 +126,18 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
                 // Game End
                 isOnRoad = false;
             }
+        }
+        else if (other.gameObject.tag == "PedestrianBalcombe")
+        {
+            Debug.Log("Xing EXIT");
+            isOnCrossing = false;
+            MainManager.Instance.SetVehicleSpeed(1.3f);
+        }
+        else if (other.gameObject.tag == "ComoCrossing")
+        {
+            Debug.Log("Como EXIT");
+            isOnCrossing = false;
+            MainManager.Instance.SetVehicleSpeed(1.3f);
         }
     }
 
