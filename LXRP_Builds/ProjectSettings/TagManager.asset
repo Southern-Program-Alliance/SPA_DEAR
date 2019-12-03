@@ -24,6 +24,7 @@ TagManager:
   - PedestrianBalcombe
   - menu
   - ComoCrossing
+  - GameOver
   layers:
   - Default
   - TransparentFX

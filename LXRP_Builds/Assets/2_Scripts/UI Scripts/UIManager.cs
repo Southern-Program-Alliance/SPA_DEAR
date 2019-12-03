@@ -111,7 +111,7 @@ public class UIManager : MonoBehaviour
         //Debug.Log("Level Status BEFORE text: " + LevelStatus.text);
         if (!levelTextSet)
         {
-            LevelStatus = getTextElement("level");
+            LevelStatus = getTextElement("LevelMessage");
             levelTextSet = true;
         }
         //LevelStatus = getTextElement("level");
@@ -131,22 +131,26 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI getTextElement(string inLabel)
     {
         TextMeshProUGUI result = null;
-
+        /*
         foreach (TextMeshProUGUI t in TextElements)
         {
-            if (t.text == inLabel)
+            if (t.tag == inLabel)
             {
                 result = t;
                 break;
             }
-        }
+        }*/
+        //result = 
+          //  GameObject.FindGameObjectWithTag(inLabel);
+        GameObject obj = GameObject.FindGameObjectWithTag(inLabel);
+        result = obj.GetComponent<TextMeshProUGUI>();
         Debug.Log("RESULT: " + result);
         return result;
     }
 
     public void InitGameOverMessage()
     {
-        GameOver = getTextElement("gameover");
+        GameOver = getTextElement("GameOver");
         GameOver.gameObject.SetActive(false);
     }
     
