@@ -31,6 +31,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI GameOver = null;
     TextMeshProUGUI[] TextElements = null;
     [SerializeField] GameObject LevelStatusObject = null;
+    // Main selected character
+    ABPlayerScript currSelectedPlayer;
+    public ABPlayerScript CurrSelectedPlayer { get => currSelectedPlayer; }
 
     private Animator animatorScoreText = null;
 
@@ -57,6 +60,7 @@ public class UIManager : MonoBehaviour
     private SpeechTextUI speechTextComponent;
     private GameObject smallMenu = null;
     private bool levelTextSet = false;
+ 
 
     private void Start()
     {
@@ -70,8 +74,8 @@ public class UIManager : MonoBehaviour
 
         ruleSelection.onValueChanged.AddListener(OnRuleSelection);
         TextElements = FindObjectsOfType<TextMeshProUGUI>();
-        smallMenu = GameObject.FindGameObjectWithTag("menu");
-        smallMenu.SetActive(false);
+        //smallMenu = GameObject.FindGameObjectWithTag("menu");
+        //smallMenu.SetActive(false);
         
     }
 
@@ -105,7 +109,7 @@ public class UIManager : MonoBehaviour
     }
 
     #endregion
-
+    private int level;
     public void DisplayLevelStatusMessage(EGameState inLevelState, EMissionType inMission)
     {
         //Debug.Log("Level Status BEFORE text: " + LevelStatus.text);
@@ -116,7 +120,7 @@ public class UIManager : MonoBehaviour
         }
         //LevelStatus = getTextElement("level");
         //Debug.Log("Level Status AFTER text: " + LevelStatus.text);
-        int level = (int)inMission;
+          level = (int)inMission;
 
         if (inLevelState == EGameState.QUEST_START)
         {
@@ -161,19 +165,34 @@ public class UIManager : MonoBehaviour
         StartCoroutine(DoGameOverDelay());
     }
 
+    public void FinalLevel()
+    {
+        StartCoroutine(DoFinalLevelDelay());
+    }
+
     private IEnumerator DoGameOverDelay()
     {
         yield return new WaitForSeconds(3.0f);
-        smallMenu.SetActive(true);
-        GameOver.gameObject.SetActive(false);
+        GameOver.gameObject.SetActive(false);// Hide the level complete msg after few seconds
+        GameObject.FindGameObjectWithTag("MainCanvas").gameObject.transform.GetChild(4).gameObject.SetActive(true);
+    }
+
+    private IEnumerator DoFinalLevelDelay()
+    {
+        yield return new WaitForSeconds(5.0f);
+        HideLevelStatusText(); // Hide the level2 complete msg after few seconds
+        //smallMenu.SetActive(true);
+        SceneManager.LoadScene("MainMenu"); // Load the MainMenu once the level2 is completed
     }
 
 
     public void HideLevelStatusText()
     {
         LevelStatus.gameObject.SetActive(false);
-        LevelStatus.text = "level";
+       // LevelStatus.text = "level";
     }
+
+
     public void ShowLevelStatusText()
     {
         LevelStatus.gameObject.SetActive(true);
@@ -195,7 +214,6 @@ public class UIManager : MonoBehaviour
         fullImage.sprite = info.fullImage;
         collectibleImage.sprite = info.collectibleImage;
         objectiveText.text = info.objectivesText;
-
         UpdateRules(0);
     }
 
@@ -206,10 +224,17 @@ public class UIManager : MonoBehaviour
 
     public void UpdateRules(int no)
     {
+        if(MainManager.Instance.currentLevel == 0)
+        {
+            updateText.text = "Take me to bus stop safely";
+        }
+        else
+        {
         string text = no + " / "
             + SpawnManager.Instance.getNoOfSpawns(ESpawnSelection.RULES)
             + " Rules Selected";
         updateText.text = text;
+        }
     }
 
     public void UpdateScore(int score)

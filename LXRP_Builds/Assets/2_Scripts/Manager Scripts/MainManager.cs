@@ -24,13 +24,17 @@ public class MainManager : MonoBehaviour
     [SerializeField] WorldPlacementScript placementScript = null;
     [SerializeField] float LevelStartDelay = 6.0f;
     [SerializeField] float LevelEndDelay = 4.0f;
-
-    public int currentLevel = 0;
+    [SerializeField] GameObject UI = null;
+    public  int currentLevel = 0;
+    string namechild;
+    string tagVal;
+    public static int index;
+    public static string lasttag;
 
     // constant
     int levelOnePartTwoIndex = 1;
 
-    private int score = 0;
+    private int score = 50;
 
     #region Private Methods
 
@@ -130,18 +134,47 @@ public class MainManager : MonoBehaviour
     {
         Debug.Log("Current Mission: " + currSelectedPlayer.PlayerInfo.characterMission);
         // Display "Level" label 
-        UIManager.Instance.DisplayLevelStatusMessage(EGameState.QUEST_START, currSelectedPlayer.PlayerInfo.characterMission);
 
-        // Delay then display character level instructions
-        StartCoroutine(DelayThenStartLevel());
+        if (currSelectedPlayer.PlayerInfo.characterMission == EMissionType.GET_TO_STATION)
+        {
+            GameObject.FindGameObjectWithTag("BG").SetActive(false);
+            GameObject.FindGameObjectWithTag("UI").gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("UI").gameObject.transform.GetChild(1).gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("UI").gameObject.transform.GetChild(2).gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("UI").gameObject.transform.GetChild(3).gameObject.SetActive(false);
+            //GameObject.FindGameObjectWithTag("Menubutton").transform.Translate(200, 0, 0);
+            UIManager.Instance.DisplayLevelStatusMessage(EGameState.QUEST_START, currSelectedPlayer.PlayerInfo.characterMission);
+            // Delay then display character level instructions
+            StartCoroutine(DelayThenStartLevel());
+        }
+        else{
+           GameObject.FindGameObjectWithTag("sidebar").gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            GameObject.FindGameObjectWithTag("sidebar").gameObject.transform.GetChild(1).gameObject.SetActive(true);
+           // GameObject.FindGameObjectWithTag("Menubutton").transform.Rotate(0, 0, 0);
+           GameObject.FindGameObjectWithTag("Menubutton").GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, 138);
+           //GameObject.FindGameObjectWithTag("Menubutton").GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 142);
+            GameObject.FindGameObjectWithTag("UI").gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            GameObject.FindGameObjectWithTag("UI").gameObject.transform.GetChild(1).gameObject.SetActive(true);
+            GameObject.FindGameObjectWithTag("UI").gameObject.transform.GetChild(2).gameObject.SetActive(true);
+            GameObject.FindGameObjectWithTag("UI").gameObject.transform.GetChild(3).gameObject.SetActive(true);
+            GameObject.FindGameObjectWithTag("star").SetActive(false);
+            Debug.Log("name");
+            UIManager.Instance.DisplayLevelStatusMessage(EGameState.QUEST_START, currSelectedPlayer.PlayerInfo.characterMission);
+            // Delay then display character level instructions
+            StartCoroutine(DelayThenStartLevel());
+           // GameObject.FindGameObjectWithTag("Button1").SetActive(false);
+
+
+        }
+
     }
 
     // Coroutine to delay (2 seconds default) then show level instructions 
     private IEnumerator DelayThenStartLevel()
     {
+
         yield return new WaitForSeconds(LevelStartDelay);
         UIManager.Instance.HideLevelStatusText();
-
         // Display Level Instructions UI
         UIManager.Instance.StartIntroSpeech(currSelectedPlayer.PlayerInfo.instructionsSpeechText
            , currSelectedPlayer.PlayerInfo.portraitImage, currSelectedPlayer.PlayerInfo.instructionsIndex);
@@ -151,8 +184,17 @@ public class MainManager : MonoBehaviour
     private void EndLevel()
     {
         UIManager.Instance.ShowLevelStatusText();
+        if(currentLevel == 1) //check for level 1
+            {
+            Debug.Log("Level 1 complete");
         UIManager.Instance.DisplayLevelStatusMessage(EGameState.QUEST_COMPLETE, currSelectedPlayer.PlayerInfo.characterMission);
-        StartCoroutine(DisplayEndLevelDelay());
+            StartCoroutine(DisplayEndLevelDelay());
+            }
+        else{
+            Debug.Log("Final level");
+            UIManager.Instance.DisplayLevelStatusMessage(EGameState.QUEST_COMPLETE, currSelectedPlayer.PlayerInfo.characterMission);
+            UIManager.Instance.FinalLevel(); // this method loads the MainMenu after completing level2
+        }     
     }
 
     private IEnumerator DisplayEndLevelDelay()
@@ -227,28 +269,42 @@ public class MainManager : MonoBehaviour
 
     public void OnRuleSelect(bool isSelected, SO_RuleInfo info)
     {
-        string tagVal = "";
-                
         info.IsSelected = isSelected;
 
         if (isSelected && !selectedRules.Contains(info))
         {
             selectedRules.Add(info);
-        }
-
-        if (isSelected)
-        {
+            Debug.Log(" XXX VALUE "+RulesScript.but);
             tagVal = RulesScript.bookTag;
             Debug.Log("TAGVAL: " + tagVal);
-            Destroy(GameObject.FindGameObjectWithTag(tagVal));
+            // Destroy(GameObject.FindGameObjectWithTag(tagVal));
+            GameObject.FindGameObjectWithTag(tagVal).SetActive(false);
             Debug.Log("Destroyed " + tagVal);
+            GameObject.FindGameObjectWithTag("Button"+ RulesScript.but).GetComponent<Image>().sprite = currSelectedPlayer.PlayerInfo.collectibleImage;
+            RulesScript.array.Add(tagVal+"1");
         }
         else
         {
             selectedRules.Remove(info);
+            Debug.Log(tagVal);
+             for (int j = 0; j < GameObject.FindGameObjectWithTag("playerobjectspawn").gameObject.transform.childCount ; j++)
+             {
+                 if (GameObject.FindGameObjectWithTag("playerobjectspawn").gameObject.transform.GetChild(j).gameObject.tag == tagVal)
+                 {
+                    Debug.Log("INSIDE");
+                    // GameObject.FindGameObjectWithTag("playerobjectspawn").gameObject.transform.GetChild(j).gameObject.SetActive(true);
+                    index = j;
+                    lasttag = tagVal;
+                 }
+             }
+            GameObject.FindGameObjectWithTag("Button"+RulesScript.but).GetComponent<Image>().sprite = currSelectedPlayer.PlayerInfo.backImage;
+            GameObject.FindGameObjectWithTag("playerobjectspawn").gameObject.transform.GetChild(index).gameObject.SetActive(true);
             Debug.Log("_________________________fdxgnfn");
+            Debug.Log("YYY - VALUE " + RulesScript.but);
         }
+        Debug.Log("LAST TAG NAME"+ tagVal);
         UIManager.Instance.UpdateRules(selectedRules.Count);
+       // GameObject.FindGameObjectWithTag("Button1").GetComponent<Image>().sprite = currSelectedPlayer.PlayerInfo.backImage;
         if (selectedRules.Count == 5)
         {
             GameObject.FindGameObjectWithTag("RuleUI").SetActive(false);
@@ -282,7 +338,7 @@ public class MainManager : MonoBehaviour
                 UIManager.Instance.UpdateScore(score);
                 break;
         }
-        if (score < 0)
+        if (score <= 0)
             SetState(EGameState.GAME_OVER);
     }
 

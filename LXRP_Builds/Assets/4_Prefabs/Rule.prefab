@@ -57,8 +57,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.017
-  m_Center: {x: 0.025, y: 0.025, z: 0.008}
+  m_Radius: 0.023452401
+  m_Center: {x: 0.019933559, y: 0.025000002, z: 0.008000001}
 --- !u!114 &3974272827106551040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 0
   outlineColor: {r: 0.13664329, g: 1, b: 0, a: 1}
-  outlineWidth: 3
+  outlineWidth: 5.21
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -228,6 +228,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9d03f3b6d79488045a94c42f3e8de0a8,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9d03f3b6d79488045a94c42f3e8de0a8,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9d03f3b6d79488045a94c42f3e8de0a8,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d03f3b6d79488045a94c42f3e8de0a8, type: 3}
