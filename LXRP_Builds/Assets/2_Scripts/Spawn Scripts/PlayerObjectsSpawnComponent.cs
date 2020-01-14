@@ -24,23 +24,22 @@ public class PlayerObjectsSpawnComponent : MonoBehaviour
     
     private void Awake()
     {
+        // Load rules assets into game
         rules = Resources.LoadAll<SO_RuleInfo>("RULES");
         amtOfRules = rules.Length;
 
+        // Load player assets into game
         playerCharacters = Resources.LoadAll<GameObject>("PLAYERS");
         amtOfPlayers = playerCharacters.Length;
 
+        // Sort players into correct level order
         Array.Sort(playerCharacters, delegate (GameObject a, GameObject b) { return b.GetComponent<ABPlayerScript>().PlayerInfo.missionIndex.CompareTo((int)a.GetComponent<ABPlayerScript>().PlayerInfo.missionIndex); });
 
-        //foreach (GameObject player in playerCharacters)
-        //{
-        //    Debug.Log("Player: " + player);
-        //    Debug.Log("Info: " + player.GetComponent<ABPlayerScript>().PlayerInfo); 
-        //}
-
+        // initialise index into playerCharacters array
         nextPlayer = 0;
     }
 
+    // Spawn rulbook objects into game 
     public void SpawnRules()
     {
         for (int i = 0; i < rules.Length; i++)
@@ -54,6 +53,7 @@ public class PlayerObjectsSpawnComponent : MonoBehaviour
         }       
     }
 
+    // Obtain random location to assign rulebook objects
     private Vector3 GetLocation()
     {
         int pos = UnityEngine.Random.Range(0, spawnLocations.Length);
@@ -67,21 +67,22 @@ public class PlayerObjectsSpawnComponent : MonoBehaviour
             return GetLocation();
     }
 
+    // Spawn player related to current level into the game world
     public void SpawnPlayer()
     {
         StartCoroutine(PlayerSpawn());
     }
 
+    // Coroutine to complete player spawn actions
     IEnumerator PlayerSpawn()
     {
         yield return new WaitForSeconds(0.0f);
-        //Debug.Log("Instantiating Player");
-
-        Debug.Log("Player: " + playerCharacters[nextPlayer]);
+        
         GameObject spawn = Instantiate(playerCharacters[nextPlayer]);
         spawn.GetComponent<PathCreation.PathFollower>().pathCreator = SpawnManager.Instance.GetRandomPedestrianPath();
         spawn.GetComponent<ABPlayerScript>().SwitchComponents(false);
 
+        // Increment index to load next level's player when ready
         nextPlayer++;
  
         MainManager.Instance.SetState(EGameState.PLAYER_START, spawn.GetComponent<ABPlayerScript>());

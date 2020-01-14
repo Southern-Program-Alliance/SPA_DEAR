@@ -44,7 +44,7 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
 
         playerInfo.attachedObject = gameObject;
 
-        SwitchComponents(false);
+        SwitchComponents(true);
     }
 
     private void OnEnable()
@@ -52,23 +52,20 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
         pathFollower.enabled = true;
     }
 
+    // Process events when player begins collision with other objects
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("Player entered " + other.name);
-
         if (other.gameObject.tag == "Vehicle")
         {
             //Debug.Log("Player got hit by a vehicle");
         }
         else if (other.gameObject.tag == "PedestrianBalcombe")
         {
-            Debug.Log("Xing ENTER");
             MainManager.Instance.SetVehicleSpeed(0.0f);
             isOnCrossing = true;
         }
         else if (other.gameObject.tag == "ComoCrossing")
         {
-            Debug.Log("Como ENTER");
             MainManager.Instance.SetVehicleSpeed(0.0f);
             isOnCrossing = true;
         }
@@ -76,8 +73,6 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
         {
             if (MainManager.Instance.GetState() == EGameState.QUEST_START)
             {
-                Debug.Log("Player stepped on to the road - Collider");
-                Debug.Log("Is On Crosssing: " + isOnCrossing);
                 isOnRoad = true;
 
                 if (!isOnCrossing)
@@ -86,19 +81,34 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
         }
         else if (other.gameObject.tag == "Station")
         {
-            Debug.Log("Current Level:" + MainManager.Instance.currentLevel);
             if (MainManager.Instance.currentLevel == 1)
             {
-                Debug.Log("Station hit");
                 Outline outline = other.GetComponent<Outline>();
                 outline.OutlineWidth = 0.0f;
                 MainManager.Instance.UpdateScore(EScoreEvent.AT_STATION);
                 MainManager.Instance.SetState(EGameState.QUEST_COMPLETE);
             }
         }
-
     }
 
+    // Process events when player continues started collisions with other objects
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Road")
+        {
+            if (MainManager.Instance.GetState() == EGameState.QUEST_START)
+            {
+                Debug.Log("Player still on the road - Collider");
+                Debug.Log("Is On Crosssing: " + isOnCrossing);
+                isOnRoad = true;
+
+                if (!isOnCrossing)
+                    StartCoroutine(DecreaseScore());
+            }
+        }
+    }
+
+    // Coroutine to reduce score when player is on the road
     IEnumerator DecreaseScore()
     {
         if (!isDecreaseScoreRunning && isOnRoad)
@@ -115,9 +125,9 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
         }
     }
 
+    // Process events when player ends collision with other objects
     private void OnTriggerExit(Collider other)
     {
-        //Debug.Log("Player exited " + other.name);
         if (other.gameObject.tag == "Road")
         {
             if (MainManager.Instance.GetState() == EGameState.QUEST_START)
@@ -141,6 +151,7 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
         }
     }
 
+    // Check components on player game object are initialised
     private bool CheckRefs()
     {
         bool check = true;
@@ -172,6 +183,7 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
         return check;
     }
 
+    // Toggle to enable/disbale path, pointer and outline components
     public void SwitchComponents(bool condition)
     {
         outlineComponent.enabled = condition;
@@ -181,6 +193,7 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
         pathFollower.enabled = !condition;
     }
 
+    // Event handler for mouse click on player - NOT CURRENTLY IN USE
     public void OnClick()
     {
         if (MainManager.Instance.CurrSelectedPlayer != this)

@@ -8,6 +8,7 @@ public class SO_PlayerInfo : ScriptableObject
     public EMissionType characterMission;
     public int missionIndex;
     public GameObject attachedObject;
+    public float X, Y, Z;
 
     [Space]
     public Sprite portraitImage;

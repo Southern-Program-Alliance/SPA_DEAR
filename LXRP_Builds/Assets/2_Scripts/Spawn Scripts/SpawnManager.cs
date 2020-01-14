@@ -67,6 +67,7 @@ public class SpawnManager : MonoBehaviour
         vehicleComponent.InitialzePool(vehiclePoolInfo, seed, vehiclePrefabs);
     }
 
+    // Spawn specified game object type
     public void StartSpawn(ESpawnSelection whatToSpawn)
     {
         switch(whatToSpawn)
@@ -89,16 +90,19 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    // Select random path to assign to newly spawned vehicle
     public PathCreator GetRandomVehiclePath()
     {
         return vehiclePaths[Random.Range(0, vehiclePaths.Length)];
     }
 
+    // Select random path to assign to newly spawned pedestrian
     public PathCreator GetRandomPedestrianPath()
     {
         return pedestrianPaths[Random.Range(0, pedestrianPaths.Length)];
     }
 
+    // Obtain current number of specified objects
     public int getNoOfSpawns(ESpawnSelection whichObject)
     {
         switch(whichObject){

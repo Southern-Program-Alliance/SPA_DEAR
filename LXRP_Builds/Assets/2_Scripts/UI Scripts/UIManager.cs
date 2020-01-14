@@ -94,11 +94,13 @@ public class UIManager : MonoBehaviour
 
     #region MainMenuUI Methods
 
+    // Enact reset game actions when selected
     private void OnResetButtonClicked()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    // Enact back to menu actions when selected
     private void OnBackToMenuButtonClicked()
     {
         SceneManager.LoadScene("MainMenu");
@@ -106,16 +108,14 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
+    // Display intro/outro message when starting/ending a level
     public void DisplayLevelStatusMessage(EGameState inLevelState, EMissionType inMission)
     {
-        //Debug.Log("Level Status BEFORE text: " + LevelStatus.text);
         if (!levelTextSet)
         {
             LevelStatus = getTextElement("LevelMessage");
             levelTextSet = true;
         }
-        //LevelStatus = getTextElement("level");
-        //Debug.Log("Level Status AFTER text: " + LevelStatus.text);
         int level = (int)inMission;
 
         if (inLevelState == EGameState.QUEST_START)
@@ -128,32 +128,25 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    // Obtain specified text element
     public TextMeshProUGUI getTextElement(string inLabel)
     {
         TextMeshProUGUI result = null;
-        /*
-        foreach (TextMeshProUGUI t in TextElements)
-        {
-            if (t.tag == inLabel)
-            {
-                result = t;
-                break;
-            }
-        }*/
-        //result = 
-          //  GameObject.FindGameObjectWithTag(inLabel);
+
         GameObject obj = GameObject.FindGameObjectWithTag(inLabel);
         result = obj.GetComponent<TextMeshProUGUI>();
         Debug.Log("RESULT: " + result);
         return result;
     }
 
+    // Initialise "Game Over" message, set to invisible
     public void InitGameOverMessage()
     {
         GameOver = getTextElement("GameOver");
         GameOver.gameObject.SetActive(false);
     }
     
+    // Display "Game Over" message for 3 seconds
     public void DisplayGameOverMessage()
     {
         GameOver.text = "Game Over!";
@@ -161,6 +154,7 @@ public class UIManager : MonoBehaviour
         StartCoroutine(DoGameOverDelay());
     }
 
+    // Coroutine to switch "Game Over" message off once shown
     private IEnumerator DoGameOverDelay()
     {
         yield return new WaitForSeconds(3.0f);
@@ -168,12 +162,14 @@ public class UIManager : MonoBehaviour
         GameOver.gameObject.SetActive(false);
     }
 
-
+    // Initialise "Level" message, set to invisible
     public void HideLevelStatusText()
     {
         LevelStatus.gameObject.SetActive(false);
         LevelStatus.text = "level";
     }
+
+    // Display "Level" message
     public void ShowLevelStatusText()
     {
         LevelStatus.gameObject.SetActive(true);
@@ -195,7 +191,7 @@ public class UIManager : MonoBehaviour
         fullImage.sprite = info.fullImage;
         collectibleImage.sprite = info.collectibleImage;
         objectiveText.text = info.objectivesText;
-
+       
         UpdateRules(0);
     }
 

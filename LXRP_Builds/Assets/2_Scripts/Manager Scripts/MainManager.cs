@@ -57,39 +57,35 @@ public class MainManager : MonoBehaviour
     {
         switch (state)
         {
+            // Set game world 
             case EGameState.BEGIN:
                 InitializeGame();
                 break;
 
             case EGameState.PLACED:
                 // Enable Game
-                //StartGame();
                 InitLevel();
                 break;
 
             // When new Player is spawned
             case EGameState.PLAYER_START:
                 SetupNewPlayerCharacter();
-                // For Stage 2 - Same above function
                 break;
 
             // When new player selecteds
             case EGameState.QUEST_START:
                 currentLevel++;
                 StartMission(currSelectedPlayer.PlayerInfo.characterMission);
-                // For Stage 2 - begin
                 break;
 
             // When player's mission is complete
             case EGameState.QUEST_COMPLETE:
-                //SetupNewPlayerCharacter();
                 EndMission();
                 break;
 
             // When player is taken to the station
             case EGameState.PLAYER_COMPLETE:
-                //SetupNewPlayerCharacter();
-                break;
+                 break;
 
             case EGameState.GAME_OVER:
                 Destroy(currSelectedPlayer);
@@ -98,6 +94,7 @@ public class MainManager : MonoBehaviour
         }
     }
 
+    // Determine game worl placement method
     private void InitializeGame()
     {
         if (Application.isEditor)
@@ -108,13 +105,7 @@ public class MainManager : MonoBehaviour
         placementScript.SetState(EARState.TUTORIAL);
     }
 
-    //private void startgame()
-    //{
-    //    mainmanager.instance.setstate(egamestate.level2_start);
-    //    debug.log("state: " + mainmanager.instance.getstate());
-    //}
-
-    // Initliase next level - spawn level elements and adjust score
+     // Initliase next level - spawn level elements and adjust score
     private void InitLevel()
     {
         UIManager.Instance.InitGameOverMessage();
@@ -126,9 +117,10 @@ public class MainManager : MonoBehaviour
         UpdateScore(EScoreEvent.GAME_START);
     }
 
+    // Initalize new level elements
     private void StartLevel()
     {
-        Debug.Log("Current Mission: " + currSelectedPlayer.PlayerInfo.characterMission);
+        //Debug.Log("Current Mission: " + currSelectedPlayer.PlayerInfo.characterMission);
         // Display "Level" label 
         UIManager.Instance.DisplayLevelStatusMessage(EGameState.QUEST_START, currSelectedPlayer.PlayerInfo.characterMission);
 
@@ -145,9 +137,11 @@ public class MainManager : MonoBehaviour
         // Display Level Instructions UI
         UIManager.Instance.StartIntroSpeech(currSelectedPlayer.PlayerInfo.instructionsSpeechText
            , currSelectedPlayer.PlayerInfo.portraitImage, currSelectedPlayer.PlayerInfo.instructionsIndex);
+        SetState(EGameState.QUEST_START);
 
     }
     
+    // Complete end of level actions; message display etc.
     private void EndLevel()
     {
         UIManager.Instance.ShowLevelStatusText();
@@ -155,6 +149,7 @@ public class MainManager : MonoBehaviour
         StartCoroutine(DisplayEndLevelDelay());
     }
 
+    // Coroutine to delay end of level message display and end of level actions
     private IEnumerator DisplayEndLevelDelay()
     {
         yield return new WaitForSeconds(LevelEndDelay);
@@ -164,6 +159,7 @@ public class MainManager : MonoBehaviour
         SpawnManager.Instance.StartSpawn(ESpawnSelection.PLAYERS);
     }
 
+    // Set up the player appropriate to level
     private void SetupNewPlayerCharacter()
     {
         if (currSelectedPlayer != null)
@@ -174,15 +170,29 @@ public class MainManager : MonoBehaviour
         }
     }
 
+    // Place player in the game world map
+    private void PlacePlayer()
+    {
+        float startAngle = 90.0f;
+
+        GameObject ThePlayer = currSelectedPlayer.PlayerInfo.attachedObject;
+        Vector3 pos = new Vector3(currSelectedPlayer.PlayerInfo.X, currSelectedPlayer.PlayerInfo.Y, currSelectedPlayer.PlayerInfo.Z);
+        ThePlayer.transform.position = pos;
+        Quaternion start = Quaternion.Euler(0, startAngle, 0);
+        ThePlayer.transform.rotation = start;
+    }
+
+    // Enact specifics of a given level
     public void StartMission(EMissionType mission)
     {
-        // if playing 2nd part of Level 1, shift index to further along in instructions array
+        PlacePlayer();
+
         if (currSelectedPlayer.PlayerInfo.characterMission == EMissionType.COLLECT_HOTDOGS)
             currSelectedPlayer.PlayerInfo.instructionsIndex = levelOnePartTwoIndex;
 
         // Start Talk UI
-        UIManager.Instance.StartIntroSpeech(currSelectedPlayer.PlayerInfo.introSpeechText, 
-            currSelectedPlayer.PlayerInfo.portraitImage, currSelectedPlayer.PlayerInfo.instructionsIndex);
+        //UIManager.Instance.StartIntroSpeech(currSelectedPlayer.PlayerInfo.introSpeechText, 
+        //    currSelectedPlayer.PlayerInfo.portraitImage, currSelectedPlayer.PlayerInfo.instructionsIndex);
         
         switch (mission)
         {
@@ -192,6 +202,7 @@ public class MainManager : MonoBehaviour
         }
     }
 
+    // Complete actions to end a level
     public void EndMission()
     {
         EndLevel();
@@ -239,14 +250,14 @@ public class MainManager : MonoBehaviour
         if (isSelected)
         {
             tagVal = RulesScript.bookTag;
-            Debug.Log("TAGVAL: " + tagVal);
+            //Debug.Log("TAGVAL: " + tagVal);
             Destroy(GameObject.FindGameObjectWithTag(tagVal));
-            Debug.Log("Destroyed " + tagVal);
+            //Debug.Log("Destroyed " + tagVal);
         }
         else
         {
             selectedRules.Remove(info);
-            Debug.Log("_________________________fdxgnfn");
+            //Debug.Log("_________________________fdxgnfn");
         }
         UIManager.Instance.UpdateRules(selectedRules.Count);
         if (selectedRules.Count == 5)
@@ -270,11 +281,13 @@ public class MainManager : MonoBehaviour
         switch (eScoreEvent)
         {
             case EScoreEvent.GAME_START:
+                score = 10;
                 UIManager.Instance.UpdateScore(score);
                 break;
 
             case EScoreEvent.ON_ROAD:
-                score -= 5;
+                if (score > 0)
+                    score -= 5;
                 UIManager.Instance.UpdateScore(score);
                 break;
             case EScoreEvent.AT_STATION:
@@ -282,7 +295,7 @@ public class MainManager : MonoBehaviour
                 UIManager.Instance.UpdateScore(score);
                 break;
         }
-        if (score < 0)
+        if (score <= 0)
             SetState(EGameState.GAME_OVER);
     }
 

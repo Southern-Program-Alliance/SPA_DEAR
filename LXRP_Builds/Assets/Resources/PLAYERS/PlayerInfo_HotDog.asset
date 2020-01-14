@@ -15,13 +15,20 @@ MonoBehaviour:
   characterMission: 0
   missionIndex: 1
   attachedObject: {fileID: 0}
+  X: -1.244632
+  Y: 1999999
+  Z: -0.03813287
   portraitImage: {fileID: 21300000, guid: e25d2cb029dbe354087374434ee31818, type: 3}
   fullImage: {fileID: 21300000, guid: 0eaaecbd4090f6b468ae9e5e5b03ba32, type: 3}
   collectibleImage: {fileID: 21300000, guid: c359449f24f44ad4cb51feb2851cc506, type: 3}
   characterName: Hotdog Vendor
   instructionsIndex: 0
   instructionsSpeechText:
-  - Welcome to Mentone. Can you find the hotdog?
+  - Hi I need to go the hotdog convention.
+  - Could you please help me safely find my way to the station?
+  - Make sure I use the crossings. Click where you want me to move.
+  - The red pointer shows where I am and the station has a green outline to help you
+    find it.
   objectivesText: 
   introSpeechText:
   - Hi I need to go the hotdog convention.
