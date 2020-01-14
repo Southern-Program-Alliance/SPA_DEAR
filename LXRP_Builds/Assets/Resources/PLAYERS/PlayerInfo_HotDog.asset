@@ -15,10 +15,9 @@ MonoBehaviour:
   characterMission: 0
   missionIndex: 1
   attachedObject: {fileID: 0}
-  portraitImage: {fileID: 21300000, guid: 0eb9319126c5c2840a0d4c73ff194daf, type: 3}
-  fullImage: {fileID: 21300000, guid: 7cd834de9d919ca4888233e0cb76673e, type: 3}
-  collectibleImage: {fileID: 21300000, guid: e01e3180cc98c834bbf8d04a2b2caed4, type: 3}
-  backImage: {fileID: 0}
+  portraitImage: {fileID: 21300000, guid: e25d2cb029dbe354087374434ee31818, type: 3}
+  fullImage: {fileID: 21300000, guid: 0eaaecbd4090f6b468ae9e5e5b03ba32, type: 3}
+  collectibleImage: {fileID: 21300000, guid: c359449f24f44ad4cb51feb2851cc506, type: 3}
   characterName: Hotdog Vendor
   instructionsIndex: 0
   instructionsSpeechText:

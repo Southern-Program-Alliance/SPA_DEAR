@@ -13,7 +13,6 @@ public class SO_PlayerInfo : ScriptableObject
     public Sprite portraitImage;
     public Sprite fullImage;
     public Sprite collectibleImage;
-    public Sprite backImage;
 
     [Space]
     public string characterName;
