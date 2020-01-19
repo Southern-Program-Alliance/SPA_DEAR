@@ -154,7 +154,16 @@ public class UIManager : MonoBehaviour
         StartCoroutine(DoGameOverDelay());
     }
 
-    // Coroutine to switch "Game Over" message off once shown
+    // Display "Game Finished" for 3 seconds
+    public void DisplayGameFinishedMessage()
+    {
+        HideLevelStatusText();
+        GameOver.text = "Game Finished!";
+        GameOver.gameObject.SetActive(true);
+        StartCoroutine(DoGameOverDelay());
+    }
+
+    // Coroutine to switch "Game Over" message off and show end game menu
     private IEnumerator DoGameOverDelay()
     {
         yield return new WaitForSeconds(3.0f);

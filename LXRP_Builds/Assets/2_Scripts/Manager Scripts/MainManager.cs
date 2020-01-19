@@ -29,6 +29,8 @@ public class MainManager : MonoBehaviour
 
     // constant
     int levelOnePartTwoIndex = 1;
+    const int NUM_RULEBOOKS = 5;
+    const int FINAL_LEVEL = 2; // Need to set to '3' when Level 3 implemented
 
     private int score = 0;
 
@@ -83,10 +85,13 @@ public class MainManager : MonoBehaviour
                 EndMission();
                 break;
 
-            // When player is taken to the station
+            // When the player completes the game
             case EGameState.PLAYER_COMPLETE:
-                 break;
+                Destroy(currSelectedPlayer);
+                UIManager.Instance.DisplayGameFinishedMessage();
+                break;
 
+            // When the player's score reaches zero -> GAME OVER
             case EGameState.GAME_OVER:
                 Destroy(currSelectedPlayer);
                 UIManager.Instance.DisplayGameOverMessage();
@@ -156,7 +161,10 @@ public class MainManager : MonoBehaviour
         Destroy(currSelectedPlayer);
         Destroy(GameObject.FindWithTag("Player"));
         //UIManager.Instance.HideLevelStatusText();
-        SpawnManager.Instance.StartSpawn(ESpawnSelection.PLAYERS);
+        if (currentLevel == FINAL_LEVEL)
+            MainManager.Instance.SetState(EGameState.PLAYER_COMPLETE);
+        else
+            SpawnManager.Instance.StartSpawn(ESpawnSelection.PLAYERS);
     }
 
     // Set up the player appropriate to level
@@ -173,20 +181,22 @@ public class MainManager : MonoBehaviour
     // Place player in the game world map
     private void PlacePlayer()
     {
-        float startAngle = 90.0f;
+        float angle = 90.0f;
 
         GameObject ThePlayer = currSelectedPlayer.PlayerInfo.attachedObject;
         Vector3 pos = new Vector3(currSelectedPlayer.PlayerInfo.X, currSelectedPlayer.PlayerInfo.Y, currSelectedPlayer.PlayerInfo.Z);
         ThePlayer.transform.position = pos;
-        Quaternion start = Quaternion.Euler(0, startAngle, 0);
-        ThePlayer.transform.rotation = start;
+        Quaternion startAngle = Quaternion.Euler(0, angle, 0);
+        ThePlayer.transform.rotation = startAngle;
     }
 
     // Enact specifics of a given level
     public void StartMission(EMissionType mission)
     {
+        // Situate player in level
         PlacePlayer();
 
+        // Move index further along instructions array for Level 1 Hotdog character
         if (currSelectedPlayer.PlayerInfo.characterMission == EMissionType.COLLECT_HOTDOGS)
             currSelectedPlayer.PlayerInfo.instructionsIndex = levelOnePartTwoIndex;
 
@@ -198,6 +208,9 @@ public class MainManager : MonoBehaviour
         {
             case EMissionType.FIND_CORRECT_RULES:
                 SpawnManager.Instance.StartSpawn(ESpawnSelection.RULES);
+                break;
+            case EMissionType.COLLECT_DONUTS:
+                SpawnManager.Instance.StartSpawn(ESpawnSelection.DONUTS);
                 break;
         }
     }
@@ -260,7 +273,8 @@ public class MainManager : MonoBehaviour
             //Debug.Log("_________________________fdxgnfn");
         }
         UIManager.Instance.UpdateRules(selectedRules.Count);
-        if (selectedRules.Count == 5)
+
+        if (selectedRules.Count == NUM_RULEBOOKS)
         {
             GameObject.FindGameObjectWithTag("RuleUI").SetActive(false);
             MainManager.Instance.SetState(EGameState.QUEST_COMPLETE);

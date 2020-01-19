@@ -24,7 +24,7 @@ MonoBehaviour:
   characterName: Construction Worker
   instructionsIndex: 0
   instructionsSpeechText:
-  - "Hi. I can\x19t find my safety books. "
+  - 'Hi. I can''t find my safety books. '
   - I think they are around Mentone. Can you please help me find them?
   - The books are outlined in green to help find them. Click on each of the 5 books
     as you find them.

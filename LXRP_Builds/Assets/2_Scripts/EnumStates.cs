@@ -26,7 +26,8 @@ public enum ESpawnSelection
     PEDESTRIANS,
     VEHICLES,
     PLAYERS,
-    RULES
+    RULES,
+    DONUTS
 }
 
 public enum EMissionType
@@ -34,6 +35,7 @@ public enum EMissionType
     GET_TO_STATION,
     FIND_CORRECT_RULES,
     COLLECT_HOTDOGS,
+    COLLECT_DONUTS,
     SHOPPING,
     FIND_MISTAKES
 }
