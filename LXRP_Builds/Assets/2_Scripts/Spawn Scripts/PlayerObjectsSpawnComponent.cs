@@ -56,7 +56,7 @@ public class PlayerObjectsSpawnComponent : MonoBehaviour
     // Obtain random location to assign rulebook objects
     private Vector3 GetLocation()
     {
-        int pos = UnityEngine.Random.Range(11, spawnLocations.Length);
+        int pos = UnityEngine.Random.Range(0, spawnLocations.Length);
         if (spawnLocations[pos] != null)
         {
             Vector3 position = spawnLocations[pos].position;

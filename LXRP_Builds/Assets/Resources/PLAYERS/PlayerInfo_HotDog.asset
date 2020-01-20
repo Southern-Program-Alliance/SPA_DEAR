@@ -15,19 +15,12 @@ MonoBehaviour:
   characterMission: 0
   missionIndex: 1
   attachedObject: {fileID: 0}
-<<<<<<< HEAD
   X: -1.244632
   Y: 1999999
   Z: -0.03813287
   portraitImage: {fileID: 21300000, guid: e25d2cb029dbe354087374434ee31818, type: 3}
   fullImage: {fileID: 21300000, guid: 0eaaecbd4090f6b468ae9e5e5b03ba32, type: 3}
   collectibleImage: {fileID: 21300000, guid: c359449f24f44ad4cb51feb2851cc506, type: 3}
-=======
-  portraitImage: {fileID: 21300000, guid: 0eb9319126c5c2840a0d4c73ff194daf, type: 3}
-  fullImage: {fileID: 21300000, guid: 7cd834de9d919ca4888233e0cb76673e, type: 3}
-  collectibleImage: {fileID: 21300000, guid: e01e3180cc98c834bbf8d04a2b2caed4, type: 3}
-  backImage: {fileID: 0}
->>>>>>> parent of 7b3c38f... Revert "Increased size of hot dog and contruction player, placed books on top of buildings, updated the menu bar according to the levels,replaced the busstop with different prefab, placed star on top of bus stop, modified the players information according to the levels, made level2 hit the home menu after the game completion."
   characterName: Hotdog Vendor
   instructionsIndex: 0
   instructionsSpeechText:

@@ -31,9 +31,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI GameOver = null;
     TextMeshProUGUI[] TextElements = null;
     [SerializeField] GameObject LevelStatusObject = null;
-    // Main selected character
-    ABPlayerScript currSelectedPlayer;
-    public ABPlayerScript CurrSelectedPlayer { get => currSelectedPlayer; }
 
     private Animator animatorScoreText = null;
 
@@ -60,7 +57,6 @@ public class UIManager : MonoBehaviour
     private SpeechTextUI speechTextComponent;
     private GameObject smallMenu = null;
     private bool levelTextSet = false;
- 
 
     private void Start()
     {
@@ -74,8 +70,8 @@ public class UIManager : MonoBehaviour
 
         ruleSelection.onValueChanged.AddListener(OnRuleSelection);
         TextElements = FindObjectsOfType<TextMeshProUGUI>();
-        //smallMenu = GameObject.FindGameObjectWithTag("menu");
-        //smallMenu.SetActive(false);
+        smallMenu = GameObject.FindGameObjectWithTag("menu");
+        smallMenu.SetActive(false);
         
     }
 
@@ -111,12 +107,8 @@ public class UIManager : MonoBehaviour
     }
 
     #endregion
-<<<<<<< HEAD
 
     // Display intro/outro message when starting/ending a level
-=======
-    private int level;
->>>>>>> parent of 7b3c38f... Revert "Increased size of hot dog and contruction player, placed books on top of buildings, updated the menu bar according to the levels,replaced the busstop with different prefab, placed star on top of bus stop, modified the players information according to the levels, made level2 hit the home menu after the game completion."
     public void DisplayLevelStatusMessage(EGameState inLevelState, EMissionType inMission)
     {
         if (!levelTextSet)
@@ -124,13 +116,7 @@ public class UIManager : MonoBehaviour
             LevelStatus = getTextElement("LevelMessage");
             levelTextSet = true;
         }
-<<<<<<< HEAD
         int level = (int)inMission;
-=======
-        //LevelStatus = getTextElement("level");
-        //Debug.Log("Level Status AFTER text: " + LevelStatus.text);
-          level = (int)inMission;
->>>>>>> parent of 7b3c38f... Revert "Increased size of hot dog and contruction player, placed books on top of buildings, updated the menu bar according to the levels,replaced the busstop with different prefab, placed star on top of bus stop, modified the players information according to the levels, made level2 hit the home menu after the game completion."
 
         if (inLevelState == EGameState.QUEST_START)
         {
@@ -168,7 +154,6 @@ public class UIManager : MonoBehaviour
         StartCoroutine(DoGameOverDelay());
     }
 
-<<<<<<< HEAD
     // Display "Game Finished" for 3 seconds
     public void DisplayGameFinishedMessage()
     {
@@ -179,40 +164,21 @@ public class UIManager : MonoBehaviour
     }
 
     // Coroutine to switch "Game Over" message off and show end game menu
-=======
-    public void FinalLevel()
-    {
-        StartCoroutine(DoFinalLevelDelay());
-    }
-
->>>>>>> parent of 7b3c38f... Revert "Increased size of hot dog and contruction player, placed books on top of buildings, updated the menu bar according to the levels,replaced the busstop with different prefab, placed star on top of bus stop, modified the players information according to the levels, made level2 hit the home menu after the game completion."
     private IEnumerator DoGameOverDelay()
     {
         yield return new WaitForSeconds(3.0f);
-        GameOver.gameObject.SetActive(false);// Hide the level complete msg after few seconds
-        GameObject.FindGameObjectWithTag("MainCanvas").gameObject.transform.GetChild(4).gameObject.SetActive(true);
-    }
-
-    private IEnumerator DoFinalLevelDelay()
-    {
-        yield return new WaitForSeconds(5.0f);
-        HideLevelStatusText(); // Hide the level2 complete msg after few seconds
-        //smallMenu.SetActive(true);
-        SceneManager.LoadScene("MainMenu"); // Load the MainMenu once the level2 is completed
+        smallMenu.SetActive(true);
+        GameOver.gameObject.SetActive(false);
     }
 
     // Initialise "Level" message, set to invisible
     public void HideLevelStatusText()
     {
         LevelStatus.gameObject.SetActive(false);
-       // LevelStatus.text = "level";
+        LevelStatus.text = "level";
     }
 
-<<<<<<< HEAD
     // Display "Level" message
-=======
-
->>>>>>> parent of 7b3c38f... Revert "Increased size of hot dog and contruction player, placed books on top of buildings, updated the menu bar according to the levels,replaced the busstop with different prefab, placed star on top of bus stop, modified the players information according to the levels, made level2 hit the home menu after the game completion."
     public void ShowLevelStatusText()
     {
         LevelStatus.gameObject.SetActive(true);
@@ -234,10 +200,7 @@ public class UIManager : MonoBehaviour
         fullImage.sprite = info.fullImage;
         collectibleImage.sprite = info.collectibleImage;
         objectiveText.text = info.objectivesText;
-<<<<<<< HEAD
        
-=======
->>>>>>> parent of 7b3c38f... Revert "Increased size of hot dog and contruction player, placed books on top of buildings, updated the menu bar according to the levels,replaced the busstop with different prefab, placed star on top of bus stop, modified the players information according to the levels, made level2 hit the home menu after the game completion."
         UpdateRules(0);
     }
 
@@ -248,17 +211,10 @@ public class UIManager : MonoBehaviour
 
     public void UpdateRules(int no)
     {
-        if(MainManager.Instance.currentLevel == 0)
-        {
-            updateText.text = "Take me to bus stop safely";
-        }
-        else
-        {
         string text = no + " / "
             + SpawnManager.Instance.getNoOfSpawns(ESpawnSelection.RULES)
             + " Rules Selected";
         updateText.text = text;
-        }
     }
 
     public void UpdateScore(int score)
