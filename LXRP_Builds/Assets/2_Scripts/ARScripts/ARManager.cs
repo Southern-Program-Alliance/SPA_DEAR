@@ -25,13 +25,13 @@ public class ARManager : MonoBehaviour
         }
     }
 
-    private void OnLevelWasLoaded(int level)
-    {
+    //private void OnLevelWasLoaded(int level)
+    //{
         //arSession.Reset();
         //arSession.subsystem.Reset();
         //aRCamera.subsystem.Start();
         //arOrigin.camera.Reset();
-    }
+    //}
 
 
 }

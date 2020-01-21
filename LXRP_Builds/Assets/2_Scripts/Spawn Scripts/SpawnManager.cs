@@ -50,8 +50,13 @@ public class SpawnManager : MonoBehaviour
         PreparePools(seed);
     }
 
-    // CAN BE REFACTORED
-    public void PreparePools(int seed)
+    public SO_QuestionInfo GetQuestion(int inIndex)
+    {
+        return playerObjectsComponent.GetQuestion(inIndex);
+    }
+
+        // CAN BE REFACTORED
+        public void PreparePools(int seed)
     {
         // Prepare the poolInfos
         pedestrianPoolInfo = new IPoolInfo(ESpawnSelection.PEDESTRIANS, pedestrianPoolAmt, pedestrianMaxSpawnDelay,

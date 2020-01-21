@@ -190,12 +190,53 @@ public class MainManager : MonoBehaviour
         ThePlayer.transform.rotation = startAngle;
     }
 
+    // Set Camera to specified position vector
+    private void PositionCamera()
+    {
+        const float baseyheight = 0.0f;
+
+        Vector3 pos = new Vector3(currSelectedPlayer.PlayerInfo.X, baseyheight, currSelectedPlayer.PlayerInfo.Z);
+        Debug.Log("PLayer X: " + currSelectedPlayer.PlayerInfo.X);
+        Debug.Log("PLayer Y: " + currSelectedPlayer.PlayerInfo.Y);
+        Debug.Log("PLayer Z: " + currSelectedPlayer.PlayerInfo.Z);
+        GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
+
+        // Offset values for new camera pos
+        const float xoffset = -0.11f;
+        const float yoffset = 0.3f;
+        const float zoffset = -0.06f;
+        const float angle = 90.0f;
+
+        // Create new vector with x,y,z offset values
+        Vector3 offset = new Vector3(xoffset, yoffset, zoffset);
+        // Add offset vector to player position vector
+        pos += offset;
+        Quaternion newRot = Quaternion.Euler(0, angle, 0);
+        // Set new camera position and rotation
+        camera.transform.SetPositionAndRotation(pos, newRot);
+
+        /*
+        #if UNITY_EDITOR
+                FlyCamera camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FlyCamera>();
+                Debug.Log("CAMERA POS: " + pos);
+                camera.ShiftCamera(pos);
+        #else
+                GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
+                Quaternion rot = Quaternion.Euler(0, 90.0f, 0);
+                camera.transform.SetPositionAndRotation(pos, rot);
+        #endif
+        */
+    }
+
     // Enact specifics of a given level
     public void StartMission(EMissionType mission)
     {
         // Situate player in level
-        PlacePlayer();
+        //PlacePlayer();
+        //PositionCamera();
 
+        //UIManager.Instance.ShowQuestionUI();
+        
         // Move index further along instructions array for Level 1 Hotdog character
         if (currSelectedPlayer.PlayerInfo.characterMission == EMissionType.COLLECT_HOTDOGS)
             currSelectedPlayer.PlayerInfo.instructionsIndex = levelOnePartTwoIndex;
@@ -221,9 +262,9 @@ public class MainManager : MonoBehaviour
         EndLevel();
     }
 
-    #endregion
+#endregion
 
-    #region Public Methods
+#region Public Methods
 
     // Function to change the state
     public void SetState(EGameState newState)
@@ -313,6 +354,6 @@ public class MainManager : MonoBehaviour
             SetState(EGameState.GAME_OVER);
     }
 
-    #endregion
+#endregion
 }
 
