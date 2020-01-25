@@ -25,6 +25,8 @@ TagManager:
   - menu
   - ComoCrossing
   - GameOver
+  - Level2
+  - divider
   layers:
   - Default
   - TransparentFX
@@ -39,7 +41,7 @@ TagManager:
   - Controllable
   - Road
   - Vehicle
-  - 
+  - Level2
   - 
   - 
   - 
