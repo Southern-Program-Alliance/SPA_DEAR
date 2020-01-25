@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 
 [RequireComponent(typeof(SpeechTextUI))]
+[RequireComponent(typeof(QuestionUIManager))]
 public class UIManager : MonoBehaviour
 {
     // Singleton Members
@@ -24,6 +25,7 @@ public class UIManager : MonoBehaviour
         }
 
         speechTextComponent = GetComponent<SpeechTextUI>();
+        questionComponent = GetComponent<QuestionUIManager>();
     }
 
     [SerializeField] TextMeshProUGUI scoreText = null;
@@ -54,8 +56,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] Text ruleNo = null;
     private SO_RuleInfo ruleInfo = null;
 
+    // Question UI Members
+    [Space]
+    private QuestionUIManager questionComponent = null;
+    [SerializeField] Button aButton = null;
+    [SerializeField] Button bButton = null;
+    [SerializeField] Button cButton = null;
+
     private SpeechTextUI speechTextComponent;
-    private GameObject smallMenu = null;
+    [SerializeField] GameObject smallMenu = null;
     private bool levelTextSet = false;
 
     private void Start()
@@ -69,15 +78,36 @@ public class UIManager : MonoBehaviour
         backToMenuButton.onClick.AddListener(OnBackToMenuButtonClicked);
 
         ruleSelection.onValueChanged.AddListener(OnRuleSelection);
+        aButton.onClick.AddListener(OnQuestionAClicked);
+        bButton.onClick.AddListener(OnQuestionBClicked);
+        cButton.onClick.AddListener(OnQuestionCClicked);
+
+
         TextElements = FindObjectsOfType<TextMeshProUGUI>();
-        smallMenu = GameObject.FindGameObjectWithTag("menu");
-        smallMenu.SetActive(false);
+        //smallMenu = GameObject.FindGameObjectWithTag("menu");
+        //smallMenu.SetActive(false);
         
     }
 
     private void OnRuleSelection(bool isSlected)
     {
         MainManager.Instance.OnRuleSelect(isSlected, ruleInfo);
+    }
+
+    private void OnQuestionAClicked()
+    {
+        Debug.Log("A Clicked");
+        questionComponent.OnQuestionButtonClicked('A');
+    }
+
+    private void OnQuestionBClicked()
+    {
+        Debug.Log("B Clicked");
+    }
+
+    private void OnQuestionCClicked()
+    {
+        Debug.Log("C Clicked");
     }
 
     private void OnDestroy()
@@ -113,7 +143,8 @@ public class UIManager : MonoBehaviour
     {
         if (!levelTextSet)
         {
-            LevelStatus = getTextElement("LevelMessage");
+            //LevelStatus = getTextElement("LevelMessage");
+            LevelStatus.gameObject.SetActive(true);
             levelTextSet = true;
         }
         int level = (int)inMission;
@@ -142,7 +173,7 @@ public class UIManager : MonoBehaviour
     // Initialise "Game Over" message, set to invisible
     public void InitGameOverMessage()
     {
-        GameOver = getTextElement("GameOver");
+        //GameOver = getTextElement("GameOver");
         GameOver.gameObject.SetActive(false);
     }
     
@@ -222,6 +253,16 @@ public class UIManager : MonoBehaviour
         Debug.Log("UI Manager Update Score");
         scoreText.text = score.ToString();
         animatorScoreText.SetBool("isScoreEvent", true);
+    }
+
+    public void ShowQuestionUI()
+    {
+        questionComponent.SetActive(true);
+    }
+
+    public void SetScenarioText(string intext)
+    {
+        questionComponent.SetScenarioText(intext);
     }
 
 

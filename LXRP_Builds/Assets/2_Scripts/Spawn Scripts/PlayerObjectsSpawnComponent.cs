@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerObjectsSpawnComponent : MonoBehaviour
 {
     private SO_RuleInfo[] rules = null;
+    private SO_QuestionInfo[] questions = null;
     [SerializeField] GameObject rulesPrefab = null;
     [SerializeField] Transform[] spawnLocations = null;
 
@@ -17,6 +18,8 @@ public class PlayerObjectsSpawnComponent : MonoBehaviour
 
     private int amtOfPlayers = 0;
     public int AmtOfPlayers { get => amtOfPlayers; }
+    private int amtOfQuestions;
+    public int AmtOfQuestions { get => amtOfQuestions; }
 
     private GameObject[] playerCharacters;
     private int nextPlayer;
@@ -31,6 +34,10 @@ public class PlayerObjectsSpawnComponent : MonoBehaviour
         // Load player assets into game
         playerCharacters = Resources.LoadAll<GameObject>("PLAYERS");
         amtOfPlayers = playerCharacters.Length;
+
+        // Load question assets into game
+        questions = Resources.LoadAll<SO_QuestionInfo>("QUESTIONS");
+        amtOfQuestions = questions.Length;
 
         // Sort players into correct level order
         Array.Sort(playerCharacters, delegate (GameObject a, GameObject b) { return b.GetComponent<ABPlayerScript>().PlayerInfo.missionIndex.CompareTo((int)a.GetComponent<ABPlayerScript>().PlayerInfo.missionIndex); });
@@ -52,6 +59,13 @@ public class PlayerObjectsSpawnComponent : MonoBehaviour
                 amtOfCorrectRules++;
         }       
     }
+
+    // Return specified Question Info object
+    public SO_QuestionInfo GetQuestion(int inIndex)
+    {
+        return questions[inIndex];
+    }
+
 
     // Obtain random location to assign rulebook objects
     private Vector3 GetLocation()

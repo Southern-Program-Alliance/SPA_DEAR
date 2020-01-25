@@ -85,5 +85,23 @@ public class FlyCamera : MonoBehaviour
         }
         return p_Velocity;
     }
+
+    // Shift Camera POV to behind player at level start 
+    public void ShiftCamera(Vector3 newPos)
+    {
+        // Offset values for new camera pos
+        const float xoffset = -0.11f;
+        const float yoffset = 0.3f;
+        const float zoffset = -0.06f;
+        const float angle = 90.0f;
+
+        // Create new vector with x,y,z offset values
+        Vector3 offset = new Vector3(xoffset, yoffset, zoffset);
+        // Add offset vector to player position vector
+        newPos += offset;
+        Quaternion newRot = Quaternion.Euler(0, angle, 0);
+        // Set new camera position and rotation
+        transform.SetPositionAndRotation(newPos, newRot);
+    }
 }
 #endif

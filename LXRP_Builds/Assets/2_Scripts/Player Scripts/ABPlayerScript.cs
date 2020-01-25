@@ -44,7 +44,8 @@ public abstract class ABPlayerScript : MonoBehaviour, IClickable
 
         playerInfo.attachedObject = gameObject;
 
-        SwitchComponents(true);
+        SwitchComponents(false);
+        //SwitchComponents(true);
     }
 
     private void OnEnable()

@@ -16,7 +16,7 @@ MonoBehaviour:
   missionIndex: 1
   attachedObject: {fileID: 0}
   X: -1.244632
-  Y: 1999999
+  Y: 0.1999999
   Z: -0.03813287
   portraitImage: {fileID: 21300000, guid: e25d2cb029dbe354087374434ee31818, type: 3}
   fullImage: {fileID: 21300000, guid: 0eaaecbd4090f6b468ae9e5e5b03ba32, type: 3}
